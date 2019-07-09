@@ -1,0 +1,6 @@
+---
+title: "Análise Exploratória de Dados no R"
+author: "Filipe C. L. Duarte"
+output: html_notebook
+---
+
