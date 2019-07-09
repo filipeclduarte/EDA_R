@@ -4,3 +4,15 @@ author: "Filipe C. L. Duarte"
 output: html_notebook
 ---
 
+# Introdução
+
+O curso aborda os seguintes tópicos:
+
+1. Estatística descritiva
+2. Visualização de dados com o ggplot2
+3. Histograma
+4. Box-plot
+5. Gráfico de barras
+6. Gráfico de Dispersão
+
+## 1. Estatística descritiva
