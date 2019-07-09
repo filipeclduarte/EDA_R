@@ -2,7 +2,7 @@
 
 Material utilizado no minicurso "Análise Exploratória de Dados usando o R" dia 20 de julho de 2019 na Universidade Federal da Paraíba.
 
-O curso seria o de Análise exploratória de dados no R que teria a seguinte ementa:
+O curso de Análise exploratória de dados no R possui a seguinte ementa:
 1. Estatística descritiva
 2. Visualização de dados com o ggplot2
 3. Histograma
