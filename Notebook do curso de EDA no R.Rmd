@@ -6,7 +6,7 @@ output: html_notebook
 
 # Introdução
 
-O curso aborda os seguintes tópicos:
+Este curso aborda os seguintes tópicos:
 
 1. Estatística descritiva
 2. Visualização de dados com o ggplot2
@@ -15,4 +15,7 @@ O curso aborda os seguintes tópicos:
 5. Gráfico de barras
 6. Gráfico de Dispersão
 
+Primeiramente, iremos introduzir as funções básicas do `R` que calculam as estatísticas descritivas. Após essa introdução, ensinaremos como criar uma rotina para calcular as estatísticas para uma ou mais variáveis.
+
 ## 1. Estatística descritiva
+
