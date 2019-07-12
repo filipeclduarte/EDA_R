@@ -1,10 +1,24 @@
 ---
 title: "Análise Exploratória de Dados no R"
 author: "Filipe C. L. Duarte"
-output: html_notebook
+date: "20 de julho de 2019"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    theme: paper
+    df_print: paged
 ---
 
 # Introdução
+
+Me chamo Filipe, sou professor da Universidade Federal da Paraíba e leciono disciplinas no curso de Ciências Atuariais. Atualmente, desenvolvo pesquisas na área de aprendizagem de máquina, atuária e finanças. 
+
+### Pré-requisitos
+
+Você precisa conhecer as estruturas de dados básicas utilizadas no `R` como **variável**, **vetor** e **data frame**, além de saber implementar algumas rotinas como a criação de variáveis, filtragem de objetos em um data frame e criação de funções.
+
+### Conteúdo
 
 Este curso aborda os seguintes tópicos:
 
@@ -17,5 +31,13 @@ Este curso aborda os seguintes tópicos:
 
 Primeiramente, iremos introduzir as funções básicas do `R` que calculam as estatísticas descritivas. Após essa introdução, ensinaremos como criar uma rotina para calcular as estatísticas para uma ou mais variáveis.
 
+Após aprendermos a utilizar o `R` para calcular as estatísticas descritivas, vamos entender como funciona o `ggplot2`, a melhor biblioteca para visualização de dados. 
+
 ## 1. Estatística descritiva
+
+Quando você possuir dados estruturados e começar a analisá-los, você deve, primeiramente, descrevê-los, seja por meio das estatísticas descritivas ou por gráficos. Desse modo, você poderá observar as relações entre as variáveis selecionadas, sejam elas quantitativas ou qualitativas. Assim, o objetivo da análise exploratória de dados é responder perguntas como:
+* Qual a correlação entre o PIB e a expectativa de vida? 
+* Como é a família padrão atualmente?
+* 
+
 
