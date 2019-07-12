@@ -36,8 +36,22 @@ Após aprendermos a utilizar o `R` para calcular as estatísticas descritivas, v
 ## 1. Estatística descritiva
 
 Quando você possuir dados estruturados e começar a analisá-los, você deve, primeiramente, descrevê-los, seja por meio das estatísticas descritivas ou por gráficos. Desse modo, você poderá observar as relações entre as variáveis selecionadas, sejam elas quantitativas ou qualitativas. Assim, o objetivo da análise exploratória de dados é responder perguntas como:
+
 * Qual a correlação entre o PIB e a expectativa de vida? 
-* Como é a família padrão atualmente?
-* 
+* Como é a família padrão atualmente? Em média, quantos filhos? Qual a porcentagem de pessoas casadas?
+* Qual ação apresenta maior rentabilidade nos últimos 12 meses?
+* Qual o valor médio de um sinistro de automóvel?
+
+Nesta seção, vamos revisar algumas funções no R para calcular as estatísticas descritivas. Funções como a média, mediana, variância, desvio-padrão, mínino, máximo etc. Essas estatísticas são utilizadas quando dispomos de variáveis quantitativas. Certo, aí você me pergunta: Quais as métricas quando possuímos variáveis qualitativas? Bem, nós estudaremos em seguida. Para tratar de variáveis qualitativas, temos a disposição a tabela de frequência e contingência. 
+
+Quem precisar se aprofundar neste conteúdo, recomendo que busque os seguintes materiais:
+
+* [Bussab, W. D. O.; Morettin, P. A. **Estatística Básica**. Saraiva, 9ª ed. 2017.](https://www.google.com/search?ei=h6AoXYOIJq665OUPo4OLuAY&q=Morettin+e+Bussab+Estat%C3%ADstica+B%C3%A1sica&oq=Morettin+e+Bussab+Estat%C3%ADstica+B%C3%A1sica&gs_l=psy-ab.3..35i39j0l9.6783.12273..12415...0.0..0.404.6229.2-23j0j1......0....1..gws-wiz.......0i71.vPERBmd3PCA)
+* [Magalhães, M. N.; Lima, A. C. P. **Noções de Probabilidade e Estatística. Edusp, 7ª ed., 2010](http://www.edusp.com.br/loja/produto/356/nocoes-de-probabilidade-e-estatistica)
+
+Bem, agora vamos começar a usar o R de fato! Precisamos, inicialmente, importar uma base de dados antes de chamar qualquer função. Para tanto, utilizaremos a base `BasePens`
+
+
+
 
 
