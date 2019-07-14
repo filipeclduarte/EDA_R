@@ -22,18 +22,23 @@ Você precisa conhecer as estruturas de dados básicas utilizadas no `R` como **
 
 Este curso aborda os seguintes tópicos:
 
-1. Estatística descritiva
-2. Visualização de dados com o ggplot2
-3. Histograma
-4. Box-plot
-5. Gráfico de barras
-6. Gráfico de Dispersão
+1. *Data Wrangling*
+2. Estatística descritiva
+3. Visualização de dados com o ggplot2
+4. Histograma
+5. Box-plot
+6. Gráfico de barras
+7. Gráfico de Dispersão
 
-Primeiramente, iremos introduzir as funções básicas do `R` que calculam as estatísticas descritivas. Após essa introdução, ensinaremos como criar uma rotina para calcular as estatísticas para uma ou mais variáveis.
+Primeiramente, iremos organizar os dados para, em seguida, introduzir as funções básicas do `R` que calculam as estatísticas descritivas. Após essa introdução, ensinaremos como criar uma rotina para calcular as estatísticas para uma ou mais variáveis.
 
-Após aprendermos a utilizar o `R` para calcular as estatísticas descritivas, vamos entender como funciona o `ggplot2`, a melhor biblioteca para visualização de dados. 
+Após aprendermos a utilizar o `R` para estruturar os dados calcular as estatísticas descritivas, vamos entender como funciona o `ggplot2`, a melhor biblioteca para visualização de dados. 
 
-## 1. Estatística descritiva
+## 1. Data Wrangling
+
+É o processo de organização, limpeza e estruturação dos dados. Normalmente, é um dos procedimentos mais trabalhosos, e acontece quando os dados apresentam informações incorretas para algumas observações (exemplos), ou quando faltam informações para alguns indivíduos ou para algumas variáveis. Além disso, as tabelas, muitas vezes, não estão estruturadas no modelo padrão, onde as linhas representam os indivíduos ou exemplos e as colunas configuram as variáveis ou características.  
+
+## 2. Estatística descritiva
 
 Quando você possuir dados estruturados e começar a analisá-los, você deve, primeiramente, descrevê-los, seja por meio das estatísticas descritivas ou por gráficos. Desse modo, você poderá observar as relações entre as variáveis selecionadas, sejam elas quantitativas ou qualitativas. Assim, o objetivo da análise exploratória de dados é responder perguntas como:
 
