@@ -1,0 +1,750 @@
+"id" "sexo" "EstadoCivil" "DataNascimento" "DataIngresso" "carreira" "BaseCalculoMensal" "QntDependentes" "idade"
+"1" 59 "feminino" "solteir" 1944-05-15 1998-01-01 "AUX. SERV. GER." 1144.8 0 75
+"2" 23 "feminino" "casad" 1949-05-22 1991-10-05 "AG. COM. SAÚDE" 1267.55 1 70
+"3" 469 "masculino" "casad" 1951-06-04 2007-09-03 "MÉDICO" 1580.73 1 68
+"4" 407 "masculino" "uniaoestavel" 1951-06-24 2004-07-07 "PROFESSOR" 2161 1 68
+"5" 9 "masculino" "solteir" 1951-06-27 1983-09-01 "ELETRICISTA" 1287.9 0 68
+"6" 175 "feminino" "solteir" 1951-10-11 2001-02-09 "PROFESSORA" 3415.99 0 68
+"7" 104 "masculino" "casad" 1952-08-28 1999-02-01 "PROFESSOR" 3586.79 1 67
+"8" 10 "masculino" "uniaoestavel" 1952-09-03 1983-09-01 "ATENDENTE DE ENFERMAGEM" 1287.91 1 67
+"9" 4 "masculino" "casad" 1953-05-15 1983-04-28 "AUX. SERV. GER." 1287.9 1 66
+"10" 5 "masculino" "casad" 1953-10-09 1983-05-01 "AUX. SERV. GER." 1287.9 1 66
+"11" 340 "masculino" "casad" 1954-02-15 2003-02-03 "GARI" 1097.09 1 65
+"12" 243 "feminino" "casad" 1955-02-01 2001-05-07 "AUX. ENFERMAGEM" 1097.09 2 64
+"13" 503 "masculino" "uniaoestavel" 1955-03-20 2007-10-01 "GARI" 1049.36 1 64
+"14" 235 "masculino" "casad" 1955-06-30 2001-05-07 "ODONTÓLOGO" 1350 1 64
+"15" 484 "masculino" "uniaoestavel" 1955-07-25 2007-09-03 "GARI" 1049.36 1 64
+"16" 13 "feminino" "casad" 1955-08-24 1984-01-01 "FARMAC/BIOQUÍMICO" 1300 1 64
+"17" 314 "feminino" "casad" 1955-10-09 2002-05-01 "ASSIST. SERVIÇO " 1192.55 1 64
+"18" 46 "feminino" "solteir" 1955-10-20 1998-01-01 "PROFESSOR" 4093.63 0 64
+"19" 504 "masculino" "solteir" 1955-12-10 2007-10-01 "GARI" 1049.4 0 64
+"20" 442 "masculino" "solteir" 1956-01-30 2006-12-01 "VIGILANTE" 1088.64 0 64
+"21" 350 "masculino" "divorciad" 1956-02-07 2003-02-03 "GARI" 1097.09 0 63
+"22" 228 "masculino" "casad" 1956-05-02 2001-05-02 "AG. PORTARIA" 1097.09 1 63
+"23" 20 "feminino" "uniaoestavel" 1956-05-10 1991-10-05 "AG. COM. SAÚDE" 1267.55 1 63
+"24" 352 "masculino" "uniaoestavel" 1956-07-20 2003-02-03 "GARI" 1097.09 1 63
+"25" 242 "feminino" "casad" 1956-08-15 2001-05-07 "AUX. ENFERMAGEM" 1144.82 1 63
+"26" 700 "masculino" "uniaoestavel" 1956-08-22 2015-10-01 "PSICÓLOGO" 1550 1 63
+"27" 386 "masculino" "divorciad" 1956-08-24 2004-01-02 "MOTORISTA" 1097.09 1 63
+"28" 365 "masculino" "casad" 1956-09-07 2003-02-03 "GARI" 1097.09 2 63
+"29" 230 "feminino" "solteir" 1956-09-30 2001-05-02 "PROFESSOR" 3742.73 0 63
+"30" 302 "masculino" "solteir" 1956-10-04 2001-10-01 "OPERAD. MÁQ. PESADAS" 1097.09 0 63
+"31" 239 "feminino" "divorciad" 1956-10-19 2001-05-07 "AUX. ENFERMAGEM" 1144.82 0 63
+"32" 26 "masculino" "uniaoestavel" 1956-10-27 1991-10-05 "AG. COM. SAÚDE" 1267.55 1 63
+"33" 329 "masculino" "divorciad" 1957-01-06 2003-02-03 "GARI" 1192.5 0 63
+"34" 32 "masculino" "uniaoestavel" 1957-05-01 1998-01-01 "MOTORISTA" 1144.82 1 62
+"35" 3 "masculino" "casad" 1957-05-13 1983-03-01 "AGENTE ADM." 3605.43 1 62
+"36" 66 "feminino" "solteir" 1957-05-13 1998-01-01 "PROFESSOR" 2599.09 0 62
+"37" 103 "feminino" "casad" 1957-06-24 1999-02-01 "PROFESSORA" 3586.82 1 62
+"38" 328 "masculino" "uniaoestavel" 1957-09-10 2003-02-03 "GARI" 1047.27 1 62
+"39" 430 "masculino" "casad" 1957-09-11 2005-04-01 "OPER. MÁQ. PESADAS" 1049.36 1 62
+"40" 30 "feminino" "uniaoestavel" 1957-10-18 1998-01-01 "AUX. SERV. GER." 1144.8 1 62
+"41" 159 "feminino" "casad" 1957-12-11 2001-02-09 "PROFESSORA" 3929.88 1 62
+"42" 331 "masculino" "casad" 1957-12-20 2003-02-03 "GARI" 1097.09 1 62
+"43" 141 "feminino" "casad" 1958-02-15 2001-02-09 "PROFESSOR" 3452.74 1 61
+"44" 201 "feminino" "solteir" 1958-03-08 2001-02-09 "PROFESSOR" 3742.73 0 61
+"45" 600 "feminino" "casad" 1958-04-22 2010-10-01 "GARI" 1001.7 1 61
+"46" 267 "feminino" "solteir" 1958-10-22 2001-05-08 "AUX. SERV. GER." 1094.55 0 61
+"47" 419 "feminino" "solteir" 1958-11-09 2005-02-21 "AUX. SERV. GER." 1049.36 0 61
+"48" 238 "feminino" "casad" 1959-04-19 2001-05-07 "AUX. ENFERMAGEM" 1097.09 1 60
+"49" 209 "feminino" "casad" 1959-07-17 2001-02-09 "PROFESSOR" 3742.73 1 60
+"50" 296 "masculino" "casad" 1959-07-30 2001-09-03 "MOTORISTA" 1097.09 1 60
+"51" 604 "masculino" "solteir" 1959-08-03 NA "GARI" NA 0 60
+"52" 429 "masculino" "casad" 1959-08-10 2005-03-07 "AUX. ESTATÍSTICA" 1049.36 2 60
+"53" 64 "feminino" "casad" 1959-09-25 1998-01-01 "AUX. SERV. GER." 1192.5 0 60
+"54" 35 "feminino" "solteir" 1959-10-24 1998-01-01 "ASSIST. SOCIAL" 1950 0 60
+"55" 78 "feminino" "uniaoestavel" 1959-10-27 1998-01-01 "AUX. CONTABILIDADE" 1144.8 1 60
+"56" 462 "masculino" "uniaoestavel" 1959-11-05 2007-08-03 "GARI" 1051.64 2 60
+"57" 139 "feminino" "uniaoestavel" 1959-11-12 2001-02-09 "PROFESSORA" 3118.91 1 60
+"58" 505 "masculino" "casad" 1960-01-05 2007-10-01 "GARI" 1049.36 1 60
+"59" 117 "masculino" "divorciad" 1960-01-19 2000-02-01 "PROFESSOR" 3742.73 0 60
+"60" 366 "masculino" "uniaoestavel" 1960-01-20 2003-02-03 "GARI" 1047.27 2 60
+"61" 360 "feminino" "solteir" 1960-01-25 2003-02-03 "AUX. ENFERMAGEM" 1144.82 0 60
+"62" 369 "feminino" "solteir" 1960-02-20 2003-02-10 "PROFESSOR" 4099.18 1 59
+"63" 49 "feminino" "viuv" 1960-04-30 1998-01-01 "PROFESSORA" 3118.91 0 59
+"64" 248 "feminino" "casad" 1960-05-05 2001-05-08 "AUX. SERV. GER." 1097.09 1 59
+"65" 158 "masculino" "casad" 1960-05-18 2001-02-09 "PROFESSOR" 3415.99 1 59
+"66" 8 "masculino" "solteir" 1960-05-28 1983-09-01 "ASSIST. SERV." 1287.9 0 59
+"67" 143 "feminino" "uniaoestavel" 1960-05-28 2001-02-09 "PROFESSORA" 3742.73 1 59
+"68" 303 "masculino" "uniaoestavel" 1960-06-14 2001-10-01 "OPERAD. MÁQ. PESADAS" 1097.09 2 59
+"69" 236 "feminino" "viuv" 1960-06-26 2001-05-07 "AUX. ENFERMAGEM" 1192.55 0 59
+"70" 362 "feminino" "casad" 1960-07-16 2003-02-03 "GARI" 1097.09 1 59
+"71" 45 "masculino" "casad" 1960-08-30 1998-01-01 "MOTORISTA" 1144.82 1 59
+"72" 196 "feminino" "casad" 1960-09-25 2001-02-09 "PROFESSOR" 3415.99 1 59
+"73" 93 "masculino" "casad" 1960-10-19 1998-05-25 "AG. COM. SAÚDE" 1216.82 1 59
+"74" 426 "feminino" "casad" 1960-10-25 2005-03-07 "AUX. ESTATÍSTICA" 1049.36 1 59
+"75" 52 "feminino" "casad" 1960-11-01 1998-01-01 "ENFERMEIRO" 1400 1 59
+"76" 6 "masculino" "casad" 1960-12-28 1983-09-01 "AGENTE ADM." 3106.71 2 59
+"77" 375 "masculino" "casad" 1961-01-05 2003-09-12 "AG. PORTARIA" 1097.09 1 59
+"78" 295 "masculino" "uniaoestavel" 1961-01-06 2001-09-03 "MOTORISTA" 1144.82 1 59
+"79" 456 "feminino" "solteir" 1961-01-11 2007-08-01 "AGENTE ADM." 1049.36 0 59
+"80" 56 "feminino" "divorciad" 1961-03-16 1998-01-01 "PROFESSOR" 3274.9 0 58
+"81" 174 "feminino" "solteir" 1961-07-28 2001-02-09 "PROFESSORA" 3929.88 0 58
+"82" 51 "masculino" "solteir" 1961-08-20 1998-01-01 "PROFESSOR" 3586.79 2 58
+"83" 298 "masculino" "solteir" 1961-11-11 2001-09-03 "MOTORISTA" 1097.09 1 58
+"84" 181 "feminino" "casad" 1961-11-21 2001-02-09 "PROFESSORA" 3415.99 1 58
+"85" 460 "masculino" "casad" 1961-12-06 2007-08-03 "GARI" 1049.36 1 58
+"86" 211 "feminino" "casad" 1962-01-20 2001-02-09 "PROFESSOR" 3742.73 1 58
+"87" 414 "feminino" "casad" 1962-03-21 2005-02-01 "AUX. ENFERMAGEM" 1097.09 1 57
+"88" 232 "feminino" "casad" 1962-04-14 2001-05-03 "AUX. ENFERMAGEM" 1144.82 1 57
+"89" 553 "masculino" "uniaoestavel" 1962-04-16 2009-05-04 "TEC. RAIO X" 1001.73 1 57
+"90" 216 "masculino" "casad" 1962-04-28 2001-02-09 "PROFESSOR" 3415.99 3 57
+"91" 75 "feminino" "casad" 1962-05-15 1998-01-01 "PROFESSOR" 3742.73 1 57
+"92" 63 "feminino" "casad" 1962-06-15 1998-01-01 "PROFESSOR" 4093.63 1 57
+"93" 12 "feminino" "casad" 1962-07-13 1983-12-01 "AGENTE ADM." 1287.91 1 57
+"94" 284 "masculino" "casad" 1962-07-30 2001-08-10 "SEC. DE ESCOLAS" 1097.09 1 57
+"95" 85 "feminino" "solteir" 1962-08-09 1998-02-09 "PROFESSORA" 3742.73 0 57
+"96" 17 "feminino" "casad" 1962-08-20 1988-10-15 "AGENTE ADMINISTRATIVO" 1876.71 2 57
+"97" 493 "feminino" "divorciad" 1962-09-11 2007-09-03 "ENFERMEIRO" 1300 0 57
+"98" 355 "feminino" "solteir" 1962-09-26 2003-02-03 "AUX. ENFERMAGEM" 1144.82 0 57
+"99" 544 "feminino" "casad" 1962-09-27 2009-01-07 "AGENTE ADM." 1001.7 1 57
+"100" 402 "masculino" "casad" 1962-11-11 2004-03-22 "GARI" 1049.36 1 57
+"101" 130 "feminino" "solteir" 1962-12-07 2001-02-09 "PROFESSORA" 3742.73 1 57
+"102" 107 "feminino" "casad" 1963-01-16 1999-06-01 "AUX. SERV. GER." 1097.09 1 57
+"103" 87 "masculino" "casad" 1963-01-20 1998-04-01 "AG. PORTARIA" 1144.8 1 57
+"104" 413 "feminino" "solteir" 1963-03-15 2005-02-01 "PROFESSOR" 3111.88 0 56
+"105" 96 "feminino" "casad" 1963-04-27 1998-05-25 "AG. COM. SAÚDE" 1267.55 1 56
+"106" 164 "feminino" "casad" 1963-05-10 2001-02-09 "PROFESSORA" 3415.99 2 56
+"107" 292 "feminino" "uniaoestavel" 1963-05-29 2001-08-10 "FARMAC/BIOQUÍMICO" 1350 1 56
+"108" 417 "masculino" "solteir" 1963-06-07 2005-02-21 "AG. PORTARIA" 1049.36 1 56
+"109" 1 "masculino" "casad" 1963-06-08 1983-03-01 "TEC. CONTABILIDADE" 5541.18 2 56
+"110" 550 "masculino" "casad" 1963-06-08 2009-02-09 "PROFESSOR" 3564.52 2 56
+"111" 101 "masculino" "casad" 1963-06-27 1998-09-01 "AG. PORTARIA" 1144.8 1 56
+"112" 326 "feminino" "solteir" 1963-06-27 2002-11-01 "AUX. ENFERMAGEM" 1097.09 0 56
+"113" 341 "masculino" "casad" 1963-06-30 2003-02-03 "GARI" 1097.1 1 56
+"114" 166 "feminino" "casad" 1963-07-20 2001-02-09 "PROFESSORA" 3742.73 1 56
+"115" 249 "masculino" "casad" 1963-09-01 2001-05-08 "AUX. SERV. GER." 1097.09 1 56
+"116" 215 "feminino" "solteir" 1963-09-11 2001-02-09 "PROFESSOR" 3742.73 0 56
+"117" 312 "masculino" "uniaoestavel" 1963-09-22 2002-03-18 "MOTORISTA" 1097.09 1 56
+"118" 62 "feminino" "casad" 1963-11-04 1998-01-01 "ASSIST. SERVIÇO" 1144.82 1 56
+"119" 372 "feminino" "solteir" 1963-11-22 2003-06-03 "AUX. SERV. GER." 1030.7 1 56
+"120" 294 "masculino" "casad" 1963-11-26 2001-09-03 "MOTORISTA" 1093.45 1 56
+"121" 474 "feminino" "solteir" 1964-01-03 2007-09-03 "ASSIST. SOCIAL" 1100 0 56
+"122" 227 "feminino" "viuv" 1964-01-10 2001-05-02 "PROFESSORA" 3416 1 56
+"123" 113 "masculino" "solteir" 1964-01-11 1999-10-01 "AG. COM. SAÚDE" 1216.82 0 56
+"124" 80 "feminino" "uniaoestavel" 1964-03-06 1998-01-01 "PROFESSOR" 3742.73 2 55
+"125" 534 "masculino" "casad" 1964-04-25 2008-05-02 "AG. PORTARIA" 1049.36 1 55
+"126" 231 "feminino" "solteir" 1964-05-18 2001-05-02 "PROFESSOR" 3742.73 1 55
+"127" 343 "masculino" "divorciad" 1964-05-27 2003-02-03 "GARI" 1097.09 0 55
+"128" 404 "feminino" "casad" 1964-06-05 2004-05-31 "PROFESSOR" 2593.23 1 55
+"129" 391 "feminino" "casad" 1964-08-05 2004-01-27 "PROFESSORA" 3415.99 2 55
+"130" 88 "feminino" "divorciad" 1964-09-06 1998-05-01 "AUX. SERV. GER." 1144.8 0 55
+"131" 47 "feminino" "divorciad" 1964-09-10 1998-01-01 "PROFESSORA" 3742.73 1 55
+"132" 118 "feminino" "casad" 1964-09-18 2001-01-02 "PROFESSOR" 4093.64 2 55
+"133" 44 "masculino" "casad" 1964-10-07 1998-01-01 "PROFESSOR" 3742.73 1 55
+"134" 283 "feminino" "divorciad" 1964-10-10 2001-08-10 "FISIOTERAPEUTA" 1450 1 55
+"135" 270 "feminino" "solteir" 1964-10-23 2001-05-09 "AUX. SERV. GER." 1097.09 0 55
+"136" 428 "feminino" "sepjudicialmente" 1964-12-03 2005-03-07 "AUX. SERV. GER." 1049.36 0 55
+"137" 217 "feminino" "solteir" 1965-03-12 2001-02-09 "PROFESSOR" 3415.99 0 54
+"138" 479 "masculino" "casad" 1965-03-19 2007-09-03 "GARI" 1049.36 1 54
+"139" 368 "masculino" "casad" 1965-03-25 2003-02-08 "AG. PORTARIA" 1097.09 2 54
+"140" 252 "feminino" "uniaoestavel" 1965-03-28 2001-05-08 "AUX.SERV.GER." 1097.09 1 54
+"141" 7 "feminino" "uniaoestavel" 1965-04-02 1983-09-01 "SUPORT. PEDAGÓGICO" 4642.18 1 54
+"142" 220 "masculino" "casad" 1965-04-09 2001-03-15 "AG. PORTARIA" 1144.8 2 54
+"143" 282 "masculino" "solteir" 1965-04-23 2001-08-10 "FISCAL DE TRIBUTOS" 1097.09 0 54
+"144" 74 "feminino" "divorciad" 1965-04-28 1998-01-01 "PROFESSOR" 3742.73 0 54
+"145" 427 "feminino" "casad" 1965-06-03 2005-03-07 "AUX. SERV. GER." 1049.36 1 54
+"146" 330 "feminino" "sepjudicialmente" 1965-06-28 2003-02-03 "GARI" 997.36 0 54
+"147" 151 "feminino" "divorciad" 1965-07-27 2001-02-09 "PROFESSORA" 3742.73 0 54
+"148" 18 "masculino" "casad" 1965-10-10 1990-03-15 "PROFESSOR" 2599.09 1 54
+"149" 446 "feminino" "casad" 1965-11-17 2006-12-05 "AUXILIAR DE SERVIÇOS GERAIS" 1067.97 1 54
+"150" 395 "masculino" "casad" 1965-11-21 2004-02-02 "PROFESSOR" 3267.45 1 54
+"151" 472 "feminino" "viuv" 1965-11-29 2007-09-03 "ASSIST. SOCIAL" 0 0 54
+"152" 60 "feminino" "casad" 1965-12-25 1998-01-01 "ASSIST. SERVIÇO" 1144.8 1 54
+"153" 266 "masculino" "solteir" 1966-01-01 2001-05-08 "AG. PORTARIA" 1097.09 0 54
+"154" 357 "feminino" "solteir" 1966-01-12 2003-02-03 "GARI" 1097.09 0 54
+"155" 229 "feminino" "casad" 1966-01-19 2001-05-02 "PROFESSOR" 2846.64 1 54
+"156" 41 "feminino" "viuv" 1966-03-02 1998-01-01 "AUX. SERV. GER." 1192.5 0 53
+"157" 514 "feminino" "solteir" 1966-03-06 2007-11-01 "AUX. SERV. GER." 1049.36 3 53
+"158" 515 "feminino" "casad" 1966-05-08 2007-11-01 "AUX. SERV. GER." 1049.36 1 53
+"159" 37 "feminino" "divorciad" 1966-05-14 1998-01-01 "SUPORT. PEDAGÓGICO" 4491.27 1 53
+"160" 202 "feminino" "sepjudicialmente" 1966-06-02 2001-02-09 "PROFESSOR" 3742.73 0 53
+"161" 2 "feminino" "solteir" 1966-06-03 1983-03-01 "PROFESSORA" 3223.73 0 53
+"162" 114 "masculino" "casad" 1966-06-08 1999-10-01 "AG. COM. SAÚDE" 1166.09 1 53
+"163" 483 "masculino" "casad" 1966-06-08 2007-09-03 "GARI" 477 1 53
+"164" 373 "feminino" "viuv" 1966-06-20 2003-08-04 "AUX. SERV. GER." 1097.09 1 53
+"165" 115 "masculino" "casad" 1966-07-22 1999-10-01 "AG. COM. SAÚDE" 1166.09 2 53
+"166" 276 "feminino" "casad" 1966-10-09 2001-06-19 "AUX. SERV. GER." 1097.09 2 53
+"167" 99 "feminino" "solteir" 1966-10-26 1998-05-25 "AG. COM. SAÚDE" 1216.82 1 53
+"168" 309 "feminino" "casad" 1966-11-10 2002-02-01 "AUX. SERV. GER." 1097.09 3 53
+"169" 192 "feminino" "solteir" 1966-11-30 2001-02-09 "PROFESSOR" 2846.64 2 53
+"170" 513 "masculino" "divorciad" 1967-03-18 2007-11-01 "VETERINÁRIO" 1049.36 1 52
+"171" 346 "feminino" "viuv" 1967-03-22 2003-02-03 "GARI" 1097.09 0 52
+"172" 83 "masculino" "solteir" 1967-05-15 1998-01-02 "AG. COM. SAÚDE" 1267.55 0 52
+"173" 374 "feminino" "uniaoestavel" 1967-05-24 2003-08-06 "AUX. SERV. GER." 1097.09 3 52
+"174" 90 "masculino" "divorciad" 1967-05-26 1998-05-01 "AG. PORTARIA" 1144.82 0 52
+"175" 611 "feminino" "casad" 1967-06-30 2010-12-13 "ATEND. CONSULT. ODONT." 1001.73 1 52
+"176" 268 "masculino" "casad" 1967-07-02 2001-05-08 "AG. PORTARIA" 1097.09 2 52
+"177" 82 "masculino" "casad" 1967-08-02 1998-01-01 "AG. PORTARIA" 1144.8 2 52
+"178" 370 "masculino" "casad" 1967-09-06 2003-02-24 "MOTORISTA" 1097.09 1 52
+"179" 351 "masculino" "casad" 1967-09-07 2003-02-03 "GARI" 1097.09 3 52
+"180" 631 "masculino" "uniaoestavel" 1967-11-03 2012-02-01 "AG. COM. SAÚDE" 1064.73 2 52
+"181" 42 "feminino" "casad" 1967-11-17 1998-01-01 "AUX. SERV. GER." 1192.5 1 52
+"182" 255 "feminino" "divorciad" 1967-12-20 2001-05-08 "AUX. SERV. GER." 1097.09 0 52
+"183" 40 "feminino" "solteir" 1968-01-12 1998-01-01 "AUX. SERV. GER." 1099.36 1 52
+"184" 567 "feminino" "casad" 1968-02-03 2010-01-07 "AUX. SERV. GER." 1001.73 1 51
+"185" 69 "feminino" "casad" 1968-02-08 1998-01-01 "PROFESSOR" 3742.73 1 51
+"186" 291 "masculino" "casad" 1968-03-22 2001-08-10 "OPERADOR DE MICRO" 1097.09 2 51
+"187" 214 "feminino" "viuv" 1968-05-16 2001-02-09 "PROFESSOR" 3415.99 1 51
+"188" 371 "masculino" "casad" 1968-05-21 2003-03-10 "AG. PORTARIA" 1097.09 2 51
+"189" 332 "feminino" "solteir" 1968-05-22 2003-02-03 "GARI" 1097.09 0 51
+"190" 182 "masculino" "divorciad" 1968-06-03 2001-02-09 "PROFESSOR" 3415.99 1 51
+"191" 244 "feminino" "solteir" 1968-06-10 2001-05-07 "AUX. ENFERMAGEM" 1144.82 1 51
+"192" 94 "masculino" "casad" 1968-06-16 1998-05-25 "AG. COM. SAÚDE" 1216.82 2 51
+"193" 297 "masculino" "casad" 1968-09-01 2001-09-03 "MOTORISTA" 1144.82 1 51
+"194" 25 "masculino" "casad" 1968-09-17 1991-10-05 "AGENTE DE PORTARIA" 1097.09 2 51
+"195" 19 "feminino" "uniaoestavel" 1968-09-25 1990-03-15 "PROFESSOR" 3104.34 2 51
+"196" 398 "feminino" "uniaoestavel" 1968-10-17 2004-03-01 "AUX. ENFERMAGEM" 1049.36 1 51
+"197" 191 "feminino" "solteir" 1968-11-05 2001-02-09 "PROFESSOR" 3742.73 0 51
+"198" 485 "masculino" "casad" 1968-11-08 2007-09-03 "GARI" 1049.36 2 51
+"199" 100 "feminino" "divorciad" 1968-11-14 1998-05-25 "AG. COM. SAÚDE" 1216.8 0 51
+"200" 195 "feminino" "casad" 1968-12-17 2001-02-09 "PROFESSOR" 3415.99 3 51
+"201" 547 "feminino" "viuv" 1969-01-10 2009-01-07 "ATEND. DE CONSLT. ODONT." 1049.36 0 51
+"202" 545 "feminino" "divorciad" 1969-01-19 2009-01-07 "ATEND. CONSULT. ODONT." 1001.73 1 51
+"203" 22 "feminino" "solteir" 1969-01-24 1991-10-05 "AG. COM. SAÚDE" 1267.55 0 51
+"204" 173 "feminino" "solteir" 1969-01-24 2001-02-09 "PROFESSORA" 3742.73 0 51
+"205" 338 "masculino" "solteir" 1969-02-03 2003-02-03 "GARI" 1097.09 1 50
+"206" 420 "feminino" "solteir" 1969-02-20 2005-02-21 "PROFESSOR" 3111.88 2 50
+"207" 565 "feminino" "casad" 1969-02-28 2010-01-07 "AUX. SERV. GER." 1001.7 0 50
+"208" 169 "feminino" "divorciad" 1969-03-03 2001-02-09 "PROFESSORA" 3742.73 1 50
+"209" 14 "feminino" "divorciad" 1969-03-04 1985-09-01 "AUX. SERV. GER" 1240.18 1 50
+"210" 124 "feminino" "divorciad" 1969-03-09 2001-01-09 "AUX. SERV. GER." 1097.09 0 50
+"211" 153 "feminino" "casad" 1969-03-11 2001-02-09 "PROFESSORA" 3586.82 1 50
+"212" 399 "feminino" "uniaoestavel" 1969-03-14 2004-03-01 "PROFESSORA" 3586.79 2 50
+"213" 219 "masculino" "casad" 1969-03-31 2001-03-01 "AG. PORTARIA" 1097.09 1 50
+"214" 240 "feminino" "solteir" 1969-04-01 2001-05-07 "AUX. ENFERMAGEM" 1144.82 0 50
+"215" 422 "feminino" "casad" 1969-04-07 2005-03-01 "AUX. ESTATÍSTICA" 1049.36 2 50
+"216" 15 "feminino" "divorciad" 1969-05-13 1986-03-01 "PROFESSOR" 4470.25 1 50
+"217" 594 "masculino" "solteir" 1969-06-06 2010-07-07 "TEC. ENFERMAGEM" 1001.73 0 50
+"218" 263 "masculino" "casad" 1969-07-24 2001-05-08 "AG. PORTARIA" 1097.09 1 50
+"219" 71 "feminino" "solteir" 1969-08-04 1998-01-01 "PROFESSOR" 4491.27 0 50
+"220" 247 "feminino" "uniaoestavel" 1969-08-10 2001-05-07 "FARMAC/BIOQUIMICO" 1150 3 50
+"221" 16 "feminino" "casad" 1969-08-19 1988-03-01 "PROFESSOR" 4470.25 1 50
+"222" 11 "feminino" "uniaoestavel" 1969-09-23 1983-11-30 "PROFESSOR" 2525.88 2 50
+"223" 27 "feminino" "uniaoestavel" 1969-10-29 1995-01-02 "AG. COM. SAÚDE" 1216.82 1 50
+"224" 696 "feminino" "casad" 1969-10-30 2015-09-08 "TEC. EM ENFERMAGEM" 954 1 50
+"225" 128 "feminino" "casad" 1969-11-02 2001-01-15 "AGENTE ADM." 1097.09 3 50
+"226" 333 "masculino" "solteir" 1969-11-18 2003-02-03 "GARI" 1128.81 1 50
+"227" 321 "feminino" "casad" 1969-11-22 2002-06-27 "PROFESSORA" 4099.18 2 50
+"228" 31 "masculino" "casad" 1969-12-06 1998-01-01 "PROFESSOR" 3742.73 1 50
+"229" 317 "feminino" "casad" 1969-12-08 2002-05-27 "ASSIST. SERVIÇO" 1144.8 2 50
+"230" 144 "feminino" "solteir" 1969-12-20 2001-02-09 "PROFESSORA" 3929.88 0 50
+"231" 410 "feminino" "casad" 1970-01-04 2005-02-01 "PROFESSOR" 3416 1 50
+"232" 186 "feminino" "solteir" 1970-02-02 2001-02-09 "PROFESSOR" 3742.73 0 49
+"233" 165 "masculino" "uniaoestavel" 1970-02-15 2001-02-09 "PROFESSOR" 4099.18 3 49
+"234" 176 "feminino" "casad" 1970-02-21 2001-02-09 "PROFESSORA" 3415.99 2 49
+"235" 198 "feminino" "casad" 1970-03-13 2001-02-09 "PROFESSOR" 3415.99 4 49
+"236" 588 "masculino" "casad" 1970-03-16 2010-06-14 "ELETRICISTA" 1001.73 3 49
+"237" 50 "masculino" "casad" 1970-04-15 1998-01-01 "AUX. SERV. GER." 1192.5 1 49
+"238" 412 "feminino" "casad" 1970-04-24 2005-02-01 "PROFESSOR" 3111.88 1 49
+"239" 595 "masculino" "solteir" 1970-04-24 2010-08-02 "SEC. DE ESCOLAS" 1001.73 3 49
+"240" 233 "feminino" "solteir" 1970-04-30 2001-05-06 "AUX. SERV. GER." 1097.09 0 49
+"241" 156 "feminino" "casad" 1970-05-01 2001-02-09 "SUPORT. PEDAGÓGICO" 3415.99 2 49
+"242" 390 "feminino" "solteir" 1970-05-01 2004-01-08 "AUX. SERV. GER." 1049.36 0 49
+"243" 601 "masculino" "solteir" 1970-05-28 2010-11-04 "GARI" 1001.73 1 49
+"244" 667 "feminino" "sepjudicialmente" 1970-06-19 2015-05-04 "PROFESSORA" 2703.36 0 49
+"245" 659 "feminino" "sepjudicialmente" 1970-06-26 2015-04-20 "PROFESSORA" 2245.18 1 49
+"246" 285 "masculino" "casad" 1970-07-10 2001-08-10 "SEC. ESCOLAS" 1097.09 2 49
+"247" 218 "feminino" "casad" 1970-07-12 2001-02-09 "PROFESSOR" 3415.99 4 49
+"248" 602 "feminino" "solteir" 1970-08-05 2010-11-04 "GARI" 1001.7 0 49
+"249" 134 "feminino" "divorciad" 1970-10-10 2001-02-09 "PROFESSORA" 3742.73 1 49
+"250" 111 "feminino" "casad" 1970-11-15 1999-09-30 "AG. COM. SAÚDE" 1166.09 2 49
+"251" 146 "feminino" "casad" 1970-11-15 2001-02-09 "PROFESSORA" 3415.99 2 49
+"252" 642 "masculino" "casad" 1970-11-15 2015-04-06 "CONDUTOR SOCORRISTA" 954 2 49
+"253" 480 "feminino" "solteir" 1970-12-12 2007-09-03 "PSICÓLOGO" 1300 1 49
+"254" 590 "feminino" "casad" 1971-01-12 2010-07-01 "AUX. ADIMINISTRATIVO" 1001.7 2 49
+"255" 119 "masculino" "uniaoestavel" 1971-01-15 2001-01-02 "AUX. SANEAMENTO" 1049.36 3 49
+"256" 510 "feminino" "divorciad" 1971-01-23 2007-10-18 "RECEP/TELEFONISTA" 1049.36 0 49
+"257" 86 "masculino" "casad" 1971-01-24 1998-03-02 "MOTORISTA" 1144.82 2 49
+"258" 397 "feminino" "casad" 1971-02-10 2004-02-09 "SEC. ESCOLAS" 1049.36 2 48
+"259" 464 "feminino" "divorciad" 1971-03-06 2007-08-14 "AUX. SERV. GER." 1049.36 0 48
+"260" 194 "feminino" "solteir" 1971-03-27 2001-02-09 "PROFESSOR" 4093.63 2 48
+"261" 339 "masculino" "casad" 1971-04-16 2003-02-03 "GARI" 1097.09 4 48
+"262" 367 "feminino" "casad" 1971-04-19 2003-02-03 "GARI" 1097.09 1 48
+"263" 185 "feminino" "uniaoestavel" 1971-04-25 2001-02-09 "PROFESSOR" 3586.79 3 48
+"264" 566 "feminino" "uniaoestavel" 1971-04-25 2010-01-07 "ENFERMEIRO" 1250 3 48
+"265" 21 "feminino" "solteir" 1971-05-04 1991-10-05 "AG. COM. SAÚDE" 1267.55 2 48
+"266" 171 "feminino" "solteir" 1971-05-04 2001-02-09 "PROFESSORA" 4093.63 2 48
+"267" 137 "feminino" "solteir" 1971-05-10 2001-02-09 "PROFESSORA" 3415.99 1 48
+"268" 411 "feminino" "uniaoestavel" 1971-05-30 2005-02-01 "PROFESSOR" 3111.88 2 48
+"269" 334 "masculino" "solteir" 1971-06-16 2003-02-03 "GARI" 1097.09 0 48
+"270" 327 "masculino" "solteir" 1971-08-04 2003-02-03 "GARI" 1097.09 0 48
+"271" 345 "masculino" "divorciad" 1971-08-04 2003-02-03 "TEC. RAIO X" 1097.09 1 48
+"272" 408 "masculino" "casad" 1971-08-23 2005-01-03 "FISCAL DE TRIBUTOS" 0 1 48
+"273" 136 "feminino" "uniaoestavel" 1971-09-12 2001-02-09 "PROFESSORA" 3742.73 3 48
+"274" 246 "feminino" "solteir" 1971-09-24 2001-05-07 "AUX. ENFERMAGEM" 1144.82 2 48
+"275" 347 "feminino" "divorciad" 1971-10-01 2003-02-03 "GARI" 1097.09 1 48
+"276" 288 "feminino" "casad" 1971-10-28 2001-08-10 "SEC. DE ESCOLAS" 1097.09 3 48
+"277" 97 "feminino" "solteir" 1971-11-04 1998-05-25 "AG. COM. SAÚDE" 1267.55 1 48
+"278" 140 "masculino" "casad" 1971-11-07 2001-02-09 "PROFESSOR" 2599.09 1 48
+"279" 697 "feminino" "divorciad" 1971-12-03 2015-09-08 "TEC. EM ENFERMAGEM" 954 1 48
+"280" 500 "feminino" "divorciad" 1971-12-06 2007-09-10 "TEC. EM ENFERMAGEM" 1144.82 1 48
+"281" 154 "feminino" "divorciad" 1971-12-24 2001-02-09 "PROFESSORA" 3586.82 0 48
+"282" 102 "masculino" "solteir" 1972-01-05 1999-02-01 "PROFESSOR" 3586.79 0 48
+"283" 380 "feminino" "uniaoestavel" 1972-01-15 2003-10-31 "AG. COM. SAÚDE" 1166.09 3 48
+"284" 305 "masculino" "solteir" 1972-01-19 2001-11-01 "ELETRICISTA" 1097.09 1 48
+"285" 477 "feminino" "casad" 1972-02-02 2007-09-03 "PSICÓLOGO" 0 1 47
+"286" 162 "masculino" "uniaoestavel" 1972-02-04 2001-02-09 "PROFESSOR" 3415.99 3 47
+"287" 664 "masculino" "casad" 1972-02-21 2015-05-04 "AUX.SERV.GER." 954 1 47
+"288" 241 "feminino" "casad" 1972-02-22 2001-05-07 "AUX. ENFERMAGEM" 1192.55 3 47
+"289" 680 "feminino" "casad" 1972-02-28 2015-05-12 "AUX.SERV.GER." 954 2 47
+"290" 24 "feminino" "uniaoestavel" 1972-03-10 1991-10-05 "AG. COM. SAÚDE" 1267.55 1 47
+"291" 455 "feminino" "casad" 1972-04-07 2007-08-01 "FARMAC/BIOQUIMICO" 1300 3 47
+"292" 531 "feminino" "casad" 1972-05-06 2008-02-13 "SUPORT. PEDAGÓGICO" 3111.88 1 47
+"293" 223 "masculino" "uniaoestavel" 1972-06-04 2001-04-23 "AG. PORTARIA" 1144.82 4 47
+"294" 68 "feminino" "casad" 1972-06-06 1998-01-01 "PROFESSOR" 3742.73 1 47
+"295" 237 "feminino" "divorciad" 1972-06-24 2001-05-07 "AUX. ENFERMAGEM" 1192.55 0 47
+"296" 307 "feminino" "casad" 1972-06-26 2001-11-20 "AUX. SERV. GER." 1097.09 1 47
+"297" 299 "masculino" "casad" 1972-07-08 2001-09-03 "MOTORISTA" 1097.09 2 47
+"298" 204 "feminino" "casad" 1972-07-12 2001-02-09 "PROFESSOR" 3415.99 2 47
+"299" 200 "feminino" "sepjudicialmente" 1972-07-13 2001-02-09 "PROFESSOR" 3415.99 0 47
+"300" 129 "masculino" "uniaoestavel" 1972-08-04 2001-01-15 "AUX. ADMINISTRATIVO" 1574.09 2 47
+"301" 208 "feminino" "casad" 1972-08-10 2001-02-09 "PROFESSOR" 3415.99 3 47
+"302" 157 "masculino" "uniaoestavel" 1972-08-25 2001-02-09 "PROFESSOR" 3742.73 3 47
+"303" 403 "masculino" "casad" 1972-09-02 2004-03-31 "ODONTÓLOGO" 1300 3 47
+"304" 178 "feminino" "divorciad" 1972-09-12 2001-02-09 "PROFESSORA" 3742.73 2 47
+"305" 572 "feminino" "divorciad" 1972-09-12 2010-02-01 "ENFERMEIRO" 1250 2 47
+"306" 473 "feminino" "uniaoestavel" 1972-09-17 2007-09-03 "TERAPEUTA OCUPACIONAL" 1300 1 47
+"307" 212 "feminino" "casad" 1972-09-18 2001-02-09 "PROFESSOR" 3586.79 1 47
+"308" 155 "feminino" "casad" 1972-10-09 2001-02-09 "PROFESSORA" 3742.73 2 47
+"309" 112 "masculino" "solteir" 1972-11-16 1999-10-01 "AG. COM. SAÚDE" 1166.09 0 47
+"310" 281 "masculino" "casad" 1972-11-22 2001-08-10 "FISCAL DE TRIBUTOS" 1097.09 1 47
+"311" 421 "feminino" "solteir" 1972-12-07 2005-03-01 "AUX. ESTATÍSTICA" 1049.36 1 47
+"312" 517 "feminino" "solteir" 1973-01-08 2007-12-10 "ODONTÓLOGO" 1300 0 47
+"313" 310 "masculino" "solteir" 1973-01-26 2002-02-18 "PROFESSOR" 4099.18 2 46
+"314" 569 "feminino" "casad" 1973-02-05 2010-01-07 "AUX. SERV. GER." 1001.7 1 46
+"315" 418 "feminino" "solteir" 1973-03-24 2005-02-21 "PROFESSORA" 3742.73 0 46
+"316" 254 "feminino" "casad" 1973-03-26 2001-05-08 "AUX. SERV. GER." 1144.8 2 46
+"317" 48 "masculino" "casad" 1973-04-01 1998-01-01 "PROFESSOR" 3742.73 2 46
+"318" 568 "feminino" "casad" 1973-04-27 2010-01-07 "AUX. SERV. GER." 1001.73 2 46
+"319" 293 "feminino" "divorciad" 1973-04-30 2001-08-20 "PROFESSOR" 3415.99 1 46
+"320" 527 "feminino" "uniaoestavel" 1973-05-25 2008-02-01 "AUX. SERV. GER." 1049.36 2 46
+"321" 486 "masculino" "casad" 1973-06-01 2007-09-03 "GARI" 1281.11 3 46
+"322" 193 "feminino" "casad" 1973-06-11 2001-02-09 "PROFESSOR" 3929.88 2 46
+"323" 521 "feminino" "casad" 1973-06-22 2008-01-02 "AG. COM. SAÚDE" 1166.09 1 46
+"324" 308 "masculino" "uniaoestavel" 1973-07-12 2002-02-01 "ASSIST. SERV." 1097.09 2 46
+"325" 536 "feminino" "casad" 1973-08-12 2008-06-02 "AUX. SERV. GER." 1049.36 3 46
+"326" 597 "feminino" "solteir" 1973-08-15 2010-09-09 "TEC. ENFERMAGEM" 1001.73 0 46
+"327" 148 "feminino" "casad" 1973-08-29 2001-02-09 "PROFESSORA" 3742.73 1 46
+"328" 253 "masculino" "solteir" 1973-09-08 2001-05-08 "ATEND. CONSULT. ODONT." 1144.82 1 46
+"329" 587 "feminino" "solteir" 1973-09-08 2010-05-17 "GARI" 1001.73 1 46
+"330" 53 "masculino" "solteir" 1973-09-18 1998-01-01 "PROFESSOR" 3742.73 0 46
+"331" 54 "feminino" "casad" 1973-10-12 1998-01-01 "PROFESSORA" 3742.73 3 46
+"332" 273 "feminino" "casad" 1973-10-15 2001-05-15 "PROFESSOR" 3742.73 3 46
+"333" 43 "feminino" "casad" 1973-10-28 1998-01-01 "AUX. SERV. GER." 1144.8 1 46
+"334" 563 "feminino" "casad" 1973-11-07 2010-01-07 "AG. COM. SAÚDE" 1064.73 1 46
+"335" 535 "masculino" "casad" 1973-12-02 2008-06-02 "TEC. ENFERMAGEM" 1049.36 3 46
+"336" 257 "feminino" "casad" 1973-12-18 2001-05-08 "AUX. SERV. GER." 1097.09 1 46
+"337" 354 "masculino" "solteir" 1973-12-20 2003-02-03 "GARI" 1097.09 0 46
+"338" 105 "feminino" "casad" 1973-12-30 1999-02-01 "AGENTE ADM." 1097.09 1 46
+"339" 324 "masculino" "uniaoestavel" 1974-01-22 2002-10-10 "AG. PORTARIA" 1097.09 3 46
+"340" 190 "feminino" "solteir" 1974-01-23 2001-02-09 "PROFESSOR" 4093.63 0 46
+"341" 91 "feminino" "solteir" 1974-01-30 1998-05-25 "AG. COM. SAÚDE" 1216.82 1 45
+"342" 322 "feminino" "solteir" 1974-04-05 2002-07-03 "AUX. SERV. GER." 1097.09 2 45
+"343" 364 "masculino" "casad" 1974-04-05 2003-02-03 "GARI" 532.18 1 45
+"344" 256 "feminino" "uniaoestavel" 1974-04-11 2001-05-08 "AUX. SERV. GER." 1144.8 1 45
+"345" 262 "feminino" "solteir" 1974-05-07 2001-05-08 "AUX. SERV. GER." 1097.09 1 45
+"346" 65 "feminino" "solteir" 1974-05-14 1998-01-01 "PROFESSOR" 4093.63 0 45
+"347" 61 "feminino" "uniaoestavel" 1974-06-12 1998-01-01 "PROFESSOR" 4298.27 3 45
+"348" 315 "masculino" "casad" 1974-06-14 2002-05-02 "FARMAC/BIOQUÍMICO" 1150 4 45
+"349" 678 "feminino" "solteir" 1974-06-21 2015-05-04 "TEC. EM ENFERMAGEM" 954 1 45
+"350" 265 "feminino" "solteir" 1974-06-25 2001-05-08 "AUX. SERV. GER." 1097.09 2 45
+"351" 453 "feminino" "solteir" 1974-07-02 2007-08-01 "AUX. SERV. GER." 1049.36 0 45
+"352" 274 "feminino" "casad" 1974-07-04 2001-05-28 "AUX. SERV. GER." 1192.55 2 45
+"353" 180 "feminino" "viuv" 1974-07-06 2001-02-09 "PROFESSORA" 3929.88 2 45
+"354" 245 "feminino" "casad" 1974-07-08 2001-05-07 "ENFERMEIRO" 1150 3 45
+"355" 471 "masculino" "solteir" 1974-07-27 2007-09-03 "GARI" 1049.36 0 45
+"356" 614 "masculino" "uniaoestavel" 1974-08-06 2011-02-01 "MOTORISTA" 1001.73 3 45
+"357" 457 "feminino" "casad" 1974-08-10 2007-08-01 "AUX. SERV. GER." 1049.36 2 45
+"358" 222 "feminino" "uniaoestavel" 1974-08-13 2001-04-23 "AUX. SERV. GER." 1144.82 1 45
+"359" 306 "masculino" "uniaoestavel" 1974-08-21 2001-11-01 "MOTORISTA" 1144.82 3 45
+"360" 39 "feminino" "divorciad" 1974-09-03 1998-01-01 "ASSIST. SERV." 1144.8 1 45
+"361" 377 "feminino" "divorciad" 1974-09-05 2003-10-31 "AG. COM. SAÚD" 1166.09 0 45
+"362" 520 "feminino" "casad" 1974-09-17 2008-01-02 "AG. COM. SAÚDE" 1216.82 2 45
+"363" 353 "masculino" "solteir" 1974-09-22 2003-02-03 "GARI" 1097.09 3 45
+"364" 172 "masculino" "solteir" 1974-10-11 2001-02-09 "PROFESSOR" 3415.99 0 45
+"365" 89 "feminino" "casad" 1974-10-27 1998-05-01 "PROFESSORA" 3742.73 2 45
+"366" 122 "masculino" "solteir" 1974-11-04 2001-01-05 "AUX. SERV. GER" 1097.09 0 45
+"367" 619 "masculino" "casad" 1974-11-27 2012-02-01 "AG. ENDEMIAS" 1064.73 3 45
+"368" 199 "feminino" "casad" 1974-12-01 2001-02-09 "PROFESSOR" 3415.99 2 45
+"369" 58 "feminino" "solteir" 1974-12-08 1998-01-01 "AUX. SERV. GER." 1144.82 0 45
+"370" 507 "feminino" "solteir" 1974-12-13 2007-10-01 "GARI" 1081.11 1 45
+"371" 300 "masculino" "uniaoestavel" 1974-12-17 2001-09-03 "MOTORISTA" 1097.09 4 45
+"372" 459 "masculino" "casad" 1974-12-25 2007-08-01 "OPERAD. MÁQ. PESADAS" 1049.36 3 45
+"373" 552 "feminino" "casad" 1974-12-31 2009-03-16 "ASSIST. SOCIAL" 1250 2 45
+"374" 458 "feminino" "divorciad" 1975-01-18 2007-08-01 "SUPORTE PEDAGÓGICO" 3111.88 1 45
+"375" 221 "masculino" "casad" 1975-02-25 2001-04-02 "MOTORISTA" 1097.09 3 44
+"376" 55 "feminino" "casad" 1975-02-26 1998-01-01 "RECEP/TELEFONISTA" 1694.82 4 44
+"377" 259 "feminino" "casad" 1975-03-05 2001-05-08 "AUX. SERV. GER." 1097.09 1 44
+"378" 197 "feminino" "casad" 1975-03-09 2001-02-09 "PROFESSOR" 4912.36 1 44
+"379" 106 "feminino" "uniaoestavel" 1975-03-15 1999-02-01 "PROFESSOR" 3586.79 1 44
+"380" 205 "feminino" "solteir" 1975-03-22 2001-02-09 "PROFESSOR" 3742.73 0 44
+"381" 716 "masculino" "uniaoestavel" 1975-03-22 2016-02-29 "AUX. SERV. GER." 954 4 44
+"382" 687 "masculino" "casad" 1975-03-31 2015-05-25 "SEC. ESCOLAS" 0 1 44
+"383" 36 "feminino" "solteir" 1975-04-10 1998-01-01 "PROFESSORA" 4491.27 0 44
+"384" 319 "masculino" "uniaoestavel" 1975-04-25 2002-06-23 "AG. COM. SAÚDE" 1166.09 4 44
+"385" 424 "feminino" "uniaoestavel" 1975-05-13 2005-03-01 "AUX. ESTATÍSTICA" 1049.36 1 44
+"386" 396 "masculino" "divorciad" 1975-06-24 2004-02-02 "PROFESSOR" 3921 2 44
+"387" 304 "feminino" "casad" 1975-07-12 2001-10-22 "AUX. SERV. GER." 1097.09 3 44
+"388" 92 "feminino" "casad" 1975-07-29 1998-05-25 "AG. COM. SAUDE" 1267.55 3 44
+"389" 475 "feminino" "solteir" 1975-07-29 2007-09-03 "ENFERMEIRA " 1850 1 44
+"390" 450 "feminino" "casad" 1975-09-07 2007-08-01 "AUX. SERV. GER." 1049.36 1 44
+"391" 177 "feminino" "sepjudicialmente" 1975-10-02 2001-02-09 "PROFESSORA" 3586.79 2 44
+"392" 638 "masculino" "casad" 1975-10-06 2015-04-06 "EDUCADOR FÍSICO" 1200 1 44
+"393" 203 "feminino" "uniaoestavel" 1975-10-23 2001-02-09 "PROFESSOR" 3415.99 2 44
+"394" 28 "feminino" "divorciad" 1975-11-13 1998-01-01 "PROFESSORA" 3742.73 1 44
+"395" 147 "feminino" "casad" 1975-11-29 2001-02-09 "PROFESSORA" 3415.99 3 44
+"396" 145 "masculino" "uniaoestavel" 1975-12-08 2001-02-09 "PROFESSOR" 3415.99 3 44
+"397" 313 "masculino" "divorciad" 1975-12-20 2002-04-22 "PROFESSOR" 3415.99 3 44
+"398" 539 "feminino" "solteir" 1976-01-13 2009-01-07 "ATEND. CONSULT." 1001.73 1 44
+"399" 542 "feminino" "uniaoestavel" 1976-01-19 2009-01-07 "ATEND. CONSULT. ODONT." 1001.73 3 44
+"400" 580 "feminino" "uniaoestavel" 1976-02-08 2010-03-01 "AUX. SERV. GER." 1001.73 3 43
+"401" 79 "feminino" "casad" 1976-02-19 1998-01-01 "ASSIST. SERVIÇO" 1192.55 2 43
+"402" 271 "feminino" "divorciad" 1976-03-04 2001-05-10 "AUX. SERV. GER." 1097.09 2 43
+"403" 400 "feminino" "casad" 1976-03-09 2004-03-01 "SEC. DE ESCOLAS" 1049.36 3 43
+"404" 495 "feminino" "solteir" 1976-03-14 2007-09-03 "TEC. EM ENFERMAGEM" 1001.73 1 43
+"405" 234 "feminino" "solteir" 1976-03-28 2001-05-07 "PROFESSORA " 3742.73 0 43
+"406" 131 "feminino" "casad" 1976-03-30 2001-02-09 "PROFESSORA" 4099.18 3 43
+"407" 454 "feminino" "uniaoestavel" 1976-04-13 2007-08-01 "AUX. SERV. GER." 1049.36 4 43
+"408" 463 "feminino" "solteir" 1976-04-20 2007-08-03 "GARI" 1049.36 2 43
+"409" 70 "feminino" "casad" 1976-04-22 1998-01-01 "PROFESSOR" 3929.88 2 43
+"410" 81 "feminino" "solteir" 1976-04-29 1998-01-01 "AUX. SERV. GER" 1144.82 0 43
+"411" 149 "feminino" "casad" 1976-05-04 2001-02-09 "PROFESSORA" 3929.91 2 43
+"412" 188 "masculino" "casad" 1976-05-04 2001-02-09 "PROFESSOR" 3415.99 1 43
+"413" 445 "feminino" "solteir" 1976-05-05 2006-12-05 "AUXILIAR DE SERVIÇOS GERAIS" 1068 1 43
+"414" 264 "feminino" "divorciad" 1976-05-13 2001-05-08 "AUX. SERV. GER." 1144.8 1 43
+"415" 152 "feminino" "casad" 1976-05-24 2001-02-09 "PROFESSORA" 3415.99 3 43
+"416" 301 "feminino" "casad" 1976-06-24 2001-09-17 "AUX. SERV. GER." 1097.09 1 43
+"417" 610 "masculino" "casad" 1976-07-15 2010-12-13 "MOTORISTA" 1001.73 3 43
+"418" 251 "feminino" "divorciad" 1976-08-20 2001-05-08 "AUX. SERV. GER." 1049.36 1 43
+"419" 555 "masculino" "casad" 1976-09-18 2009-07-01 "MÉDICO" 1796.27 3 43
+"420" 123 "feminino" "solteir" 1976-09-29 2001-01-05 "AUX. SERV. GER." 1097.09 1 43
+"421" 179 "masculino" "casad" 1976-10-06 2001-02-09 "PROFESSOR" 3118.91 1 43
+"422" 57 "feminino" "solteir" 1976-11-29 1998-01-01 "AUX. ENFERMAGEM" 1192.55 2 43
+"423" 389 "masculino" "divorciad" 1976-12-01 2004-01-02 "MOTORISTA" 1049.36 1 43
+"424" 394 "feminino" "sepjudicialmente" 1976-12-03 2004-02-02 "PROFESSOR" 3267.45 1 43
+"425" 361 "masculino" "solteir" 1976-12-25 2003-02-03 "GARI" 1038.55 2 43
+"426" 381 "feminino" "solteir" 1977-01-04 2003-10-31 "AG. COM. SAÚDE" 1166.09 0 43
+"427" 73 "masculino" "casad" 1977-01-27 1998-01-01 "PROFESSOR" 3118.91 3 42
+"428" 705 "feminino" "casad" 1977-02-08 2016-02-01 "TEC. EM ENFERMAGEM" 954 4 42
+"429" 481 "feminino" "uniaoestavel" 1977-03-07 2007-09-03 "ENFERMEIRO" 1100 3 42
+"430" 356 "masculino" "casad" 1977-03-11 2003-02-03 "GARI" 1097.09 1 42
+"431" 433 "feminino" "solteir" 1977-03-19 2005-07-07 "SEC. DE ESCOLAS" 1049.36 1 42
+"432" 487 "masculino" "casad" 1977-03-23 2007-09-03 "GARI" 1049.36 4 42
+"433" 77 "feminino" "solteir" 1977-03-27 1998-01-01 "AUX. SERV. GER." 1144.8 2 42
+"434" 269 "masculino" "casad" 1977-04-09 2001-05-09 "ODONTÓLOGO" 858.36 2 42
+"435" 170 "feminino" "casad" 1977-04-13 2001-02-09 "PROFESSORA" 3742.73 2 42
+"436" 38 "feminino" "uniaoestavel" 1977-04-24 1998-01-01 "PROFESSOR" 3742.73 2 42
+"437" 494 "feminino" "solteir" 1977-04-29 2007-09-03 "MÉDICO" 1868.09 0 42
+"438" 577 "feminino" "solteir" 1977-05-23 2010-03-01 "AUX. SERV. GER." 1001.7 0 42
+"439" 530 "feminino" "solteir" 1977-06-16 2008-02-07 "SUPORTE PEDAGÓGICO" 3734.26 0 42
+"440" 116 "feminino" "uniaoestavel" 1977-06-19 1999-10-08 "AG. COM. SAÚDE" 1166.09 2 42
+"441" 323 "feminino" "solteir" 1977-06-27 2002-07-03 "AUX. SERV. GER." 1097.09 2 42
+"442" 127 "feminino" "casad" 1977-07-09 2001-01-12 "AUX. SERV. GER." 1097.09 1 42
+"443" 161 "feminino" "uniaoestavel" 1977-07-13 2001-02-09 "PROFESSOR" 3415.99 3 42
+"444" 461 "masculino" "casad" 1977-07-22 2007-08-03 "GARI" 1049.36 3 42
+"445" 449 "masculino" "casad" 1977-07-28 2007-08-01 "AGENTE ADM." 1049.36 3 42
+"446" 522 "feminino" "casad" 1977-07-31 2008-01-02 "AG. COM. SAÚDE" 1267.55 3 42
+"447" 108 "feminino" "casad" 1977-10-04 1999-07-01 "PROFESSOR" 4099.18 2 42
+"448" 557 "masculino" "casad" 1977-11-03 2009-09-23 "SUPORT. PEDAGÓGICO" 3564.52 2 42
+"449" 467 "masculino" "solteir" 1977-12-06 2007-08-20 "SUPORT. PEDAGÓGICO" 3734.26 0 42
+"450" 226 "feminino" "solteir" 1977-12-28 2001-05-02 "AUX.SERV.GER." 1097.09 2 42
+"451" 742 "feminino" "divorciad" 1978-01-26 2017-02-23 "ASSIT. SOCIAL" 1000 0 41
+"452" 29 "feminino" "solteir" 1978-01-28 1998-01-01 "AUX. SERV. GER." 1144.8 1 41
+"453" 548 "masculino" "casad" 1978-01-30 2009-02-05 "ATEND. CONSULT. ODONT" 1001.73 3 41
+"454" 679 "masculino" "solteir" 1978-02-05 2015-05-05 "AUX. SERV. GER." 3586.79 2 41
+"455" 34 "feminino" "casad" 1978-02-06 1998-01-01 "ASSIST. SERV." 1144.82 2 41
+"456" 519 "feminino" "casad" 1978-02-19 2008-01-02 "AG. COM. SAÚDE" 1216.82 2 41
+"457" 416 "feminino" "solteir" 1978-02-22 2005-02-21 "AUX. SERV. GER." 1049.36 0 41
+"458" 67 "feminino" "solteir" 1978-03-06 1998-01-01 "ASSIST. SERVIÇO" 1144.8 0 41
+"459" 358 "masculino" "uniaoestavel" 1978-03-14 2003-02-03 "GARI" 1097.09 3 41
+"460" 660 "feminino" "solteir" 1978-05-18 2015-04-20 "PROFESSORA" 2694.27 1 41
+"461" 109 "masculino" "casad" 1978-05-25 1999-07-05 "SEC. DE ESCOLAS" 1647.09 3 41
+"462" 342 "masculino" "solteir" 1978-05-30 2003-02-03 "GARI" 1038.55 2 41
+"463" 693 "feminino" "casad" 1978-06-02 2015-08-31 "AUX. SERV. GER." 954 2 41
+"464" 627 "feminino" "casad" 1978-06-05 2012-02-01 "AG. COM. SAÚDE" 1064.73 2 41
+"465" 606 "feminino" "solteir" 1978-06-11 2010-11-08 "GARI" 1001.73 3 41
+"466" 210 "feminino" "solteir" 1978-06-29 2001-02-09 "PROFESSOR" 3586.82 2 41
+"467" 110 "feminino" "solteir" 1978-07-18 1999-09-30 "AG. COM. SAÚDE" 1267.5 0 41
+"468" 316 "feminino" "solteir" 1978-07-19 2002-05-20 "AUX. ESTATÍSTICA" 1097.09 0 41
+"469" 150 "feminino" "solteir" 1978-07-21 2001-02-09 "PROFESSORA" 3742.73 1 41
+"470" 98 "feminino" "solteir" 1978-07-29 1998-05-25 "AG. COM. SAÚDE" 1216.82 1 41
+"471" 138 "masculino" "solteir" 1978-07-30 2001-02-09 "PROFESSOR" 3742.73 0 41
+"472" 280 "masculino" "uniaoestavel" 1978-08-03 2001-08-09 "OPERADOR DE MICRO" 1097.09 2 41
+"473" 206 "masculino" "uniaoestavel" 1978-08-06 2001-02-09 "PROFESSOR" 3742.73 3 41
+"474" 287 "masculino" "casad" 1978-08-08 2001-08-10 "TEC. GESSO HOSPIT." 1144.82 2 41
+"475" 261 "feminino" "solteir" 1978-08-10 2001-05-08 "AUX. SERV. GER." 1097.09 0 41
+"476" 603 "masculino" "uniaoestavel" 1978-08-21 2010-11-08 "GARI" 1001.73 3 41
+"477" 490 "feminino" "casad" 1978-08-25 2007-09-03 "GARI" 1049.36 2 41
+"478" 579 "feminino" "casad" 1978-09-25 2010-03-01 "AUX. SERV. GER." 1001.73 3 41
+"479" 538 "masculino" "casad" 1978-10-03 2008-09-09 "FISIOTERAPEUTA" 1100 2 41
+"480" 576 "feminino" "solteir" 1978-10-27 2010-03-01 "AUX. SERV. GER." 1001.73 1 41
+"481" 183 "masculino" "casad" 1978-11-04 2001-02-09 "PROFESSOR" 3415.99 3 41
+"482" 121 "masculino" "casad" 1978-11-13 2001-01-05 "AG. PORTARIA" 1097.09 3 41
+"483" 573 "masculino" "solteir" 1978-11-16 2010-02-08 "PROFESSOR" 2357.45 0 41
+"484" 213 "feminino" "solteir" 1978-12-07 2001-02-09 "PROFESSOR" 3742.73 0 41
+"485" 447 "feminino" "divorciad" 1978-12-14 2006-12-05 "AUXILIAR DE SERVIÇOS GERAIS" 1067.97 2 41
+"486" 526 "feminino" "solteir" 1978-12-25 2008-01-21 "TEC. EM ENFERMAGEM" 1049.36 1 41
+"487" 363 "masculino" "solteir" 1978-12-28 2003-02-03 "GARI" 1097.09 0 41
+"488" 676 "feminino" "casad" 1978-12-28 2015-05-04 "AUX. SERV. GER." 0 0 41
+"489" 349 "masculino" "divorciad" 1979-01-02 2003-02-03 "GARI" 1097.09 1 41
+"490" 289 "feminino" "casad" 1979-01-11 2001-08-10 "SEC. DE ESCOLAS" 0 2 41
+"491" 120 "masculino" "solteir" 1979-02-12 2001-01-04 "AUX. ESTATÍSTICA" 1574.09 0 40
+"492" 84 "masculino" "casad" 1979-02-26 1998-01-05 "TEC. RAIO X" 1144.82 2 40
+"493" 163 "feminino" "solteir" 1979-03-07 2001-02-09 "PROFESSORA" 3415.99 1 40
+"494" 749 "feminino" "solteir" 1979-03-21 2003-04-14 "SEC. DE ESCOLAS" 1097.09 0 40
+"495" 383 "feminino" "uniaoestavel" 1979-04-16 2003-10-31 "AG. COM. SAÚDE" 1166.09 3 40
+"496" 133 "feminino" "solteir" 1979-04-19 2001-02-09 "PROFESSORA" 3742.73 1 40
+"497" 125 "feminino" "uniaoestavel" 1979-04-27 2001-01-09 "AUX. SERV. GER." 1097.09 3 40
+"498" 669 "masculino" "solteir" 1979-05-05 2015-05-04 "AUX. SERV. GER." 954 3 40
+"499" 589 "feminino" "solteir" 1979-05-13 2010-07-01 "SEC. DE ESCOLAS" 1001.7 0 40
+"500" 508 "feminino" "casad" 1979-05-16 2007-10-01 "GARI" 1049.36 3 40
+"501" 142 "feminino" "uniaoestavel" 1979-05-24 2001-02-09 "PROFESSORA" 4491.27 4 40
+"502" 658 "masculino" "solteir" 1979-05-26 2015-04-17 "AGENTE DE ENDEMIAS" 1014 1 40
+"503" 320 "masculino" "uniaoestavel" 1979-05-29 2002-06-23 "AG. COM. SAÚDE" 1115.36 3 40
+"504" 639 "masculino" "uniaoestavel" 1979-05-29 2015-04-06 "PROFESSOR" 2245.18 3 40
+"505" 437 "feminino" "solteir" 1979-06-07 2006-12-01 "AUXILIAR DE CONTABILIDADE" 1505.79 0 40
+"506" 160 "masculino" "solteir" 1979-06-10 2001-02-09 "PROFESSOR" 3742.73 1 40
+"507" 657 "feminino" "casad" 1979-06-11 2015-04-13 "PROFESSORA" 2694.27 2 40
+"508" 512 "feminino" "uniaoestavel" 1979-06-12 2007-11-01 "OPERADOR DE MICRO" 1049.36 2 40
+"509" 33 "feminino" "uniaoestavel" 1979-06-16 1998-01-01 "ASSIST. SERV." 1144.82 2 40
+"510" 392 "feminino" "casad" 1979-06-25 2004-01-28 "AUX. SERV. GER." 1049.36 2 40
+"511" 286 "masculino" "casad" 1979-06-28 2001-08-10 "TEC. RAIO X" 1144.82 3 40
+"512" 76 "feminino" "uniaoestavel" 1979-08-31 1998-01-01 "PROFESSOR" 3742.73 2 40
+"513" 167 "masculino" "uniaoestavel" 1979-09-23 2001-02-09 "PROFESSOR" 3586.79 1 40
+"514" 95 "feminino" "divorciad" 1979-09-30 1998-05-25 "AG. COM. SAÚDE" 1267.55 0 40
+"515" 584 "feminino" "casad" 1979-10-01 2010-05-03 "RECEP/TELEFONISTA" 1001.73 2 40
+"516" 621 "masculino" "solteir" 1979-10-09 2012-02-01 "AGENTE DE ENDEMIAS" 1064.73 0 40
+"517" 466 "feminino" "solteir" 1979-10-29 2007-08-20 "SUPORT. PEDAGÓGICO" 3111.88 1 40
+"518" 415 "feminino" "uniaoestavel" 1979-11-01 2005-02-21 "AUX. SERV. GER." 1049.36 2 40
+"519" 126 "feminino" "solteir" 1979-11-13 2001-01-10 "AUX. SERV. GER." 1097.09 2 40
+"520" 615 "feminino" "uniaoestavel" 1979-11-13 2011-03-01 "RECEP/TELEFONISTA" 1001.73 2 40
+"521" 575 "masculino" "divorciad" 1979-11-23 2010-02-22 "AUX. BIBLIOTECA" 1001.73 1 40
+"522" 224 "feminino" "divorciad" 1979-12-15 2001-04-24 "AUX. ENFERMAGEM" 1192.55 1 40
+"523" 451 "masculino" "solteir" 1980-01-03 2007-08-01 "FISCAL DE TRIBUTOS" 1049.36 0 40
+"524" 290 "feminino" "solteir" 1980-02-07 2001-08-10 "SEC. DE ESCOLAS" 0 1 39
+"525" 207 "feminino" "casad" 1980-02-08 2001-02-09 "PROFESSOR" 3742.73 2 39
+"526" 260 "feminino" "casad" 1980-03-07 2001-05-08 "AUX. SERV. GER." 1144.82 3 39
+"527" 135 "masculino" "divorciad" 1980-03-09 2001-02-09 "PROFESSOR" 3415.99 0 39
+"528" 72 "masculino" "casad" 1980-03-27 1998-01-01 "PROFESSOR" 1394.8 3 39
+"529" 578 "feminino" "uniaoestavel" 1980-04-16 2010-03-01 "AUX. SERV. GER." 1001.73 2 39
+"530" 311 "feminino" "casad" 1980-05-03 2002-02-18 "PROFESSORA" 3415.99 2 39
+"531" 132 "feminino" "solteir" 1980-05-09 2001-02-09 "PROFESSORA" 3416 1 39
+"532" 551 "feminino" "solteir" 1980-05-16 2009-02-10 "ATEND. CONSULT." 1551.7 1 39
+"533" 189 "feminino" "solteir" 1980-06-15 2001-02-09 "PROFESSOR" 3415.99 0 39
+"534" 571 "feminino" "solteir" 1980-07-13 2010-02-01 "AG. COM. SAÚD" 1064.73 0 39
+"535" 583 "feminino" "uniaoestavel" 1980-07-21 2010-05-03 "AUX. DE BIBLIOTECA" 1001.7 2 39
+"536" 541 "feminino" "casad" 1980-07-27 2009-01-07 "AGENTE ADM." 1001.73 2 39
+"537" 187 "feminino" "divorciad" 1980-08-06 2001-02-09 "PROFESSOR" 3586.79 1 39
+"538" 425 "feminino" "casad" 1980-09-02 2005-03-01 "AUX. ESTATÍSTICA" 1049.36 3 39
+"539" 258 "feminino" "solteir" 1980-09-07 2001-05-08 "AUX. SERV. GER." 1097.09 3 39
+"540" 523 "feminino" "divorciad" 1980-10-24 2008-01-04 "ASSIST. SOCIAL" 1100 0 39
+"541" 650 "feminino" "solteir" 1980-10-25 2015-04-06 "PROFESSOR" 2694.27 4 39
+"542" 409 "feminino" "uniaoestavel" 1980-12-22 2005-02-01 "PROFESSOR" 3111.88 3 39
+"543" 440 "feminino" "casad" 1981-01-13 2006-12-01 "TEC. EM CONTABILIDADE" 1433.55 2 39
+"544" 635 "feminino" "solteir" 1981-01-29 2015-04-06 "PROFESSORA" 2694.27 0 38
+"545" 225 "feminino" "solteir" 1981-02-02 2001-05-02 "AUX. SERV. GER." 1097.09 0 38
+"546" 379 "feminino" "solteir" 1981-02-12 2003-10-31 "AG. COM. SAÚDE" 1166.09 0 38
+"547" 382 "feminino" "casad" 1981-02-26 2003-10-31 "AG. COM. SAÚDE" 1166.09 4 38
+"548" 336 "masculino" "casad" 1981-03-08 2003-02-03 "GARI" 1097.09 2 38
+"549" 277 "masculino" "uniaoestavel" 1981-03-12 2001-06-23 "ENFERMEIRO" 1350 3 38
+"550" 348 "masculino" "solteir" 1981-03-16 2003-02-03 "GARI" 1097.09 1 38
+"551" 598 "feminino" "divorciad" 1981-03-25 2010-10-01 "GARI" 1001.73 3 38
+"552" 337 "masculino" "solteir" 1981-04-18 2003-02-03 "GARI" 1097.09 0 38
+"553" 423 "feminino" "uniaoestavel" 1981-04-18 2005-03-01 "SUPORTE PEDAGÓGICO" 3111.88 2 38
+"554" 452 "feminino" "solteir" 1981-05-07 2007-08-01 "SUPORT. PEDAGÓGICO" 3111.88 0 38
+"555" 574 "feminino" "casad" 1981-05-23 2010-02-08 "PROFESSORA" 2828.98 2 38
+"556" 596 "feminino" "casad" 1981-05-24 2010-09-01 "AUX. SANEAMENTO" 1478.7 2 38
+"557" 509 "feminino" "casad" 1981-06-24 2007-10-01 "COVEIRO" 1049.36 2 38
+"558" 498 "feminino" "casad" 1981-06-29 2007-09-07 "TEC. EM ENFERMAGEM" 1049.36 2 38
+"559" 470 "feminino" "uniaoestavel" 1981-07-08 2007-09-03 "ENFERMEIRA " 1300 3 38
+"560" 497 "feminino" "uniaoestavel" 1981-08-14 2007-09-03 "TEC. EM ENFERMAGEM" 1049.36 1 38
+"561" 279 "masculino" "casad" 1981-09-21 2001-08-09 "OPERADOR DE MICRO" 1097.09 2 38
+"562" 496 "feminino" "casad" 1981-11-25 2007-09-03 "ENFERMEIRA" 1300 3 38
+"563" 737 "feminino" "sepjudicialmente" 1981-12-05 2016-05-16 "TEC. ENFERMAGEM" 954 2 38
+"564" 529 "feminino" "casad" 1981-12-24 2008-02-07 "SUPERVISORA ESCOLAR" NA 1 38
+"565" 719 "masculino" "casad" 1982-01-09 2016-03-01 "MOTORISTA" 954 2 38
+"566" 685 "masculino" "solteir" 1982-03-19 2015-05-18 "ODONTÓLOGO" 1000 0 37
+"567" 272 "feminino" "casad" 1982-05-15 2001-05-15 "PROFESSORA" 4099.18 2 37
+"568" 431 "masculino" "uniaoestavel" 1982-05-18 2005-04-06 "AUX. ESTATÍSTICA" 1049.36 2 37
+"569" 623 "masculino" "uniaoestavel" 1982-05-22 2012-02-01 "AGENTE DE ENDEMIAS" 1064.73 2 37
+"570" 718 "masculino" "solteir" 1982-05-27 2016-02-29 "PROFESSOR" 2245.18 0 37
+"571" 616 "feminino" "solteir" 1982-05-31 2011-03-14 "FARMAC/BIOQUÍMICO" 1050 1 37
+"572" 618 "masculino" "solteir" 1982-06-13 2012-02-01 "AG. COM. SAÚDE" 1166.09 0 37
+"573" 385 "masculino" "casad" 1982-07-19 2003-11-03 "AG. COM. SAÚDE" 1166.09 1 37
+"574" 393 "feminino" "solteir" 1982-09-11 2004-02-02 "PROFESSORA" 3267.45 2 37
+"575" 168 "masculino" "casad" 1982-09-29 2001-02-09 "PROFESSOR" 3415.99 3 37
+"576" 401 "masculino" "casad" 1982-09-29 2004-03-09 "OPERADOR DE MICRO" 1049.36 3 37
+"577" 524 "feminino" "casad" 1982-09-29 2008-01-20 "AG. COM. SAÚDE" 1216.82 3 37
+"578" 275 "feminino" "casad" 1982-11-19 2001-06-01 "AG. COM. SAÚDE" 1216.82 3 37
+"579" 634 "masculino" "casad" 1982-11-21 2015-04-01 "AGENTE DE ENDEMIAS" 1014 3 37
+"580" 532 "masculino" "uniaoestavel" 1982-12-16 2008-03-07 "MOTORISTA" 1088.64 3 37
+"581" 744 "masculino" "uniaoestavel" 1982-12-17 2017-03-02 "SEC. DE ESCOLAS" 954 3 37
+"582" 359 "feminino" "solteir" 1982-12-31 2003-02-03 "GARI" 1047.27 3 37
+"583" 482 "feminino" "solteir" 1983-01-05 2007-09-03 "TEC. ENFERMAGEM" 1049.36 0 37
+"584" 250 "feminino" "uniaoestavel" 1983-01-07 2001-05-08 "AUX. SERV. GER." 1097.09 2 37
+"585" 511 "feminino" "solteir" 1983-01-21 2007-11-01 "OPERADOR DE MICRO" 1049.36 0 37
+"586" 184 "feminino" "uniaoestavel" 1983-02-10 2001-02-09 "PROFESSOR" 3416 3 36
+"587" 641 "feminino" "solteir" 1983-02-19 2015-04-06 "PROFESSORA" 2694.27 1 36
+"588" 443 "masculino" "solteir" 1983-02-23 2006-12-01 "VIGILANTE" 1088.64 1 36
+"589" 444 "masculino" "solteir" 1983-03-15 2006-12-05 "MENSAGEIRO " 1093.91 0 36
+"590" 501 "feminino" "solteir" 1983-03-26 2007-10-01 "GARI" 1081.11 3 36
+"591" 695 "feminino" "casad" 1983-03-30 2015-09-01 "AUX. SERV. GER." 104.94 1 36
+"592" 729 "masculino" "solteir" 1983-04-15 2016-04-01 "TÉCNICO EM EDIFICAÇÕES" 1000 1 36
+"593" 586 "feminino" "divorciad" 1983-04-30 2010-05-11 "AUX.SERV.GER." 1001.73 2 36
+"594" 694 "feminino" "uniaoestavel" 1983-05-02 2015-09-01 "TEC. SAÚDE BUCAL" 954 3 36
+"595" 518 "feminino" "uniaoestavel" 1983-05-18 2008-01-02 "AG. COM. SAÚDE" 1166.09 2 36
+"596" 439 "feminino" "casad" 1983-06-25 2006-12-01 "RECEPCIONISTA" 1116.55 3 36
+"597" 613 "feminino" "solteir" 1983-06-28 2011-01-04 "AUX. SERV. GER." 1001.7 0 36
+"598" 278 "feminino" "uniaoestavel" 1983-07-07 2001-07-09 "SEC. DE ESCOLAS" 1097.09 2 36
+"599" 599 "feminino" "solteir" 1983-08-09 2010-10-01 "ALMOXARIFADO" 1001.7 0 36
+"600" 561 "masculino" "casad" 1983-08-20 2010-01-07 "AGENTE DE ENDEMIAS" 1064.73 1 36
+"601" 405 "masculino" "casad" 1983-12-02 2004-06-23 "AG. COM. SAÚDE" 1115.36 3 36
+"602" 506 "feminino" "solteir" 1984-01-04 2007-10-01 "GARI" 1182.73 3 36
+"603" 376 "masculino" "uniaoestavel" 1984-01-12 2003-10-31 "AG. COM. SAÚD" 1166.09 2 36
+"604" 499 "feminino" "solteir" 1984-02-11 2007-09-10 "AUX.SERV.GER." 1049.4 2 35
+"605" 689 "feminino" "solteir" 1984-03-05 2015-06-01 "AUX. SERV. GER." 954 1 35
+"606" 318 "feminino" "casad" 1984-03-10 2002-06-22 "AG. COM. SAÚDE" 1166.09 3 35
+"607" 655 "feminino" "casad" 1984-03-18 2015-04-13 "PROFESSORA" 2694.27 1 35
+"608" 743 "masculino" "casad" 1984-04-05 2017-03-01 "CONDUTOR SOCORRISTA" 954 1 35
+"609" 612 "masculino" "casad" 1984-04-17 2011-01-03 "GARI" 947.55 2 35
+"610" 384 "masculino" "solteir" 1984-05-04 2003-10-31 "AG. COM. SAÚDE" 115.4 0 35
+"611" 491 "masculino" "solteir" 1984-07-14 2007-09-03 "GARI" 1049.36 0 35
+"612" 681 "feminino" "solteir" 1984-07-25 2015-05-13 "ASSISTENTE DE SALA" 954 1 35
+"613" 325 "feminino" "casad" 1984-09-01 2002-11-01 "AUX. SERV. GER." 0 0 35
+"614" 715 "masculino" "solteir" 1984-09-21 2016-02-29 "INSPETOR ESCOLAR" 954 0 35
+"615" 608 "feminino" "solteir" 1984-10-04 2010-11-11 "GARI" 1001.73 3 35
+"616" 717 "feminino" "solteir" 1984-10-16 2016-02-29 "COZINHEIRA" 954 2 35
+"617" 438 "feminino" "casad" 1984-11-21 2006-12-01 "AUXILIAR DE SERVIÇOS GERAIS" 1068 2 35
+"618" 488 "feminino" "uniaoestavel" 1984-11-25 2007-09-03 "ENFERMEIRO" 1100 3 35
+"619" 648 "masculino" "casad" 1984-12-04 2015-04-06 "MÉDICO" NA 3 35
+"620" 344 "masculino" "solteir" 1985-01-07 2003-02-03 "GARI" 1097.09 3 35
+"621" 476 "feminino" "solteir" 1985-01-14 2007-09-03 "TEC. EM ENFERMAGEM" 1049.36 0 35
+"622" 525 "masculino" "casad" 1985-01-17 2008-01-21 "ODONTÓLOGO" 1300 2 35
+"623" 335 "masculino" "solteir" 1985-01-30 2003-02-03 "GARI" 1097.09 1 34
+"624" 478 "masculino" "casad" 1985-02-19 2007-09-03 "GARI" 1049.36 3 34
+"625" 661 "masculino" "uniaoestavel" 1985-03-08 2015-04-23 "ASSISTENTE DE SALA" 954 1 34
+"626" 620 "masculino" "solteir" 1985-03-14 2012-02-01 "AG. ENDEMIAS" 1115.36 0 34
+"627" 622 "masculino" "uniaoestavel" 1985-03-16 2012-02-01 "AG. COM. SAÚDE" 1064.73 2 34
+"628" 489 "feminino" "casad" 1985-03-19 2007-09-03 "ENFERMEIRO" 1100 1 34
+"629" 632 "masculino" "solteir" 1985-03-24 2012-02-01 "AGENTE DE ENDEMIAS" 1064.73 0 34
+"630" 387 "masculino" "uniaoestavel" 1985-04-09 2004-01-02 "GARI" 823.91 3 34
+"631" 388 "masculino" "uniaoestavel" 1985-05-19 2004-01-02 "GARI" 1049.36 4 34
+"632" 592 "feminino" "solteir" 1985-07-14 2010-07-01 "AUX. ADMINISTRATIVO" 1551.73 0 34
+"633" 593 "feminino" "solteir" 1985-07-14 2010-07-01 "FISIOTERAPEUTA" 1000 0 34
+"634" 647 "masculino" "casad" 1985-07-14 2015-04-06 "AUX. SERV. GER." 954 1 34
+"635" 378 "masculino" "casad" 1985-07-15 2003-10-31 "AG. COM. SAÚDE" 1166.09 2 34
+"636" 585 "masculino" "casad" 1985-07-20 2010-05-03 "GARI" 1001.73 4 34
+"637" 728 "masculino" "solteir" 1985-08-09 2016-04-01 "AG. PORTARIA" 954 2 34
+"638" 677 "masculino" "casad" 1985-09-22 2015-05-04 "MÉDICO" 1437 4 34
+"639" 713 "masculino" "casad" 1985-10-08 2016-02-29 "MOTORISTA" 954 2 34
+"640" 468 "feminino" "uniaoestavel" 1985-10-13 2007-08-21 "AUX. SERV. GER." 1049.36 3 34
+"641" 546 "feminino" "casad" 1985-11-01 2009-01-07 "FISIOTERAPEUTA" 1250 2 34
+"642" 701 "feminino" "uniaoestavel" 1985-11-10 2015-10-14 "AUX. SERV. GER." 954 1 34
+"643" 406 "masculino" "uniaoestavel" 1985-12-22 2004-06-28 "AG. COM. SAÚD" 1115.36 2 34
+"644" 727 "feminino" "casad" 1986-01-25 2016-04-01 "ENFERMEIRA " 1000 2 33
+"645" 668 "masculino" "solteir" 1986-01-26 2015-05-04 "ODONTÓLOGO" 1200 0 33
+"646" 537 "feminino" "casad" 1986-01-28 2008-06-09 "AGENTE ADM." 1049.36 2 33
+"647" 591 "feminino" "casad" 1986-02-16 2010-07-01 "AUX. ADMINISTRATIVO" 1001.73 3 33
+"648" 746 "masculino" "casad" 1986-02-23 2017-03-02 "MOTORISTA" 954 4 33
+"649" 637 "masculino" "solteir" 1986-03-03 2015-04-06 "PROFESSOR" 2694.27 0 33
+"650" 739 "feminino" "solteir" 1986-03-15 2016-08-01 "AGENTE ADM." 954 0 33
+"651" 435 "feminino" "uniaoestavel" 1986-03-28 2005-12-20 "AG. COM. SAÚDE" 1115.36 2 33
+"652" 712 "feminino" "casad" 1986-04-04 2016-02-29 "COZINHEIRA" 954 3 33
+"653" 436 "feminino" "solteir" 1986-04-11 2006-12-01 "AUXILIAR ADMINISTRATIVO" 1226.72 0 33
+"654" 730 "masculino" "solteir" 1986-05-07 2016-04-05 "AG. PORTARIA" 954 2 33
+"655" 533 "feminino" "casad" 1986-05-09 2008-03-07 "AGENTE ADMINISTRATIVO" 1667.64 2 33
+"656" 554 "masculino" "solteir" 1986-05-16 2009-06-04 "OPERADOR DE MICRO" 1001.73 0 33
+"657" 626 "feminino" "uniaoestavel" 1986-06-11 2012-02-01 "AGENTE DE ENDEMIAS" 1064.73 3 33
+"658" 441 "masculino" "uniaoestavel" 1986-06-23 2006-12-01 "DIGITADOR" 1365.27 1 33
+"659" 528 "feminino" "casad" 1986-06-23 2008-02-07 "FONOAUDIÒLOGA" 1300 2 33
+"660" 543 "feminino" "casad" 1986-07-15 2009-01-07 "ATEND. CONSULT. ODONT" 1001.73 3 33
+"661" 702 "feminino" "casad" 1986-08-13 2015-11-03 "AUX. SERV. GER." 954 3 33
+"662" 738 "feminino" "solteir" 1986-08-19 2016-06-07 "AUX.SERV.GER." 954 0 33
+"663" 629 "masculino" "solteir" 1986-08-29 2012-02-01 "AG. DE ENDEMIAS" 1064.73 0 33
+"664" 654 "feminino" "solteir" 1986-12-09 2015-04-09 "PROFESSORA" 2694.27 0 33
+"665" 516 "feminino" "uniaoestavel" 1986-12-22 2007-11-06 "AUX. SERV. GER." 1049.36 4 33
+"666" 706 "feminino" "casad" 1987-01-22 2016-02-01 "ENFERMEIRO" 1000 1 33
+"667" 748 "feminino" "casad" 1987-02-07 2017-04-03 "ASSIST. SALA" 954 2 32
+"668" 434 "masculino" "casad" 1987-04-14 2005-12-20 "AG. COM. SAÚDE" 1115.36 0 32
+"669" 448 "feminino" "solteir" 1987-04-28 2006-12-05 "RECEPCIONISTA" 1121.36 0 32
+"670" 540 "feminino" "casad" 1987-05-14 2009-01-07 "AGENTE ADM." 1001.73 2 32
+"671" 640 "masculino" "casad" 1987-05-15 2015-04-06 "PROFESSOR" 2694.27 1 32
+"672" 562 "masculino" "casad" 1987-07-06 2010-01-07 "AGENTE DE ENDEMIAS" 1064.73 1 32
+"673" 733 "feminino" "solteir" 1987-07-30 2016-04-28 "PROFESSOR" 2245.18 0 32
+"674" 731 "masculino" "casad" 1987-08-20 2016-04-12 "INSPETOR ESCOLAR" 954 1 32
+"675" 710 "masculino" "solteir" 1987-08-27 2016-02-15 "OPERADOR DE MICRO" 954 0 32
+"676" 709 "masculino" "uniaoestavel" 1987-09-15 2016-02-15 "MOTORISTA" 954 1 32
+"677" 465 "feminino" "solteir" 1987-10-15 2007-08-17 "NUTRICIONISTA" 0 0 32
+"678" 624 "masculino" "solteir" 1987-10-21 2012-02-01 "AGENTE DE ENDEMIAS" 1064.73 0 32
+"679" 628 "masculino" "solteir" 1987-10-22 2012-02-01 "AG. COM. SAÚDE" 1064.73 0 32
+"680" 723 "masculino" "solteir" 1987-12-28 2016-03-02 "INSPETOR ESCOLAR" 954 0 32
+"681" 492 "masculino" "solteir" 1988-01-29 2007-09-03 "GARI" 763.18 3 31
+"682" 549 "feminino" "solteir" 1988-02-13 2009-02-05 "ATEND. DE CONSULT. ODONT." 1001.73 0 31
+"683" 570 "masculino" "solteir" 1988-02-15 2010-01-19 "AG. PORTARIA" 1001.73 0 31
+"684" 564 "masculino" "casad" 1988-03-11 2010-01-07 "AGENTE DE ENDEMIAS" 1064.73 1 31
+"685" 605 "masculino" "divorciad" 1988-03-13 2010-11-08 "GARI" 956.18 2 31
+"686" 652 "feminino" "casad" 1988-04-10 2015-04-07 "INSPETOR ESCOLAR" NA 1 31
+"687" 707 "masculino" "casad" 1988-04-18 2016-02-01 "CONDUTOR SOCORRISTA" 954 3 31
+"688" 556 "masculino" "solteir" 1988-04-28 2009-09-08 "RECEP/TELEFONISTA" 1001.73 0 31
+"689" 432 "feminino" "solteir" 1988-05-14 2005-04-06 "COZINHEIRA" 954 1 31
+"690" 630 "feminino" "casad" 1988-05-18 2012-02-01 "AG. COM. SAÚDE" 1064.73 1 31
+"691" 666 "feminino" "casad" 1988-06-28 2015-05-04 "ASSIST. SALA" 954 2 31
+"692" 692 "feminino" "solteir" 1988-07-04 2015-08-03 "TEC. EM SAÚDE BUCAL" 954 0 31
+"693" 708 "masculino" "solteir" 1988-08-07 2016-02-01 "AG. PORTARIA" 954 0 31
+"694" 663 "feminino" "solteir" 1988-08-13 2015-05-04 "TEC. ENFERMAGEM" 954 0 31
+"695" 607 "masculino" "solteir" 1988-09-23 2010-11-09 "GARI" 1001.7 0 31
+"696" 617 "feminino" "casad" 1988-09-25 2011-06-20 "ATEND. CONSULT. ODONT." 1001.73 2 31
+"697" 502 "masculino" "solteir" 1988-12-06 2007-10-01 "GARI" 1049.36 1 31
+"698" 581 "feminino" "uniaoestavel" 1988-12-15 2010-03-02 "RECEP/TELEFONISTA" 1001.7 1 31
+"699" 721 "masculino" "solteir" 1989-01-14 2016-03-01 "AG. PORTARIA" 954 0 31
+"700" 683 "feminino" "solteir" 1989-02-01 2015-05-18 "AG. COM. SAÚD" 1014 0 30
+"701" 735 "masculino" "solteir" 1989-06-10 2016-05-04 "AG. PORTARIA" 1445 1 30
+"702" 734 "masculino" "casad" 1989-06-19 2016-05-02 "MOTORISTA" 954 0 30
+"703" 560 "feminino" "uniaoestavel" 1989-08-18 2010-01-07 "RECEP/TELEF." 1001.73 2 30
+"704" 703 "feminino" "solteir" 1989-08-23 2015-12-01 "NUTRICIONISTA" 1000 0 30
+"705" 649 "feminino" "solteir" 1989-09-28 2015-04-06 "PROFESSOR" 2694.27 1 30
+"706" 646 "masculino" "solteir" 1989-10-31 2015-04-06 "ODONTÓLOGO" 1200 0 30
+"707" 582 "masculino" "solteir" 1989-11-08 2010-05-03 "TEC. GESSO HOSPIT." 1001.73 0 30
+"708" 559 "feminino" "uniaoestavel" 1989-11-25 2009-11-15 "AGENTE DE ENDEMIAS" 1064.73 2 30
+"709" 691 "feminino" "solteir" 1989-11-30 2015-08-03 "ASSIST. SALA" 954 0 30
+"710" 699 "feminino" "solteir" 1989-12-27 2015-10-01 "NUTRICIONISTA" 1000 0 30
+"711" 704 "feminino" "solteir" 1990-02-09 2016-01-04 "ENFERMEIRO" 1550 0 29
+"712" 558 "masculino" "solteir" 1990-06-25 2009-11-15 "AG. COM. SAÚDE" 1064.73 0 29
+"713" 645 "feminino" "uniaoestavel" 1990-07-15 2015-04-06 "AG. COM. SAÚDE" 1014 3 29
+"714" 698 "masculino" "solteir" 1990-07-17 2015-09-28 "ASSIST. SALA" 954 0 29
+"715" 722 "feminino" "solteir" 1990-11-10 2016-03-01 "ENFERMEIRO" 1000 0 29
+"716" 643 "feminino" "solteir" 1990-12-06 2015-04-06 "ASSIST. SALA" 954 0 29
+"717" 671 "feminino" "solteir" 1990-12-27 2015-05-04 "PSICÓLOGO" 1000 0 29
+"718" 732 "masculino" "solteir" 1991-01-15 2016-04-19 "PROFESSOR" 2245.18 0 29
+"719" 726 "feminino" "solteir" 1991-02-14 2016-03-10 "FONOAUDIÓLOGO" 1000 0 28
+"720" 644 "feminino" "casad" 1991-04-22 2015-04-06 "PSICÓLOGA" 1200 1 28
+"721" 686 "feminino" "solteir" 1991-04-25 2015-05-19 "AUX. SERV. GER." 954 1 28
+"722" 633 "masculino" "casad" 1991-07-19 2013-12-02 "AG. COM. SAÚDE" 1064.73 2 28
+"723" 674 "feminino" "casad" 1991-08-04 2015-05-04 "AUX. SERV. GER." 954 3 28
+"724" 673 "feminino" "solteir" 1991-10-13 2015-05-04 "ASSIST. SOCIAL" 1000 0 28
+"725" 625 "masculino" "casad" 1991-10-19 2012-02-01 "AG. COM. SAÚDE" 1064.73 1 28
+"726" 724 "masculino" "casad" 1991-10-31 2016-03-03 "MOTORISTA" 954 2 28
+"727" 714 "masculino" "solteir" 1991-11-08 2016-02-29 "AG. PORTARIA" 954 0 28
+"728" 711 "masculino" "uniaoestavel" 1991-12-04 2016-02-25 "SEC. ESCOLAS" 954 1 28
+"729" 636 "masculino" "solteir" 1992-01-12 2015-04-06 "AG. COM. SAÚDE" 1014 0 28
+"730" 684 "masculino" "solteir" 1992-02-21 2015-05-18 "AG. COM. SAÚDE" 1014 0 27
+"731" 662 "feminino" "solteir" 1992-07-22 2015-04-25 "PSICÓLOGO" 1000 0 27
+"732" 665 "feminino" "solteir" 1992-09-10 2015-05-04 "ASSIST. SOCIAL" 1000 1 27
+"733" 688 "masculino" "solteir" 1992-09-25 2015-06-01 "AG. PORTARIA" 954 0 27
+"734" 675 "masculino" "solteir" 1992-09-28 2015-05-04 "INSPETOR ESCOLAR" 954 0 27
+"735" 740 "masculino" "solteir" 1992-12-12 2016-08-03 "OPERADOR DE MICRO" 954 0 27
+"736" 672 "masculino" "solteir" 1993-01-30 2015-05-04 "AG. COM. SAÚDE" 1014 0 26
+"737" 736 "masculino" "solteir" 1993-02-13 2016-05-08 "ENFERMEIRO" 1000 0 26
+"738" 720 "masculino" "solteir" 1993-07-12 2016-03-01 "AUX. SERV. GER." 954 0 26
+"739" 741 "masculino" "solteir" 1993-08-01 2016-08-08 "OPERADOR DE MICRO" 954 0 26
+"740" 745 "feminino" "casad" 1993-08-17 2017-03-02 "SEC. DE ESCOLAS" 954 1 26
+"741" 651 "feminino" "solteir" 1994-06-23 2015-04-06 "RECEPC/TELEFONISTA" NA 0 25
+"742" 670 "feminino" "solteir" 1995-04-14 2015-05-04 "SEC. ESCOLAS" 954 0 24
+"743" 656 "masculino" "solteir" 1995-06-21 2015-04-13 "AGENTE DE ENDEMIAS" 1014 0 24
+"744" 690 "feminino" "uniaoestavel" 1995-12-07 2015-07-28 "ASSISTENTE DE SALA" 954 1 24
+"745" 725 "feminino" "solteir" 1996-02-04 2016-03-07 "ASSIST. SALA" 954 0 23
+"746" 747 "masculino" "solteir" 1996-04-23 2017-03-02 "SEC. DE ESCOLAS" 953.73 0 23
+"747" 653 "masculino" "solteir" 1997-02-08 2015-04-08 "AGENTE DE ENDEMIAS" 1014 0 22
+"748" 682 "feminino" "solteir" 1997-02-19 2015-05-14 "AUX. SERV. GER." 954 0 22
+"749" 609 "feminino" "uniaoestavel" 1998-08-03 2010-11-12 "GARI" 1001.73 3 21

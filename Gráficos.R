@@ -11,7 +11,7 @@ head(base)
 str(base)
 
 # Vamos visualizar as distribuições das variáveis
-# tudo depende do tipo da variável, se ela é qualitativa ou quantitativa
+# Tudo dependerá do tipo da variável, se ela é qualitativa ou quantitativa
 # Se ela for qualitativa, vamos usar o gráfico de barras
 
 # Vamos visualizar um gráfico de barras par o sexo

@@ -1,7 +1,6 @@
 #### Estatística Descritiva ####
 
 # Importando os dados
-
 dados <- read.csv("dados.csv", header = TRUE, sep = "")
 
 # visualizando as 6 primeiras linhas

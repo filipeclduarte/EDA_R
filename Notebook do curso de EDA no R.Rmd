@@ -1,11 +1,12 @@
 ---
 title: "Análise Exploratória de Dados no R"
 author: "Filipe C. L. Duarte"
-date: "20 de julho de 2019"
+date: "27 de julho de 2019"
 output:
   html_document:
     toc: true
     toc_depth: 2
+    toc_float: true
     theme: paper
     df_print: paged
 ---
@@ -34,13 +35,133 @@ Primeiramente, iremos organizar os dados para, em seguida, introduzir as funçõ
 
 Após aprendermos a utilizar o `R` para estruturar os dados calcular as estatísticas descritivas, vamos entender como funciona o `ggplot2`, a melhor biblioteca para visualização de dados. 
 
-## 1. Data Wrangling
+# 1. Data Wrangling
 
-É o processo de organização, limpeza e estruturação dos dados. Normalmente, é um dos procedimentos mais trabalhosos, e acontece quando os dados apresentam informações incorretas para algumas observações (exemplos), ou quando faltam informações para alguns indivíduos ou para algumas variáveis. Além disso, as tabelas, muitas vezes, não estão estruturadas no modelo padrão, onde as linhas representam os indivíduos ou exemplos e as colunas configuram as variáveis ou características.  
+É o processo de organização, limpeza e estruturação dos dados. Normalmente, é um dos procedimentos mais trabalhosos e é implementado quando os dados apresentam informações incorretas para uma ou mais mais observações (exemplos), ou então quando faltam informações. Além disso, as tabelas, muitas vezes, não estão estruturadas no modelo padrão, onde cada linha representa um indivíduo (exemplo) e as colunas configuram as variáveis ou características dos indivíduos.  
 
-## 2. Estatística descritiva
+Dessa feita, vamos iniciar o nosso trabalho a partir de uma base de dados de participantes, na qualidade de ativos, de um plano de previdência. O arquivo foi denominado **BasePens.csv** e precisa ser importado para o `R`.
+Nossa base possui 749 pessoas e 8 variáveis tais quais:
 
-Quando você possuir dados estruturados e começar a analisá-los, você deve, primeiramente, descrevê-los, seja por meio das estatísticas descritivas ou por gráficos. Desse modo, você poderá observar as relações entre as variáveis selecionadas, sejam elas quantitativas ou qualitativas. Assim, o objetivo da análise exploratória de dados é responder perguntas como:
+- ID - representa a identificação do participante
+- SEXO - 1 para o sexo feminino, 2 para o masculino
+- ESTADO.CIVIL - 1 para solteiro(a); 2 para casado(a); 3 para viúvo(a); 4 para separado(a) judicialmente; 5 para divorciado(a); 6 para união estável; e 9 outros 
+- DATA.DE.NASCIMENTO.dd.mm.aaaa - data de nascimento do participante, no formato dd/mm/aaaa
+- DATA.DE.INGRESSO.NO.FUNDO.dd.mm.aaaa - data de ingresso no plano previdenciário, no formato dd/mm/aaaa
+- CARREIRA.ATUAL - função exercída (profissão)
+- BASE.DE.CALCULO.MENSAL - salário de contribuição para a previdência
+- NÚMERO.DE.DEPENDENTES - quantidade de dependentes do participante (elegíveis para pensão)
+
+Para importar a base pelo `R`, vamos usar a função `read.csv`.
+
+```{r, message = FALSE}
+dados <- read.csv2("BasePens.csv", sep = ";", header = TRUE)
+```
+
+Fizemos a utilização da função `read.csv2`, pois nossa base tinha sido salva com a virgula como separador decimal. Caso sua base esteja no modelo americano, isto é, com o ponto como o separador decimal, utilize a função `read.csv`.
+
+Agora vamos visualizar se a importação da base foi realizada de forma correta, através da função `str` que nos apresenta a estrutura dos dados.
+
+```{r}
+# estrutura dos dados
+str(dados)
+```
+
+Percebe-se que a importação foi um sucesso, contudo não podemos dizer o mesmo quanto à leitura. A variável `SEXO` e `ESTADO.CIVIL` foram importadas como número inteiro; a `DATA.DE.NASCIMENTO.dd.mm.aaaa...`, `DATA.DE.INGRESSO.NO.FUNDO.dd.mm.aaaa` foram importadas como *factor* que é o formato utilizado pelo `R` para trabalhar com dados qualitativos. 
+
+Antes de realizar os ajustes necessários, vamos visualizar as 6 primeiras linhas da base:
+
+```{r}
+# mostrar as 6 primeiras linhas
+head(dados)
+# visualizar o nome das variáveis (colunas)
+names(dados)
+```
+
+Vamos renomear as variáveis para que o processo de limpeza seja feito de maneira mais fácil, e em seguida vamos mostrar novamente os nomes, as 6 primeiras linhas e a estrutura dos dados: 
+
+```{r}
+# vamos renomear as variáveis
+names(dados) <- c("id", "sexo", "EstadoCivil", "DataNascimento", "DataIngresso", "carreira", "BaseCalculoMensal", "QntDependentes")
+
+# vendo novamente as variáveis
+names(dados)
+head(dados)
+str(dados)
+```
+
+O próximo passo será alterar o tipo das variáveis `sexo` `EstadoCivil` para `factor` e codificar corretamente as categorias: 
+
+```{r}
+# Vamos transformar a variável sexo para factor (qualitativa) 
+dados$sexo <- ifelse(dados$sexo == 1, "feminino", "masculino")
+dados$sexo <- as.factor(dados$sexo)
+
+# Vamos transformar a variável estado civil para factor
+dados$EstadoCivil <- ifelse(dados$EstadoCivil == 1, "solteir", 
+                            ifelse(dados$EstadoCivil == 2, "casad", 
+                                   ifelse(dados$EstadoCivil == 3, "viuv",
+                                          ifelse(dados$EstadoCivil == 4, "sepjudicialmente", 
+                                                 ifelse(dados$EstadoCivil == 5, "divorciad", 
+                                                        ifelse(dados$EstadoCivil == 6, "uniaoestavel", "outros"))))))
+
+# Transformando a variável estado civil para factor
+dados$EstadoCivil <- as.factor(dados$EstadoCivil)
+
+```
+
+Desejando visualizar novamente a estrutura dos dados e as 6 primeiras linhas, utilize a função `str` e `head`:
+
+```{r}
+str(dados)
+head(dados)
+```
+
+
+O segundo procedimento de estruturação da nossa base será transformar as variáveis `DataNascimento` e `DataIngresso` para um formato que o `R` entenda como uma data. Ao mesmo tempo, precisaremos calcular a idade atual dos participantes. Para tanto, vamos dizer ao `R` para criar uma variável com a data de hoje. Em seguida, iremos calcular a diferença, em anos, entre a data de hoje e a data de nascimento de cada participante do plano, transformando a variável `idade` para o tipo inteiro.
+
+```{r}
+# Datas de referência no R e data de hoje
+data_hoje <- Sys.Date()
+
+# Ajustando a data de ingresso e de nascimento
+dados$DataNascimento <- as.Date(dados$DataNascimento, format = "%d/%m/%Y")
+dados$DataIngresso <- as.Date(dados$DataIngresso, "%d/%m/%Y")
+
+# Calculando a idade dos participantes do plano
+dados$idade <- as.numeric(round((data_hoje - dados$DataNascimento)/365,0))
+str(dados)
+```
+
+Agora é sua vez, calcule o tempo de contribuição, em anos, para cada participante e salve como uma variável da sua base com o nome `temposervico`. Após, mostre a estrutura dos dados e as 6 primeiras linhas da base.
+
+```{r}
+##### Exercício: Calcule a quantidade de tempo de serviço passado para os participantes
+
+```
+
+Até agora foi moleza, certo? Agora, crie uma variável que represente o salário de contribuição anual dos participantes do plano e a adicione à base, considerando que todos recebem o 13º salário. 
+
+```{r}
+##### Exercício: Crie uma coluna (variável) representando a Base de Cálculo Anual, considerando o 13º salário
+
+```
+
+Finalizaremos o procedimento de *data wrangling*, exportando, por meio da função `write.table`, a base estruturada para um arquivo com extensão **.csv** com o nome "dados.csv".  
+
+```{r}
+# Vamos salvar essa planilha final 
+write.table(x = dados, file = "dados.csv")
+```
+
+
+#### Referências
+
+* Kabacoff, R. I. **R in Action: Data Analysis and graphics with R**. Second Edition. Manning Publications Co, 2015.
+* [Wickham, H. Grolemund, G. **R for Data Science**](https://r4ds.had.co.nz/)
+
+# 2. Análise Exploratória de Dados
+
+Quando você possuir dados estruturados e for analisá-los, você deve, primeiramente, descrevê-los, seja por meio das estatísticas descritivas ou por gráficos. Desse modo, você poderá observar as relações entre as variáveis selecionadas, sejam elas quantitativas ou qualitativas. Assim, o objetivo da análise exploratória de dados é responder perguntas como:
 
 * Qual a correlação entre o PIB e a expectativa de vida? 
 * Como é a família padrão atualmente? Em média, quantos filhos? Qual a porcentagem de pessoas casadas?
@@ -51,12 +172,27 @@ Nesta seção, vamos revisar algumas funções no R para calcular as estatístic
 
 Quem precisar se aprofundar neste conteúdo, recomendo que busque os seguintes materiais:
 
+#### Referências
+
 * [Bussab, W. D. O.; Morettin, P. A. **Estatística Básica**. Saraiva, 9ª ed. 2017.](https://www.google.com/search?ei=h6AoXYOIJq665OUPo4OLuAY&q=Morettin+e+Bussab+Estat%C3%ADstica+B%C3%A1sica&oq=Morettin+e+Bussab+Estat%C3%ADstica+B%C3%A1sica&gs_l=psy-ab.3..35i39j0l9.6783.12273..12415...0.0..0.404.6229.2-23j0j1......0....1..gws-wiz.......0i71.vPERBmd3PCA)
-* [Magalhães, M. N.; Lima, A. C. P. **Noções de Probabilidade e Estatística. Edusp, 7ª ed., 2010](http://www.edusp.com.br/loja/produto/356/nocoes-de-probabilidade-e-estatistica)
+* [Magalhães, M. N.; Lima, A. C. P. **Noções de Probabilidade e Estatística**. Edusp, 7ª ed., 2010](http://www.edusp.com.br/loja/produto/356/nocoes-de-probabilidade-e-estatistica)
 
-Bem, agora vamos começar a usar o R de fato! Precisamos, inicialmente, importar uma base de dados antes de chamar qualquer função. Para tanto, utilizaremos a base `BasePens`
+## Estatística Descritiva
 
+Bem, já estruturamos os nossos dados e agora podemos importá-los a partir do novo arquivo - `dados.csv`. Lembre-se de verificar o separador decimal para aplicar a função correta. 
 
+```{r message = FALSE}
+# Importando os dados
+dados <- read.csv("dados.csv", header = TRUE, sep = "")
+```
 
+Utilizamos a função `read.csv`, em razão da base utilizar o ponto `.` como separador decimal. Diferentemente de `BasePens.csv`, `dados.csv` foi gerada a partir do `R` pelo modelo americano. 
 
+Antes de adentrar nas funções estatísticas, vamos visualizar a nossa base, mostrando as 6 primeiras e as 6 últimas linhas.
 
+```{r}
+# visualizando as 6 primeiras linhas
+head(dados)
+# visualizando as 6 últimas linhas
+tail(dados)
+```
