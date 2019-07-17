@@ -4,7 +4,7 @@ Material utilizado no minicurso "Análise Exploratória de Dados usando o R" dia
 
 O curso de Análise exploratória de dados no R possui a seguinte ementa:
 
-1. **Data Wrangling**
+1. Preparação dos dados
 2. Estatística descritiva
 3. Visualização de dados com o ggplot2
 4. Histograma

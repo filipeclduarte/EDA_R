@@ -23,7 +23,7 @@ Você precisa conhecer as estruturas de dados básicas utilizadas no `R` como **
 
 Este curso aborda os seguintes tópicos:
 
-1. *Data Wrangling*
+1. Preparação dos dados
 2. Estatística descritiva
 3. Visualização de dados com o ggplot2
 4. Histograma
@@ -35,9 +35,9 @@ Primeiramente, iremos organizar os dados para, em seguida, introduzir as funçõ
 
 Após aprendermos a utilizar o `R` para estruturar os dados calcular as estatísticas descritivas, vamos entender como funciona o `ggplot2`, a melhor biblioteca para visualização de dados. 
 
-# 1. Data Wrangling
+# 1. Preparação dos dados
 
-É o processo de organização, limpeza e estruturação dos dados. Normalmente, é um dos procedimentos mais trabalhosos e é implementado quando os dados apresentam informações incorretas para uma ou mais mais observações (exemplos), ou então quando faltam informações. Além disso, as tabelas, muitas vezes, não estão estruturadas no modelo padrão, onde cada linha representa um indivíduo (exemplo) e as colunas configuram as variáveis ou características dos indivíduos.  
+Esta parte será dedicada ao processo de organização, limpeza e estruturação dos dados. Normalmente, é um dos procedimentos mais trabalhosos e é implementado quando os dados apresentam informações incorretas para uma ou mais mais observações (exemplos), ou então quando faltam informações. Além disso, as tabelas, muitas vezes, não estão estruturadas no modelo padrão, onde cada linha representa um indivíduo (exemplo) e as colunas configuram as variáveis ou características dos indivíduos.  
 
 Dessa feita, vamos iniciar o nosso trabalho a partir de uma base de dados de participantes, na qualidade de ativos, de um plano de previdência. O arquivo foi denominado **BasePens.csv** e precisa ser importado para o `R`.
 Nossa base possui 749 pessoas e 8 variáveis tais quais:
