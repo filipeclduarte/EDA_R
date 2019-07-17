@@ -1,6 +1,6 @@
 ##### Início do curso #####
 
-#### Data Wrangling #### 
+#### Preparação dos dados #### 
 
 # É o processo de organização e estruturação dos dados
 
