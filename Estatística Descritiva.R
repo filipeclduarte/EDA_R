@@ -6,6 +6,9 @@ dados <- read.csv("dados.csv", header = TRUE, sep = "")
 # visualizando as 6 primeiras linhas
 head(dados)
 
+# visualizando as 6 últimas linhas
+tail(head)
+
 # criando novo data frame com algumas variáveis 
 vars <- c("id", "sexo", "EstadoCivil", "carreira", "QntDependentes", "idade","temposervico","BaseCalculoMensal")
 dados_estat <- dados[, vars]
@@ -33,65 +36,93 @@ summary(dados_estat$BaseCalculoMensal)
 which(is.na(dados_estat$temposervico))
 which(is.na(dados_estat$BaseCalculoMensal))
 dados_estat[c(51, 564, 619, 686, 741),]
-# Depois nós aprenderemos a excluí-los
+
+# Repetindo o processo de identificação das linhas com NA's
+na_ts <-  which(is.na(dados_estat$temposervico))
+na_bcm <- which(is.na(dados_estat$BaseCalculoMensal))
+
+# Vamos juntá-los, isto é, concatenaremos os vetores na_ts e na_bcm
+na <- c(na_ts, na_bcm)
+# Veja que 51 aparece duas vezes
+print(na)
+
+# Agora vamos selecionar os valores sem repetições
+na_unique <- unique(na)
+# Agora sim!
+print(na_unique)
+
+# Selecionando as pessoas que possuem NA (informação faltante)
+dados_estat[na_unique,]
+
 
 #####
 
-# média
+# média - mean()
 mean(dados_estat$idade)
 mean(dados_estat$QntDependentes)
 mean(dados_estat$temposervico)
 mean(dados_estat$temposervico, na.rm = TRUE)
 mean(dados_estat$BaseCalculoMensal)
 
-# desvio padrão
+# desvio padrão - sd()
 sd(dados_estat$idade)
 sd(dados_estat$QntDependentes)
 sd(dados_estat$temposervico, na.rm = TRUE)
 sd(dados_estat$BaseCalculoMensal)
 sd(dados_estat$BaseCalculoMensal, na.rm = TRUE)
 
-# mínimo
+# mínimo - min()
 min(dados_estat$idade)
 min(dados_estat$temposervico, na.rm = TRUE)
 min(dados_estat$BaseCalculoMensal)
 min(dados_estat$BaseCalculoMensal, na.rm = TRUE)
 
-
-# máximo
+# máximo - max()
 max(dados_estat$idade)
 max(dados_estat$temposervico, na.rm = TRUE)
 max(dados_estat$BaseCalculoMensal)
 max(dados_estat$BaseCalculoMensal, na.rm = TRUE)
 
-# quantidade
+# quantidade - se vetor, length(); se for data frame, use nrow() ou str()
 length(dados_estat$idade)
 nrow(dados_estat)
 str(dados_estat)
 
-# quantis
+# quantis - quantile(dados, probs = c(...))
 quantile(dados_estat$idade, probs = seq(0.25, 1, 0.25))
 quantile(dados_estat$idade, probs = c(0.1, 0.5, 0.9))
 quantile(dados_estat$idade, probs = c(0.01, 0.5, 0.99))
 
-##### Exercício: Mostre os mesmos quantis para a Base de Cálculo Mensal 
+##### Exerício: Mostre os mesmos quantis para a Base de Cálculo Mensal 
 quantile(dados_estat$BaseCalculoMensal, probs = seq(0.25, 1, 0.25), na.rm = TRUE)
 quantile(dados_estat$BaseCalculoMensal, probs = c(0.1, 0.5, 0.9), na.rm = TRUE)
 quantile(dados_estat$BaseCalculoMensal, probs = c(0.01, 0.5, 0.99), na.rm = TRUE)
 #####
 
+##### Exercício: Calcule a variância para a. Tempo de serviço; b. Base de Cálculo Mensal.
+# a.
+var(dados_estat$temposervico, na.rm = TRUE)
+# b. 
+var(dados_estat$BaseCalculoMensal, na.rm = TRUE)
+#####
+
 # Vamos criar uma nova tabela onde BaseCalculoMensal é diferente de 0
 quantile(dados_estat$BaseCalculoMensal[dados_estat$BaseCalculoMensal != 0], probs = seq(0.25, 1, 0.25), na.rm = TRUE)
+
 # criando um vetor lógico com TRUE quando a Base de Cálculo Mensal for igual a 0.
 base0 <- dados_estat$BaseCalculoMensal == 0
 base0
+
 # Vamos fazer a seleção das linhas diferentes de base0 - selecionar quem tem base diferente de 0 
 quantile(dados_estat$BaseCalculoMensal[!base0], probs = seq(0.25, 1, 0.25), na.rm = TRUE)
 quantile(dados_estat$BaseCalculoMensal[!base0], probs = c(0.01, 0.5, 0.99), na.rm = TRUE)
 
+# Exercício: Apresente as pessoas que possuem a Base de Cálculo igual a 0.
+base_zero <- which(dados_estat$BaseCalculoMensal == 0)
+dados_estat[base_zero,]
 
-# Agora vamos construir uma função que calcula todas essas estatística de uma única vez para todas as variáveis
-# vamos criar uma função com as estatísticas desejadas e usar sapply para aplicá-la em todas as variáveis desejadas
+# Agora vamos construir uma função que calcula as estatísticas utilizadas acima de uma única vez para todas as variáveis.
+# Inicialmente, criaremos uma função com as estatísticas desejadas e usaremos a função `sapply` para aplicá-la em todas as variáveis desejadas.
 estatisticas <- function(x){
   x <- x[!is.na(x)] # isso serve para que ele omita as observações com NA
   me <- mean(x)

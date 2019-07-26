@@ -3,12 +3,14 @@ title: "Análise Exploratória de Dados no R"
 author: "Filipe C. L. Duarte"
 date: "27 de julho de 2019"
 output:
-  html_document:
-    toc: true
-    toc_depth: 2
-    toc_float: true
-    theme: paper
+  prettydoc::html_pretty:
     df_print: paged
+    theme: hpstr
+    toc: yes
+    toc_depth: 2
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
 ---
 
 # Introdução
@@ -26,7 +28,7 @@ Este curso aborda os seguintes tópicos:
 1. Preparação dos dados
 2. Estatística descritiva
 3. Visualização de dados com o ggplot2
-4. Histograma
+4. Histograma 
 5. Box-plot
 6. Gráfico de barras
 7. Gráfico de Dispersão
@@ -37,7 +39,9 @@ Após aprendermos a utilizar o `R` para estruturar os dados calcular as estatís
 
 # 1. Preparação dos dados
 
-Esta parte será dedicada ao processo de organização, limpeza e estruturação dos dados. Normalmente, é um dos procedimentos mais trabalhosos e é implementado quando os dados apresentam informações incorretas para uma ou mais mais observações (exemplos), ou então quando faltam informações. Além disso, as tabelas, muitas vezes, não estão estruturadas no modelo padrão, onde cada linha representa um indivíduo (exemplo) e as colunas configuram as variáveis ou características dos indivíduos.  
+Esta parte será dedicada ao processo de organização, limpeza e estruturação dos dados. Normalmente, é um dos procedimentos mais trabalhosos e é implementado quando os dados apresentam informações incorretas para uma ou mais mais observações (exemplos), ou então quando faltam informações. 
+
+Além disso, as tabelas, muitas vezes, não estão estruturadas no modelo padrão, onde cada linha representa um indivíduo (exemplo) e as colunas configuram as variáveis ou características dos indivíduos.  
 
 Dessa feita, vamos iniciar o nosso trabalho a partir de uma base de dados de participantes, na qualidade de ativos, de um plano de previdência. O arquivo foi denominado **BasePens.csv** e precisa ser importado para o `R`.
 Nossa base possui 749 pessoas e 8 variáveis tais quais:
@@ -81,7 +85,8 @@ Vamos renomear as variáveis para que o processo de limpeza seja feito de maneir
 
 ```{r}
 # vamos renomear as variáveis
-names(dados) <- c("id", "sexo", "EstadoCivil", "DataNascimento", "DataIngresso", "carreira", "BaseCalculoMensal", "QntDependentes")
+names(dados) <- c("id", "sexo", "EstadoCivil", "DataNascimento", 
+                  "DataIngresso", "carreira", "BaseCalculoMensal", "QntDependentes")
 
 # vendo novamente as variáveis
 names(dados)
@@ -89,7 +94,7 @@ head(dados)
 str(dados)
 ```
 
-O próximo passo será alterar o tipo das variáveis `sexo` `EstadoCivil` para `factor` e codificar corretamente as categorias: 
+O próximo passo será alterar o tipo das variáveis `sexo` e `EstadoCivil` para `factor` e codificar corretamente as categorias (atribuir o nome correto à categoria): 
 
 ```{r}
 # Vamos transformar a variável sexo para factor (qualitativa) 
@@ -98,11 +103,11 @@ dados$sexo <- as.factor(dados$sexo)
 
 # Vamos transformar a variável estado civil para factor
 dados$EstadoCivil <- ifelse(dados$EstadoCivil == 1, "solteir", 
-                            ifelse(dados$EstadoCivil == 2, "casad", 
-                                   ifelse(dados$EstadoCivil == 3, "viuv",
-                                          ifelse(dados$EstadoCivil == 4, "sepjudicialmente", 
-                                                 ifelse(dados$EstadoCivil == 5, "divorciad", 
-                                                        ifelse(dados$EstadoCivil == 6, "uniaoestavel", "outros"))))))
+                     ifelse(dados$EstadoCivil == 2, "casad", 
+                     ifelse(dados$EstadoCivil == 3, "viuv",
+                     ifelse(dados$EstadoCivil == 4, "sepjudicialmente", 
+                     ifelse(dados$EstadoCivil == 5, "divorciad", 
+                     ifelse(dados$EstadoCivil == 6, "uniaoestavel", "outros"))))))
 
 # Transformando a variável estado civil para factor
 dados$EstadoCivil <- as.factor(dados$EstadoCivil)
@@ -117,7 +122,9 @@ head(dados)
 ```
 
 
-O segundo procedimento de estruturação da nossa base será transformar as variáveis `DataNascimento` e `DataIngresso` para um formato que o `R` entenda como uma data. Ao mesmo tempo, precisaremos calcular a idade atual dos participantes. Para tanto, vamos dizer ao `R` para criar uma variável com a data de hoje. Em seguida, iremos calcular a diferença, em anos, entre a data de hoje e a data de nascimento de cada participante do plano, transformando a variável `idade` para o tipo inteiro.
+O segundo procedimento de estruturação da nossa base será transformar as variáveis `DataNascimento` e `DataIngresso` para um formato que o `R` entenda como uma data. Ao mesmo tempo, precisaremos calcular a idade atual dos participantes. 
+
+Para tanto, vamos dizer ao `R` para criar uma variável com a data de hoje. Em seguida, iremos calcular a diferença, em anos, entre a data de hoje e a data de nascimento de cada participante do plano, transformando a variável `idade` para o tipo inteiro.
 
 ```{r}
 # Datas de referência no R e data de hoje
@@ -136,6 +143,7 @@ Agora é sua vez, calcule o tempo de contribuição, em anos, para cada particip
 
 ```{r}
 ##### Exercício: Calcule a quantidade de tempo de serviço passado para os participantes
+dados$temposervico <- as.numeric(round((data_hoje - dados$DataIngresso)/365,0))
 
 ```
 
@@ -143,7 +151,7 @@ Até agora foi moleza, certo? Agora, crie uma variável que represente o salári
 
 ```{r}
 ##### Exercício: Crie uma coluna (variável) representando a Base de Cálculo Anual, considerando o 13º salário
-
+dados$BaseCalculoAnual <- dados$BaseCalculoMensal * 13
 ```
 
 Finalizaremos o procedimento de *data wrangling*, exportando, por meio da função `write.table`, a base estruturada para um arquivo com extensão **.csv** com o nome "dados.csv".  
@@ -168,7 +176,9 @@ Quando você possuir dados estruturados e for analisá-los, você deve, primeira
 * Qual ação apresenta maior rentabilidade nos últimos 12 meses?
 * Qual o valor médio de um sinistro de automóvel?
 
-Nesta seção, vamos revisar algumas funções no R para calcular as estatísticas descritivas. Funções como a média, mediana, variância, desvio-padrão, mínino, máximo etc. Essas estatísticas são utilizadas quando dispomos de variáveis quantitativas. Certo, aí você me pergunta: Quais as métricas quando possuímos variáveis qualitativas? Bem, nós estudaremos em seguida. Para tratar de variáveis qualitativas, temos a disposição a tabela de frequência e contingência. 
+Nesta seção, vamos revisar algumas funções no R para calcular as estatísticas descritivas. Funções como a média, mediana, variância, desvio-padrão, mínino, máximo etc. Essas estatísticas são utilizadas quando dispomos de variáveis quantitativas. 
+
+Certo, aí você me pergunta: Quais as métricas quando possuímos variáveis qualitativas? Bem, nós estudaremos em seguida. Para tratar de variáveis qualitativas, temos a disposição a tabela de frequência e contingência. 
 
 Quem precisar se aprofundar neste conteúdo, recomendo que busque os seguintes materiais:
 
@@ -196,3 +206,244 @@ head(dados)
 # visualizando as 6 últimas linhas
 tail(dados)
 ```
+
+A partir de agora, vamos criar uma nova tabela de dados (**data frame**) com as variáveis de interesse. Para criar de forma organizada essa tabela, iniciaremos salvando um vetor (`vars`) com o nome, entre aspas (tipo `string`), das colunas (variáveis) que comporão a nova tabela. Em seguida, crie um novo objeto a partir da tabela de dados, indexado pelo vetor com as variáveis (`vars`).
+
+```{r}
+vars <- c("id", "sexo", "EstadoCivil", "carreira", "QntDependentes", "idade","temposervico","BaseCalculoMensal")
+# Salvar a nova tabela de dados
+dados_estat <- dados[, vars]
+
+# vendo as 6 primeiras linhas
+head(dados_estat)
+
+# vendo as carreiras - valores únicos
+unique(dados_estat$carreira)
+```
+
+Exercício:
+
+
+* Mostre quais são estados civis presentes na base.
+
+
+```{r}
+
+```
+
+A estatística descritiva faz parte da análise exploratória de dados. Ela nos fornece resumos simples sobre a amostra e sobre as observações que foram ajustadas. Sendo assim, ela pode ser quantitativa ou visual (seção de visualização de dados com o `ggplot2`).
+
+O primeiro comando que vamos utilizar é o `summary`, que serve para realizar uma descrição quantitativa da distribuição dos dados. Se a variável for quantitativa, essa função nos fornecerá informações como:
+
+* Mínimo
+* 1º Quartil
+* Mediana
+* Média
+* 3º Quartil
+* Máximo
+
+Caso a variável seja qualitativa, ela irá retornar a quantidade de observações para cada categoria. 
+
+Abaixo, executaremos a função `summary` em todas as variáveis:
+
+```{r}
+# sumarizando os dados
+summary(dados_estat)
+```
+
+Sua vez de praticar. Escreva o código no espaço de código abaixo:
+
+```{r}
+# Exercício: Mostre o sumário da variável Base de Cálculo Mensal
+
+```
+
+Perceba que algumas variáveis apresentam informações sobre NA's. NA é a forma como o R codifica informações faltantes. Por exemplo, falta a informação do salário mensal de uma pessoa. Na verdade, na nossa base, verificamos que falta informação a respeito do salário de 5 pessoas.
+
+Como faremos para saber qual foi a linha que apresentou *NA*? Bem, o R nos fornece uma função `is.na` que retorna um valor booleano (lógico), TRUE ou FALSE, caso haja NA. 
+
+Além disso, usaremos a função `which` que retorna a posição (linha) quando uma condição verdadeira é satisfeita. No nosso caso, o código irá retornar a posição (linha) que possuir NA. Em seguida, pediremos para que o R nos mostre as pessoas com informações faltantes.    
+
+```{r}
+# Vamos encontrar o NA para o tempo de serviço
+which(is.na(dados_estat$temposervico))
+# vamos encontrar o NA para a base de cálculo mensal
+which(is.na(dados_estat$BaseCalculoMensal))
+
+dados_estat[c(51, 564, 619, 686, 741),]
+```
+
+Como eu faria para automatizar esse procedimento? Abaixo, apresento-lhes um código para realizar o subagrupamento de uma forma geral, ou seja, sem declarar explicitamente as posições dos indivíduos como fizemos acima. Lembre-se que pode haver mais de um NA para um indivíduo e você não poderá repetir. 
+
+```{r}
+# Repetindo o processo de identificação das linhas com NA's
+na_ts <-  which(is.na(dados_estat$temposervico))
+na_bcm <- which(is.na(dados_estat$BaseCalculoMensal))
+
+# Vamos juntá-los, isto é, concatenaremos os vetores na_ts e na_bcm
+na <- c(na_ts, na_bcm)
+# Veja que 51 aparece duas vezes
+print(na)
+
+# Agora vamos selecionar os valores sem repetições
+na_unique <- unique(na)
+# Agora sim!
+print(na_unique)
+
+# Selecionando as pessoas que possuem NA (informação faltante)
+dados_estat[na_unique,]
+```
+
+Então, dado que aprendemos como pedir o sumário e retirar as linhas sem informações, como faço para calcular as estatísticas para cada variável de forma individual? Busque no google, dando preferência pelo [R documentation]<https://www.rdocumentation.org/>, pela função desejada no R. Busque pela função que calcula:
+
+* média
+* desvio-padrão
+* mínimo
+* máximo
+* quantidade
+* quantis
+
+A seguir, aplicaremos as às variáveis. 
+
+
+```{r}
+# média - mean()
+mean(dados_estat$idade)
+mean(dados_estat$QntDependentes)
+mean(dados_estat$temposervico)
+mean(dados_estat$temposervico, na.rm = TRUE)
+mean(dados_estat$BaseCalculoMensal)
+
+# desvio padrão - sd()
+sd(dados_estat$idade)
+sd(dados_estat$QntDependentes)
+sd(dados_estat$temposervico, na.rm = TRUE)
+sd(dados_estat$BaseCalculoMensal)
+sd(dados_estat$BaseCalculoMensal, na.rm = TRUE)
+
+# mínimo - min()
+min(dados_estat$idade)
+min(dados_estat$temposervico, na.rm = TRUE)
+min(dados_estat$BaseCalculoMensal)
+min(dados_estat$BaseCalculoMensal, na.rm = TRUE)
+
+# máximo - max()
+max(dados_estat$idade)
+max(dados_estat$temposervico, na.rm = TRUE)
+max(dados_estat$BaseCalculoMensal)
+max(dados_estat$BaseCalculoMensal, na.rm = TRUE)
+
+# quantidade - se vetor, length(); se for data frame, use nrow() ou str()
+length(dados_estat$idade)
+nrow(dados_estat)
+str(dados_estat)
+
+# quantis - quantile(dados, probs = c(...))
+quantile(dados_estat$idade, probs = seq(0.25, 1, 0.25))
+quantile(dados_estat$idade, probs = c(0.1, 0.5, 0.9))
+quantile(dados_estat$idade, probs = c(0.01, 0.5, 0.99))
+
+##### Exercício: Mostre os mesmos quantis para a Base de Cálculo Mensal 
+quantile(dados_estat$BaseCalculoMensal, probs = seq(0.25, 1, 0.25), na.rm = TRUE)
+quantile(dados_estat$BaseCalculoMensal, probs = c(0.1, 0.5, 0.9), na.rm = TRUE)
+quantile(dados_estat$BaseCalculoMensal, probs = c(0.01, 0.5, 0.99), na.rm = TRUE)
+
+```
+
+Pesquise no R documentation qual a função que calcula a variância. Em seguida, calcule a variância para:
+
+a. Tempo de Serviço
+b. Base de Cálculo Mensal
+
+```{r}
+##### Exercício: Calcule a variância para a. Tempo de serviço; b. Base de Cálculo Mensal.
+# a.
+var(dados_estat$temposervico, na.rm = TRUE)
+# b. 
+var(dados_estat$BaseCalculoMensal, na.rm = TRUE)
+```
+
+Verificamos, inicialmente, que há pessoas com Base de Cálculo igual a 0. Isso deve ter sido um erro cometido durante o preenchimento dos dados. Certo disso, vamos omití-los e calcular os quartis. 
+
+Podemos fazer esse procedimento de duas formas. A primeira consiste em filtrar as linhas diretamente dentro da função `quantile`, utilizando apenas um código. Enquanto que na segunda, faremos o procedimento de filtragem separamente a partir da criação de um vetor com TRUE e FALSE, que avalia a condição da Base de Cálculo Mensal ser igual a 0, para depois chamar a função `quantile` para a base filtrada. Vejamos a seguir:
+
+```{r}
+# Primeira:
+quantile(dados_estat$BaseCalculoMensal[dados_estat$BaseCalculoMensal != 0], 
+         probs = seq(0.25, 1, 0.25), na.rm = TRUE)
+quantile(dados_estat$BaseCalculoMensal[dados_estat$BaseCalculoMensal != 0], 
+         probs = c(0.01, 0.5, 0.99), na.rm = TRUE)
+```
+
+
+```{r}
+# Segunda:
+# Criando um vetor lógico com `TRUE` quando a Base de Cálculo Mensal for igual a 0.
+base0 <- dados_estat$BaseCalculoMensal == 0
+print(base0)
+
+# Por fim, vamos fazer a seleção das linhas diferentes de base0 (que retornaram ), ou seja, selecionaremos as linhas cuja Base de Cálculo Mensal é diferente de 0
+
+quantile(dados_estat$BaseCalculoMensal[!base0], probs = seq(0.25, 1, 0.25), 
+         na.rm = TRUE)
+quantile(dados_estat$BaseCalculoMensal[!base0], probs = c(0.01, 0.5, 0.99), 
+         na.rm = TRUE)
+```
+
+
+```{r}
+# Exercício: Apresente as pessoas que possuem a Base de Cálculo igual a 0.
+base_zero <- which(dados_estat$BaseCalculoMensal == 0)
+dados_estat[base_zero,]
+```
+
+
+Agora vamos construir uma função que calcula as estatísticas utilizadas acima de uma única vez para todas as variáveis. Inicialmente, criaremos uma função com as estatísticas desejadas e usaremos a função `sapply` para aplicá-la em todas as variáveis desejadas.
+
+```{r}
+estatisticas <- function(x){
+  x <- x[!is.na(x)] # isso serve para que ele omita as observações com NA
+  me <- mean(x)
+  med <- median(x)
+  n <- length(x)
+  s <- sd(x)
+  mi <- min(x)
+  ma <- max(x)
+  q25 <- quantile(x, probs = 0.25)
+  q75 <- quantile(x, probs = 0.75)
+  return(c(n = n, media = me, mediana = med, desvio = s, 
+           Q25 = q25, Q75 = q75, min = mi, max = ma))
+}
+```
+
+
+## Visualização de dados com ggplot2
+
+A bibiloteca `ggplot2` utiliza da gramática dos gráficos. Ela possui um conjunto de ferramentas que permite a criação de gráficos que capture relações complexas.
+
+```{r pressure, echo=FALSE, fig.cap="Fonte: Gramática dos Gráficos - https://oestatistico.com.br/a-gramatica-dos-graficos/.", out.width = '30%'}
+knitr::include_graphics("grammar.png")
+```
+
+Portanto, é uma biblioteca muito flexível que foi desenvolvida para que o procedimento de criação dos gráficos seja sistematizado da seguinte forma:
+
+1. Você inicializa a função ggplot() com os dados e pode adicionar diversos elementos de forma encadeada:
+    
+    ex.: ggplot(data = dados, aes(x = idade, y = BaseCalculoMensal)) 
+    
+    Essa funcão cria um espaço para você adicionar alguma estrutura. 
+
+2. Se eu quiser adicionar outro elemento, como pontos entre essas variáveis, devemos adicioná-los à p (objeto salvo anteriormente):
+
+    ex.: ggplot(data = dados, aes(x = idade, y = BaseCalculoMensal))  + geom_point() 
+  
+    Dessa maneira, podemos melhorar o gráfico. 
+ 
+3. É possível modificá-lo? Sim, podemos adicionar um título e alterar o texto dos eixos por meio da função labs(). 
+
+```{r eval = FALSE}
+ ggplot(data = dados, aes(x = idade, y = BaseCalculoMensal)) + 
+  geom_point() + 
+  labs(title = "Gráfico de dispersão", x = "Idade", y = "Base de Cálculo Mensal")
+```
+ 

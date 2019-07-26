@@ -13,3 +13,10 @@ O curso de Análise exploratória de dados no R possui a seguinte ementa:
 7. Gráfico de Dispersão
 
 O objetivo do curso é o de aprender a utilizar o R para construir tabelas com as estatísticas descritivas, compreender o funcionamento da biblioteca ggplot2, e criar gráficos  como o histograma, box-plot, de barras e de dispersão. 
+
+* Observação: O arquivo .Rmd (markdown) foi criado com o tema `hpstr` da biblioteca `prettydoc`. Para renderizar o arquivo em htlm é preciso fazer a instalação, no console, desssa biblioteca utilizando o comando:
+
+  * `install.packages("prettydoc")`
+
+
+

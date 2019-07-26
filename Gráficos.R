@@ -10,6 +10,19 @@ head(base)
 # ver estrutura dos dados
 str(base)
 
+# O pacote ggplot2 utiliza a gramática de gráficos, conceito desenvolvido por ....
+# esse pacote possui um conjunto de ferramentas que permite a criação de gráficos que capture relações complexas.
+# é uma biblioteca muito flexível... 
+# essa gramática de gráficos é sistematizada da seguinte forma:
+# você inicializa a função ggplot() com os dados e pode adicionar diversos elementos de forma encadeada
+# ex.: ggplot(data = dados, aes(x = idade, y = BaseCalculoMensal)) 
+# Essa funcão cria um espaço para você adicionar alguma estrutura. 
+# Se eu quiser adicionar outro elemento, como pontos entre essas variáveis, devemos adicioná-los à p (objeto salvo anteriormente):
+# ggplot(data = dados, aes(x = idade, y = BaseCalculoMensal))  + geom_point() 
+# Melhoramos o gráfico. 
+# É possível modificá-lo? Sim, podemos adicionar um título e alterar o texto dos eixos por meio da função labs(). 
+# ggplot(data = dados, aes(x = idade, y = BaseCalculoMensal)) + geom_point() + labs(title = "Gráfico de dispersão", x = "Idade", y = "Base de Cálculo Mensal")
+
 # Vamos visualizar as distribuições das variáveis
 # Tudo dependerá do tipo da variável, se ela é qualitativa ou quantitativa
 # Se ela for qualitativa, vamos usar o gráfico de barras
@@ -20,6 +33,7 @@ ggplot(data = base) +
 # mesmo grafico com cores
 ggplot(data = base) + 
   geom_bar(mapping = aes(x = sexo, fill = sexo))
+
 
 # Queremos ver agora o gráfico de barras para o estado civil
 ggplot(data = base) + 
