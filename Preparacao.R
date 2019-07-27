@@ -36,11 +36,11 @@ str(dados)
 
 # Vamos transformar a variável estado civil para factor
 dados$EstadoCivil <- ifelse(dados$EstadoCivil == 1, "solteir", 
-                            ifelse(dados$EstadoCivil == 2, "casad", 
-                                   ifelse(dados$EstadoCivil == 3, "viuv",
-                                          ifelse(dados$EstadoCivil == 4, "sepjudicialmente", 
-                                                 ifelse(dados$EstadoCivil == 5, "divorciad", 
-                                                        ifelse(dados$EstadoCivil == 6, "uniaoestavel", "outros"))))))
+                     ifelse(dados$EstadoCivil == 2, "casad", 
+                     ifelse(dados$EstadoCivil == 3, "viuv",
+                     ifelse(dados$EstadoCivil == 4, "sepjudicialmente", 
+                     ifelse(dados$EstadoCivil == 5, "divorciad", 
+                     ifelse(dados$EstadoCivil == 6, "uniaoestavel", "outros"))))))
 str(dados)
 head(dados)
 

@@ -139,7 +139,7 @@ estatisticas <- function(x){
 # variáveis desejadas (quantitativas)
 variaveis_estat <- c("idade", "QntDependentes", "temposervico", "BaseCalculoMensal")
 # Vamos usar a função sapply - ela aplica uma função em uma base de dados (cada coluna) e retorna uma matriz. 
-sapply(dados_estat[variaveis_estat], estatisticas)
+sapply(dados_estat[variaveis_estat], FUN = estatisticas)
 
 # podemos salvar essa tabela
 estatistica_descritiva <- sapply(dados_estat[variaveis_estat], estatisticas)
@@ -152,11 +152,18 @@ class(estatistica_descritiva)
 # e exportar para uma planilha em csv - lembre de usar csv2 se for usar a vígula como separador decimal
 write.csv2(estatistica_descritiva, "estatistica_descritiva.csv")
 
-# vamos criar uma nova tabela onde não existe base (salário) = 0
+# exercício: crie uma nova tabela onde não existe base de calculo mensal = 0
 base_d_zero <- dados_estat$BaseCalculoMensal != 0
+# quantas pessoas sem base de cálculo mensal 
 table(base_d_zero)
+# fazendo o subsetting
 dados_estat_f <- dados_estat[base_d_zero, ]
-str(dados_estat_f)
+# criando a tabela com as estatísticas descritivas
+estatistica_descritiva <- sapply(dados_estat[variaveis_estat], estatisticas)
+# transformando em data.frame
+estatistica_descritiva <- as.data.frame(estatistica_descritiva)
+# salvando em .csv
+write.csv2(estatistica_descritiva, "estatistica_descritiva.csv")
 
 # calculando estatistica por grupos - usaremos a função aggregate
 aggregate(dados_estat_f[variaveis_estat], by=list(sexo=dados_estat_f$sexo), mean)
@@ -180,7 +187,7 @@ which(is.na(dados_estat_f$BaseCalculoMensal))
 
 # Agora vamos omití-los
 dados_estat_f <- na.omit(dados_estat_f)
-head(dados_estat_f)
+summary(dados_estat_f)
 
 # verificando que não existe NA
 which(is.na(dados_estat_f$temposervico))
@@ -196,10 +203,22 @@ destats <- function(x){
 by(dados_estat_f[variaveis_estat], dados_estat_f$sexo, destats)
 # Você vai colocar os dados, o grupo e a função com as estatísticas
 
-##### Exercício: Faça o mesmo procedimento passado para os estados civis
-
+# Exercício Faça o mesmo procedimento acima para Estado Civil e salve a tabela em um arquivo `.csv`.
+# Você vai colocar os dados, o grupo e a função com as estatísticas, certo? 
 estat_estados_civis <- by(dados_estat_f[variaveis_estat], dados_estat_f$EstadoCivil, destats)
+# verificando a estrutura dos dados
+class(estat_estados_civis)
+str(estat_estados_civis)
+# vendo os elementos da lista
+estat_estados_civis[[1]]
+estat_estados_civis[[2]]
 
+# extraindo os elementos da lista e salvando em um objeto
+estat_desc_estados_civis <- lapply(estat_estados_civis, "[")
+# vendo o objeto
+estat_desc_estados_civis
+# salvando-o em um arquivo .csv
+write.csv2(x = estat_desc_estados_civis, file = "estatistica_descritiva_estados_civis.csv")
 #####
 
 # Vamos agora visualizar as tabelas de frequência 
@@ -221,10 +240,9 @@ prop.table(minha_tabela)*100
 #### Correlação/Covariância #####
 # correlação de pearson
 cor(dados_estat_f[variaveis_estat])
+# testando a significância da correlação
+library(Hmisc)
+rcorr(as.matrix(dados_estat_f[variaveis_estat]))
 # matriz de variância-covariância
 cov(dados_estat_f[variaveis_estat])
-# testando a significância da correlação
-cor.test(dados_estat_f$idade, dados_estat_f$temposervico)
-cor.test(dados_estat_f$idade, dados_estat_f$BaseCalculoMensal)
-cor.test(dados_estat_f$temposervico, dados_estat_f$BaseCalculoMensal)
 

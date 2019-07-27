@@ -28,65 +28,106 @@ str(base)
 # Se ela for qualitativa, vamos usar o gráfico de barras
 
 # Vamos visualizar um gráfico de barras par o sexo
-ggplot(data = base) + 
-  geom_bar(mapping = aes(x = sexo))
+ggplot(data = base, mapping = aes(sexo)) + 
+  geom_bar()
 # mesmo grafico com cores
-ggplot(data = base) + 
-  geom_bar(mapping = aes(x = sexo, fill = sexo))
-
+p <- ggplot(data = base, mapping = aes(x = sexo, fill = sexo)) + 
+  geom_bar()
+# visualizar
+print(p)
+# quantidades para cada sexo
+table(base$sexo)
+# para tirar a legenda
+p <- p + guides(fill = FALSE)
+# agora adicionando a quantidade de pessoas acima da barra
+p + geom_text(stat="count", aes(label=..count..), vjust=0)
+# ajustando para negativo, os valores se distanciam do eixo x
+p + geom_text(stat="count", aes(label=..count..), vjust=-1)
+p + geom_text(stat="count", aes(label=..count..), vjust=-2)
+# adicionando um contorno preto
+ggplot(data = base, mapping = aes(x = sexo, fill = sexo)) + 
+  geom_bar(colour = "black") + 
+  geom_text(stat="count", aes(label = ..count..), vjust=-0.5) + 
+  guides(fill = FALSE)
+  
 
 # Queremos ver agora o gráfico de barras para o estado civil
-ggplot(data = base) + 
-  geom_bar(mapping = aes(x = EstadoCivil))
+ggplot(data = base, mapping = aes(x = EstadoCivil)) + 
+  geom_bar()
 # com cores
-ggplot(data = base) + 
-  geom_bar(mapping = aes(x = EstadoCivil, fill = EstadoCivil))
+ggplot(data = base, mapping = aes(x = EstadoCivil, fill = EstadoCivil)) + 
+  geom_bar()
+# com cores e contorno preto
+ggplot(data = base, mapping = aes(x = EstadoCivil, fill = EstadoCivil)) + 
+  geom_bar(colour="black")
+# com os valores em cima das barras
+ggplot(data = base, mapping = aes(x = EstadoCivil, fill = EstadoCivil)) + 
+  geom_bar(colour="black") + 
+  geom_text(stat = 'count', aes(label = ..count..), vjust=-0.5)
+# agora reordenando as barras pela altura
+b <- base %>%
+      count(EstadoCivil)
+b
+ggplot(data = b, mapping = aes(x = reorder(EstadoCivil, -n), y = n, fill = EstadoCivil)) + 
+  geom_bar(stat="identity", colour="black") +  
+  geom_text(aes(label = n),vjust=-0.5) 
 
-##### Exercício: Faça um gráfico de barras para a carreira
+
+##### Exercício: Faça um gráfico de barras para a carreira e nos informe a que possui a maior quantidade de pessoas
 
 # dica: veja quantas pessoas por carreira de forma decrescente: 
 base %>% 
   count(carreira) %>% 
   arrange(desc(n))
-#
 
 ggplot(data = base) + 
   geom_bar(mapping = aes(x = carreira))
 
 ##### Não ficou legal, pois temos muitas carreiras. Selecione 5 carreias e faça o mesmo gráfico colorido. 
 
-base_carreiras <-base %>% 
-  filter(carreira == "PROFESSOR" | carreira == "ENFERMEIRO" | carreira == "MOTORISTA" | carreira == "AG. COM. SAÚDE" | carreira == "AGENTE ADM.")
+base_carreiras <- base %>% 
+                  filter(carreira == "PROFESSOR" | carreira == "ENFERMEIRO" | 
+                         carreira == "MOTORISTA" | carreira == "AG. COM. SAÚDE" |
+                         carreira == "AGENTE ADM.")
 
-ggplot(base_carreiras) +
-  geom_bar(mapping = aes(x = carreira))
+ggplot(base_carreiras, mapping = aes(x = carreira)) +
+  geom_bar()
 
-ggplot(base_carreiras) +
-  geom_bar(mapping = aes(x = carreira, fill = carreira))
+ggplot(base_carreiras, mapping = aes(x = carreira, fill = carreira)) +
+  geom_bar(colour = "black") + 
+  guides(fill = FALSE)
 
+# Agora faça colocando a quantidade acima da barra e reordene
+b2 <- base_carreiras %>% 
+        count(carreira)
+
+ggplot(data = b2, mapping = aes(x = reorder(carreira, -n), y = n, fill = carreira)) +
+  geom_bar(stat = "identity", colour = "black") +  
+  geom_text(aes(label = n),vjust=-0.5) + 
+  guides(fill=FALSE)
 
 #####
 
 # Quando a variável é quantitativa, usamos o histograma
 ## Vamos visualizar o histograma da variável idade 
-ggplot(base) +
-  geom_histogram(mapping = aes(x = idade))
+ggplot(base, aes(x = idade)) +
+  geom_histogram()
 
 # Podemos modificar o tamanho dos intervalos - bin
-ggplot(base) +
-  geom_histogram(mapping = aes(x = idade), binwidth = 30)
+ggplot(base, aes(x = idade)) +
+  geom_histogram( binwidth = 30)
 
-ggplot(base) +
-  geom_histogram(mapping = aes(x = idade), binwidth = 20)
+ggplot(base, aes(x = idade)) +
+  geom_histogram(binwidth = 20)
 
-ggplot(base) +
-  geom_histogram(mapping = aes(x = idade), binwidth = 10)
+ggplot(base, aes(x = idade)) +
+  geom_histogram(binwidth = 10)
 
-ggplot(base) +
-  geom_histogram(mapping = aes(x = idade), binwidth = 5)
+ggplot(base, aes(x = idade)) +
+  geom_histogram(binwidth = 5)
 
-ggplot(base) +
-  geom_histogram(mapping = aes(x = idade), binwidth = 2)
+ggplot(base, aes(x = idade)) +
+  geom_histogram(binwidth = 2)
 
 # visualizando os intervalos
 base %>% 
@@ -103,37 +144,42 @@ base %>%
 
 # Se for de interesse plotar o histograma da idade pelo sexo
 # vamos usar o argumento fill para preencher a área com a cor e o alpha para tornar mais transparente
-ggplot(base) + 
-  geom_histogram(mapping = aes(x = idade, fill = sexo, color = sexo) , binwidth = 5, alpha=0.6)
+ggplot(base, aes(x = idade, fill = sexo, color = sexo)) + 
+  geom_histogram(binwidth = 5, alpha=0.6)
 
-ggplot(base) + 
-  geom_histogram(mapping = aes(x = idade, fill = sexo, color = sexo) , binwidth = 5, alpha=0.6, position="identity")  # vamos usar a position = "identity" para que a distribuição do sexo masculino não fique sobreposta
+# vamos usar a position = "identity" para que a distribuição do sexo masculino não fique sobreposta
+ggplot(base, aes(x = idade, fill = sexo, color = sexo) ) + 
+  geom_histogram(binwidth = 5, alpha=0.6, position="identity") 
 
-##### Exercício: Crie um histograma para a base de cálculo para os estados civis solteiro e casado usando a cor e transparência
+##### Exercício: Crie um histograma para a base de cálculo para os 
+# estados civis solteiro e casado usando a cor e transparência e diga se:
+# a distribuição é diferente?
 sol_cas <- base %>% 
   filter(EstadoCivil == "solteir" | EstadoCivil == "casad")
 
-ggplot(sol_cas) + 
-  geom_histogram(mapping = aes(x = BaseCalculoMensal, fill = EstadoCivil, color = EstadoCivil) , binwidth = 400, alpha=0.6, position="identity") 
+ggplot(sol_cas, aes(x = BaseCalculoMensal, fill = EstadoCivil, color = EstadoCivil)) + 
+  geom_histogram(binwidth = 400, alpha=0.6, position="identity") 
 
 # Verificamos que temos uma distribuição bimodal
-##### Exercício: Crie um histograma para a base de cálculo para os estados civis solteiro e casado com base de cálculo menor do que R$ 3.000 usando a cor e transparência
+##### Exercício: Crie um histograma para a base de cálculo para
+# os estados civis solteiro e casado com base de cálculo menor do que R$ 3.000 
+# usando a cor e transparência
 sol_cas <- base %>% 
   filter(EstadoCivil == "solteir" | EstadoCivil == "casad", BaseCalculoMensal < 3000)
 
-ggplot(sol_cas) + 
-  geom_histogram(mapping = aes(x = BaseCalculoMensal, fill = EstadoCivil, color = EstadoCivil) , binwidth = 400, alpha=0.6, position="identity") 
+ggplot(sol_cas, aes(x = BaseCalculoMensal, fill = EstadoCivil, color = EstadoCivil)) + 
+  geom_histogram(binwidth = 400, alpha=0.6, position="identity") 
 
 ####
 
 # Verificamos que não há diferenças aberrantes. 
 # Mas será que existe diferença da bases de cálculos entre os sexos?
 # Vamos investigar:
-ggplot(base) +
-  geom_histogram(mapping = aes(x = BaseCalculoMensal, fill = sexo, color = sexo))
+ggplot(base, aes(x = BaseCalculoMensal, fill = sexo, color = sexo)) +
+  geom_histogram()
 
-ggplot(base) +
-  geom_histogram(mapping = aes(x = BaseCalculoMensal, fill = sexo, color = sexo), binwidth = 400, alpha=0.6, position="identity")
+ggplot(base, aes(x = BaseCalculoMensal, fill = sexo, color = sexo)) +
+  geom_histogram(binwidth = 400, alpha=0.6, position="identity")
 
 ##### Exercício: Faça um histograma por sexo para quem possui Base de Cálculo maior do que 3500. 
 
