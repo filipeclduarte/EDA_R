@@ -242,7 +242,7 @@ unique(dados_estat$carreira)
 * Qual é o estado civil menos frequente?
 
 ```{r}
-
+summary(dados_estat)
 ```
 
 A estatística descritiva faz parte da análise exploratória de dados. Ela nos fornece resumos simples sobre a amostra e sobre as observações que foram ajustadas. Sendo assim, ela pode ser quantitativa ou visual (seção de visualização de dados com o `ggplot2`).
@@ -268,7 +268,7 @@ summary(dados_estat)
 Sua vez de praticar. Escreva o código que resolve o exercíco abaixo:
 **Exercício**: Mostre o sumário da variável Base de Cálculo Mensal
 ```{r}
-
+summary(dados_estat$BaseCalculoMensal)
 ```
 
 Perceba que algumas variáveis apresentam informações sobre NA's. NA é a forma como o R codifica informações faltantes. Por exemplo, falta a informação do salário mensal de uma pessoa. Na verdade, na nossa base, verificamos que falta informação a respeito do salário de 5 pessoas.
@@ -369,9 +369,9 @@ b. Base de Cálculo Mensal
 ```{r}
 ##### Exercício: Calcule a variância para a. Tempo de serviço; b. Base de Cálculo Mensal.
 # a.
-
+var(dados_estat$temposervico, na.rm = TRUE)
 # b. 
-
+var(dados_estat$BaseCalculoMensal, na.rm = TRUE)
 ```
 
 Verificamos, inicialmente, que há pessoas com Base de Cálculo igual a 0. Isso deve ter sido um erro cometido durante o preenchimento dos dados. Certo disso, vamos omití-los e calcular os quartis. 
@@ -403,12 +403,14 @@ quantile(dados_estat$BaseCalculoMensal[!base0], probs = c(0.01, 0.5, 0.99),
 
 
 **Exercício**: Apresente as pessoas que possuem a Base de Cálculo igual a 0.
-
 ```{r}
+base_zero <- which(dados_estat$BaseCalculoMensal == 0)
 
+# ver os dados
+dados_estat[base_zero,]
 ```
 
-### Função que calcula estatísticas para um data frame
+#### Função que calcula estatísticas para um data frame
 
 Agora vamos construir uma função que calcula as estatísticas utilizadas acima, de uma única vez, para todas as variáveis. 
 
@@ -513,7 +515,7 @@ write.csv2(estatistica_descritiva, "estatistica_descritiva.csv")
 
 Estamos quase terminando a parte 1 deste curso. Ficou faltando apenas o cálculo das estatísticas descritivas para grupos, as tabelas de frequência e correlação. 
 
-### Estatística Descritiva por grupos 
+#### Estatística Descritiva por grupos 
 
 Para calcular as estatísticas por grupos, usaremos a função `aggregate` ... Assim: no primeiro argumento selecionaremos as variáveis quantitativas; no segundo argumento determinaremos, através do argumento `by`, qual será a variável qualitativa do grupo; e o último argumento da função será a estatística desejada. 
 
@@ -530,11 +532,11 @@ E aí eu pergunto: Existe alguma diferença entre os sexos? Parece-me que existe
 Faça você este **Exercício**: Mostre a média, o desvio-padrão e a mediana das variáveis quantitativas para os estados civis. 
 ```{r}
 # média
-
+aggregate(dados_estat_f[variaveis_estat], by=list(estado_civil=dados_estat_f$EstadoCivil), median)
 # desvio-padrão 
-
+aggregate(dados_estat_f[variaveis_estat], by=list(estado_civil=dados_estat_f$EstadoCivil), sd)
 # mediana
-
+aggregate(dados_estat_f[variaveis_estat], by=list(estado_civil=dados_estat_f$EstadoCivil), median)
 ```
 
 Se meus dados apresentarem NA, posso omití-los com a função `na.omit`. Veja a seguir:
@@ -554,9 +556,11 @@ summary(dados_estat_f)
 
 ```{r}
 # verificando que não existe NA
+which(is.na(dados_estat_f$temposervico))
+which(is.na(dados_estat_f$BaseCalculoMensal))
 
 # criando a tabela como um arquivo em csv
-
+write.csv2(x = dados_estat_f, file = "dados_estatisticas_final.csv")
 ```
 
 Essa nova tabela está limpa, sem informação faltante ou aberrante como a base de cálculo mensal igual a 0. Entretanto, ela não nos fornece todas aquelas estatíticas da nossa função `estatisticas`. 
@@ -578,13 +582,19 @@ Agora você conseguirá visualizar melhor as diferenças entre os sexos, pois no
 Sua vez! **Exercício**: Faça o mesmo procedimento acima para Estado Civil e salve a tabela em um arquivo `.csv`. (**dica**: use a função lapply)
 ```{r}
 # Você vai colocar os dados, o grupo e a função com as estatísticas, certo? 
-
+estat_estados_civis <- by(dados_estat_f[variaveis_estat], dados_estat_f$EstadoCivil, destats)
 # classe
+class(estat_estados_civis)
+str(estat_estados_civis)
+estat_estados_civis[[1]]
+estat_estados_civis[[2]]
 
 # extraindo os elementos da lista
+estat_desc_estados_civis <- lapply(estat_estados_civis, "[")
+# vendo
+estat_desc_estados_civis
 
-# escrevendo
-
+write.csv2(x = estat_desc_estados_civis, file = "estatistica_descritiva_estados_civis.csv")
 ```
 
 Finalizamos a análise das variáveis quantitativas. Agora, vamos estudar as tabelas de frequência. É bem simples, nós já utilizamos a tabela de frequência anteriormente, quando contamos a quantidade de pessoas por sexo. Abaixo, mostro como fazer a tabela de frequência para algumas variáveis qualitativas:
