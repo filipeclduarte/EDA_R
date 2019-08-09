@@ -60,6 +60,7 @@ Nossa base possui 749 pessoas e 8 variáveis tais quais:
 
 Para importar a base de dados pelo `R`, vamos usar a função `read.csv`.
 
+
 ```{r, message = FALSE}
 dados <- read.csv2("BasePens.csv", sep = ";", header = TRUE)
 ```
@@ -79,7 +80,7 @@ Antes de realizar os ajustes necessários, vamos visualizar as 6 primeiras linha
 
 ```{r}
 # mostrar as 6 primeiras linhas
-head(dados)
+head(dados, 10)
 
 # visualizar o nome das variáveis (colunas)
 names(dados)
@@ -105,7 +106,10 @@ O próximo passo será alterar o tipo das variáveis `sexo` e `EstadoCivil` para
 
 ```{r}
 # Vamos transformar a variável sexo para factor (qualitativa) 
+dados$sexo
 dados$sexo <- ifelse(dados$sexo == 1, "feminino", "masculino")
+dados$sexo
+str(dados)
 dados$sexo <- as.factor(dados$sexo)
 
 # Vamos transformar a variável estado civil para factor
@@ -115,7 +119,7 @@ dados$EstadoCivil <- ifelse(dados$EstadoCivil == 1, "solteir",
                      ifelse(dados$EstadoCivil == 4, "sepjudicialmente", 
                      ifelse(dados$EstadoCivil == 5, "divorciad", 
                      ifelse(dados$EstadoCivil == 6, "uniaoestavel", "outros"))))))
-
+dados$EstadoCivil
 # Transformando a variável estado civil para factor
 dados$EstadoCivil <- as.factor(dados$EstadoCivil)
 
@@ -138,10 +142,13 @@ Para tanto, vamos dizer ao `R` para criar uma variável com a data de hoje. Em s
 ```{r}
 # Datas de referência no R e data de hoje
 data_hoje <- Sys.Date()
+data_hoje
 
 # Ajustando a data de ingresso e de nascimento
-dados$DataNascimento <- as.Date(dados$DataNascimento, format = "%d/%m/%Y")
+dados$DataNascimento <- as.Date(x = dados$DataNascimento, format = "%d/%m/%Y")
 dados$DataIngresso <- as.Date(dados$DataIngresso, "%d/%m/%Y")
+
+dados$DataNascimento
 
 # Calculando a idade dos participantes do plano
 dados$idade <- as.numeric(round((data_hoje - dados$DataNascimento)/365,0))
@@ -153,6 +160,7 @@ Agora é sua vez, calcule o tempo de contribuição, em anos, para cada particip
 ```{r}
 ##### Exercício: Calcule a quantidade de tempo de serviço passado para os participantes
 dados$temposervico <- as.numeric(round((data_hoje - dados$DataIngresso)/365,0))
+dados$temposervico
 ```
 
 Até agora foi moleza, certo? Crie uma variável que represente o salário de contribuição anual dos participantes do plano e a adicione à base, considerando que todos recebem o 13º salário. 
@@ -160,6 +168,10 @@ Até agora foi moleza, certo? Crie uma variável que represente o salário de co
 ```{r}
 ##### Exercício: Crie uma coluna (variável) representando a Base de Cálculo Anual, considerando o 13º salário
 dados$BaseCalculoAnual <- dados$BaseCalculoMensal * 13
+dados$basetotal <- dados$BaseCalculoAnual * dados$temposervico
+str(dados)
+dados$basetotal <- NULL
+dados <- dados[,-c(11, 12)]
 ```
 
 Finalizaremos o procedimento de *data wrangling* (processamento de dados), exportando, por meio da função `write.table`, a base estruturada para um arquivo com extensão **.csv** com o nome "dados.csv".  
@@ -207,7 +219,7 @@ Bem, já estruturamos os nossos dados e agora podemos importá-los a partir do n
 
 ```{r message = FALSE}
 # Importando os dados
-dados <- read.csv("dados.csv", header = TRUE, sep = "")
+dados <- read.csv("dados.csv", header = TRUE, sep = "", encoding = "UTF-8")
 ```
 
 Utilizamos a função `read.csv`, em razão da base utilizar o ponto `.` como separador decimal. Diferentemente de `BasePens.csv`, `dados.csv` foi gerada a partir do `R` pelo modelo americano. 
@@ -218,7 +230,7 @@ Antes de adentrar nas funções estatísticas, vamos visualizar a nossa base, mo
 # visualizando as 6 primeiras linhas
 head(dados)
 # visualizando as 6 últimas linhas
-tail(dados)
+tail(dados, 10)
 ```
 
 A partir de agora, vamos criar uma nova tabela de dados (**data frame**) com as variáveis de interesse. Para criar de forma organizada essa tabela, iniciaremos salvando um vetor (`vars`) com o nome, entre aspas (tipo `string`), das colunas (variáveis) que comporão a nova tabela. Em seguida, crie um novo objeto a partir da tabela de dados, indexado pelo vetor com as variáveis (`vars`).
@@ -242,7 +254,9 @@ unique(dados_estat$carreira)
 * Qual é o estado civil menos frequente?
 
 ```{r}
+unique(dados_estat$EstadoCivil)
 
+summary(dados_estat$EstadoCivil)
 ```
 
 A estatística descritiva faz parte da análise exploratória de dados. Ela nos fornece resumos simples sobre a amostra e sobre as observações que foram ajustadas. Sendo assim, ela pode ser quantitativa ou visual (seção de visualização de dados com o `ggplot2`).
@@ -263,12 +277,18 @@ Abaixo, executaremos a função `summary` em todas as variáveis:
 ```{r}
 # sumarizando os dados
 summary(dados_estat)
+
+levels(dados_estat$carreira)[levels(dados_estat$carreira)=="AG. COM. SAÚDE" |
+                               levels(dados_estat$carreira)=="AG. COM. SAÚD"] <- "AG. COM. SAUDE"
+levels(dados_estat$carreira)
+
+sort(table(dados_estat$carreira))
 ```
 
 Sua vez de praticar. Escreva o código que resolve o exercíco abaixo:
 **Exercício**: Mostre o sumário da variável Base de Cálculo Mensal
 ```{r}
-
+summary(dados_estat$BaseCalculoMensal)
 ```
 
 Perceba que algumas variáveis apresentam informações sobre NA's. NA é a forma como o R codifica informações faltantes. Por exemplo, falta a informação do salário mensal de uma pessoa. Na verdade, na nossa base, verificamos que falta informação a respeito do salário de 5 pessoas.
@@ -324,7 +344,7 @@ mean(dados_estat$idade)
 mean(dados_estat$QntDependentes)
 mean(dados_estat$temposervico)
 mean(dados_estat$temposervico, na.rm = TRUE)
-mean(dados_estat$BaseCalculoMensal)
+mean(dados_estat$BaseCalculoMensal, na.rm = TRUE)
 
 # desvio padrão - sd()
 sd(dados_estat$idade)
@@ -351,7 +371,8 @@ nrow(dados_estat)
 str(dados_estat)
 
 # quantis - quantile(dados, probs = c(...))
-quantile(dados_estat$idade, probs = seq(0.25, 1, 0.25))
+quantile(dados_estat$idade, probs = seq(0.1, 1, 0.1))
+quantile(dados_estat$idade, probs = c(0.25, 0.5, 0.75))
 quantile(dados_estat$idade, probs = c(0.1, 0.5, 0.9))
 quantile(dados_estat$idade, probs = c(0.01, 0.5, 0.99))
 
@@ -360,6 +381,11 @@ quantile(dados_estat$BaseCalculoMensal, probs = seq(0.25, 1, 0.25), na.rm = TRUE
 quantile(dados_estat$BaseCalculoMensal, probs = c(0.1, 0.5, 0.9), na.rm = TRUE)
 quantile(dados_estat$BaseCalculoMensal, probs = c(0.01, 0.5, 0.99), na.rm = TRUE)
 ```
+
+```{r}
+seq(0.25, 1, 0.25)
+```
+
 
 **Exercício**: Pesquise no google qual é a função do `R` que calcula a variância. Em seguida, calcule-a para:
 
@@ -405,7 +431,9 @@ quantile(dados_estat$BaseCalculoMensal[!base0], probs = c(0.01, 0.5, 0.99),
 **Exercício**: Apresente as pessoas que possuem a Base de Cálculo igual a 0.
 
 ```{r}
-
+base0 <- which(dados_estat$BaseCalculoMensal == 0)
+base0
+dados_estat[base0,]
 ```
 
 ### Função que calcula estatísticas para um data frame
@@ -428,6 +456,10 @@ estatisticas <- function(x){
   return(c(n = n, media = me, mediana = med, desvio = s, 
            Q = q25, Q = q75, min = mi, max = ma))
 }
+
+estatisticas(dados_estat$BaseCalculoMensal)
+
+source("estatistica_descritiva_fun.R")
 ```
 
 Criada a nossa função, vamos selecionar as variáveis quantitativas:
@@ -444,13 +476,14 @@ Vamos fazer a filtragem na base por coluna e aplicar nossa função `estatistica
 ```{r}
 # Vamos usar a função sapply - ela aplica uma função em uma base de dados (cada coluna) e retorna uma matriz. 
 sapply(dados_estat[variaveis_estat], FUN = estatisticas)
+View(dados_estat)
 ```
 
 A partir dessa tabela, podemos responder algumas perguntas como:
 
 * Qual a idade média dos participantes?
 * Qual o desvio-padrão da Base de Cálculo Mensal?
-* Os participantes do plano, em média, contribuem por mais de 15 anos?
+* Os participantes do plano, em média, contribuíram por mais de 15 anos?
 * Qual a idade mediana dos participantes?
 * A pessoa mais velha tem quantos anos de idade?
 * A pessoa mais nova tem quantos anos de idade?
@@ -478,7 +511,7 @@ Ok! Certo disso, vamos então alterar a classe do objeto `estatistica_descritiva
 
 ```{r}
 # transformar em um data frame
-estatistica_descritiva <- as.data.frame(estatistica_descritiva)
+estatistica_descritiva <- data.frame(estatistica_descritiva)
 
 # visualizando a classe do objeto
 class(estatistica_descritiva)
@@ -627,6 +660,7 @@ cor(dados_estat_f[variaveis_estat])
 Essa função só nos apresenta o coeficiente de correlação linear de Pearson. Se você for avaliar a significância estatística, use a função `rcorr`. Só não esqueça de um detalhe, essa função deriva da biblioteca `Hmisc` e funciona em dados no formato `matrix`. 
 
 ```{r message = FALSE, warning = FALSE}
+#install.packages("Hmisc")
 library(Hmisc)
 rcorr(as.matrix(dados_estat_f[variaveis_estat]))
 ```

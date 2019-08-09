@@ -1,0 +1,29 @@
+---
+title: "Análise Exploratória de Dados no R - Parte 2"
+author: "Filipe C. L. Duarte"
+date: "24 de agosto de 2019"
+output:
+  prettydoc::html_pretty:
+    df_print: paged
+    theme: hpstr
+    toc: yes
+    toc_depth: 2
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
+---
+
+### Conteúdo
+
+O curso aborda os seguintes tópicos:
+
+1. Preparação dos dados
+      + Manipulação de dados com o pacote dplyr
+2. Visualização de dados com o ggplot2
+    + Histograma 
+    + Box-plot
+    + Gráfico de barras
+    + Gráfico de Dispersão
+    
+
+Este curso é a parte 2 do minicurso "Análise Exploratória de Dados no R" realizado em 27 de julho de 2019.
