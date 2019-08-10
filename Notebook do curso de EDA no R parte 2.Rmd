@@ -13,12 +13,12 @@ output:
     toc_depth: '2'
 ---
 
-### Conteúdo
+## Conteúdo
 
 O curso aborda os seguintes tópicos:
 
 1. Preparação dos dados
-      + Manipulação de dados com o pacote dplyr
+    + Manipulação de dados com o pacote dplyr
 2. Visualização de dados com o ggplot2
     + Histograma 
     + Box-plot
@@ -26,4 +26,289 @@ O curso aborda os seguintes tópicos:
     + Gráfico de Dispersão
     
 
-Este curso é a parte 2 do minicurso "Análise Exploratória de Dados no R" realizado em 27 de julho de 2019.
+Este curso contempla a 2ª parte do minicurso "Análise Exploratória de Dados no R" realizado em 27 de julho de 2019. Nesse sentido, recomendo que estude a parte 1 do curso antes de iniciar este módulo. Neste, abordaremos a mesma base de dados que foi estruturada na primeira.
+
+### Importação dos dados
+
+Para que possamos utilizar a biblioteca `dplyr`, é necessário que a carregemos. Para tanto, use o comando a seguir:
+
+```{r message=FALSE}
+library(dplyr)
+```
+
+Ainda, para otimizar a escrita dos códigos dessa biblioteca, vamos utilizar o operador pipe `%>% `. Precisamos carregar o seu pacote, o `magrittr`:
+
+```{r}
+library(magrittr)
+```
+
+O operador pipe serve para que você consiga trabalhar com diversas funções de uma maneira mais clara, isto é, ele torna o código mais simples de se ler. Assim, ele faz com que a parte do código que esteja à esquerda seja o primeiro argumento da função do lado direito. Por exemplo, sem a utilização do operador pipe, se eu desejar calcular média de um vetor após a aplicação de uma função que divide todos os valores por 100, eu faria:
+
+```{r}
+set.seed(100) # serve para que a geração de números aleatórios possa ser reproduzida
+
+# função que divide por 10
+div <- function(x){
+  return(x/10)
+}
+
+# criando o vetor
+y <- rnorm(20, 10, 1) # 20 números com média 10 e desvio 1
+
+# calculando a média do vetor
+mean(div(y))
+```
+
+Perceba que não é tão difícil visualizar o que foi executado nesse código, pois temos apenas duas funções, mas se precisarmos aplicar mais de duas funções? O Código poderia ficar poluído e de difícil leitura. Por exemplo, se for aplicar quatro funções a um vetor: `funcao1(funcao2(funcao3(funcao4(y))))`. O operador pode melhorar a leitura dessas tarefas. Veja abaixo como podemos solucionar o problema anterior com o pipe ` %>% `.
+
+```{r}
+set.seed(100)
+
+# criando o vetor
+y <- rnorm(20, 10, 1) # 20 números com média 10 e desvio 1
+
+# calculando a média do vetor
+y %>% div() %>% mean()
+
+# se preferir um abaixo do outro:
+y %>% 
+  div() %>% 
+  mean()
+```
+
+Então, como lemos esse código? Dessa maneira: "Pegue o vetor y, aplique a função div e depois use a função mean". Portanto, eu entendo que operador `pipe - %>% ` vai ajudar quando você precisar usar várias funções aninhadas. 
+
+### Importação dos dados
+
+Inicialmente, precisamos importar a base de dados que foi criada na parte 1 deste curso. 
+
+```{r}
+dados <- read.csv("dados.csv", header = TRUE, sep = "")
+```
+
+Antes de trabalhar com esses dados, vamos visualizar as 10 primeiras linhas: 
+
+```{r}
+# visualizando a tabela - dados
+dados[1:10,]
+```
+
+Agora, vamos entender a biblioteca `dplyr`. Ela se baseia em cinco verbos, tais quais:
+
+  - `mutate()` cria novas variáveis a partir das existentes
+  - `select()` seleciona variáveis a partir dos seus nomes
+  - `filter()` seleciona as observações com base em seus valores
+  - `summarise()` reduz os múltiplos valores em um resumo
+  - `arrange()` reordena as observações.
+
+Todos essas funções combinam com a função `group_by()` que agrupa as observações. 
+
+#### `select()`
+
+Vamos selecionar apenas uma variável, a DataNascimento:
+
+```{r}
+dados %>% 
+  select(DataNascimento)
+```
+
+Perceba que o ` %>% ` serve para melhorar a leitura do código. Se você não quiser utilizá-lo, o código correto é:
+
+```{r}
+select(dados, DataNascimento)
+```
+
+Então, fica a seu critério. 
+
+Continuando, vamos selecionar duas variáveis: `sexo` e `idade`:
+```{r}
+dados %>% 
+  select(sexo, idade)
+```
+
+#### Exercício: Selecione as colunas referentes ao sexo, idade, carreira e a base de cálculo mensal
+```{r}
+
+```
+
+```{r}
+dados %>% 
+  select(sexo, idade, carreira, BaseCalculoMensal)
+```
+
+#### `filter()`
+
+A função `filter()` é fundamental quando necessitamos realizar um filtro nas observações. Ela utiliza-se de condições lógicas. Vamos estudar com um exemplo. Quero filtrar apenas os solteiros, isto é, peço ao R que me mostre a tabela de dados apenas com os solteiros:
+
+```{r}
+dados %>% 
+  filter(EstadoCivil == "solteir")
+```
+
+Sua vez: Filtre as pessoas que não são divorciadas:
+
+```{r}
+
+```
+
+```{r}
+dados %>% 
+  filter(EstadoCivil != "divociad")
+```
+
+Posso utilizar mais de uma condição lógica dentro de `filter()`? Sim! Veja o exemplo a seguir:
+
+```{r}
+# Filtrando os soteiros e Professores
+dados %>% 
+  filter(EstadoCivil == "solteir", carreira == "PROFESSOR")
+```
+
+# Filtrando os casados com mais de 30 anos 
+dados %>% 
+  filter(EstadoCivil == "casad", idade > 30)
+
+##### Ex.: Filtre os casados ou solteiros que têm entre 30 e 40 anos e são professores
+
+dados %>% 
+  filter(EstadoCivil == "casad" | EstadoCivil == "solteir", idade >= 30 & idade <= 40, carreira == "PROFESSOR")
+
+#####
+
+# Podemos também realizar a operação de filtro e selecionar colunas
+# Filtrando sexo feminino e EstadoCivil solteiro, ao passo que seleciona as carreira e BaseCalculoMensal
+dados %>% 
+  filter(sexo == "feminino", EstadoCivil == "solteir") %>% 
+  select(carreira, BaseCalculoMensal)
+
+# Agora - filtrando EstadoCivil divorciado ou separado judicialmente com menos 50 anos ou menos de idade, e selecionando sexo, EstadoCivil, carreira, idade e Base de Cálculo
+dados %>% 
+  filter(EstadoCivil == "divorciad" | EstadoCivil == "sepjudicialmente", idade <= 50) %>% 
+  select(sexo, EstadoCivil, carreira, idade, BaseCalculoMensal)
+
+# Filtrando quem não é casado que possuem mais de 40 anos de idade e selecionando sexo, estado civil, idade, carreira e base 
+dados %>% 
+  filter(EstadoCivil != "casad", idade > 40) %>% 
+  select(sexo, EstadoCivil, carreira, idade, BaseCalculoMensal)
+
+##### Exercício: Faça uma tabela que filtra as pessoas com Estado Civil casado, união estável ou  solteiro que têm mais de 50 anos de idade e que recebem entre de R$2.000 e R$3.000 mensais, e imprime o sexo, idade, estado civil, carreira e base de calculo mensal
+
+dados %>% 
+  filter(EstadoCivil == "casad" | EstadoCivil == "uniaoestavel" | EstadoCivil == "solteir", idade > 50, BaseCalculoMensal >= 2000 & BaseCalculoMensal <= 3000) %>% 
+  select(sexo, idade, EstadoCivil, carreira, BaseCalculoMensal)
+
+###### Exercício: Repita o exercício anterior para as pessoas que recebem mais de R$3.000
+
+dados %>% 
+  filter(EstadoCivil == "casad" | EstadoCivil == "uniaoestavel" | EstadoCivil == "solteir", idade > 50, BaseCalculoMensal >= 3000) %>% 
+  select(sexo, idade, EstadoCivil, carreira, BaseCalculoMensal)
+
+#######
+
+# Ordenando
+# Vamos ordenar a tabela pela idade
+dados %>% 
+  arrange(idade)
+
+# ordenar pela idade e pela base de cálculo
+dados %>% 
+  arrange(idade, BaseCalculoMensal)
+
+# Adicionando novas colunas
+# Vamos criar uma coluna com a base de cálculo anual. obs.: lembre-se de incluir o 13º.
+dados %>% 
+  mutate(BaseCalculoAnual = BaseCalculoMensal * 13)
+
+# Vamos agora, selecionar apenas a profissão, a base de cálculo mensal e vamos criar a coluna base de cálculo anual novamente
+dados %>% 
+  mutate(BaseCalculoAnual = BaseCalculoMensal * 13) %>% 
+  select(idade, BaseCalculoMensal, BaseCalculoAnual)
+
+##### Exercício: Filtre os solteiros com idade entre 30 e 50 anos, crie a coluna Base de Cálculo Anual e mostre o sexo, a idade, a carreira e a Base de Cálculo Anual
+
+dados %>% 
+  filter(EstadoCivil == "solteir", idade >= 30 & idade <= 50) %>% 
+  mutate(BaseCalculoAnual = BaseCalculoMensal * 13) %>% 
+  select(sexo, idade, carreira, BaseCalculoAnual)
+      
+#####
+
+# vamos sumarizar com estatísticas
+# apresentando a média da BaseCálculoMensal
+dados %>% 
+  summarize(media_Base = mean(BaseCalculoMensal))
+dados %>% 
+  na.omit() %>% 
+  summarize(media_Base = mean(BaseCalculoMensal))
+
+
+# a função summarize se torna muito útil quando se utiliza a função group_by()
+# apresentando a média da base de cálculo mensal por sexo
+dados %>% 
+  group_by(sexo) %>% 
+  summarize(media = mean(BaseCalculoMensal))
+dados %>% 
+  na.omit() %>% 
+  group_by(sexo) %>% 
+  summarize(media = mean(BaseCalculoMensal))
+
+# Vamos trabalhar com a base sem os NA
+dados <- na.omit(dados)
+which(is.na(dados))
+
+# Posso adicionar outras estatísticas, como por ex. o desvio-padrão e a quantidade
+dados %>% 
+  group_by(sexo) %>% 
+  summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
+
+# Vamos usar outro grupo, o Estado Civil
+dados %>% 
+  group_by(EstadoCivil) %>% 
+  summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
+
+# Posso usar mais de um grupo, sexo e Estado Civil
+dados %>% 
+  group_by(sexo, EstadoCivil) %>% 
+  summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
+
+# Vamos fazer por carreira
+dados %>% 
+  group_by(carreira) %>% 
+  summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
+
+# São muitas linhas. Vamos salvar como carreiras_base
+carreiras_base <- dados %>% 
+  group_by(carreira) %>% 
+  summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
+
+# Vamos fazer uma ordenação
+arrange(carreiras_base, media)
+# Pela ordem descrescente
+arrange(carreiras_base, desc(media))
+  
+###### Faça uma tabela com a quantidade, a média, mediana, desvio-padrão, mínimo, máximo da idade e da Base de Cálculo Mensal
+
+dados %>% 
+  summarize(quantidade = n(), media_idade = mean(idade), mediana_idade = median(idade), desvio_idade = sd(idade), min_idade = min(idade), max_idade = max(idade))
+
+##### Repita o ex. anterior sendo que apresente por sexo
+dados %>% 
+  group_by(sexo) %>% 
+  summarize(quantidade = n(), media_idade = mean(idade), mediana_idade = median(idade), desvio_idade = sd(idade), min_idade = min(idade), max_idade = max(idade))
+
+##### Exercício: Faça o mesmo, sendo que com os divorciados ou viuvos
+dados %>% 
+  group_by(sexo) %>% 
+  filter(EstadoCivil == "divorciad" | EstadoCivil == "viuv") %>% 
+  summarize(quantidade = n(), media_idade = mean(idade), mediana_idade = median(idade), desvio_idade = sd(idade), min_idade = min(idade), max_idade = max(idade))
+
+##### Exercício: faça uma tabela ordenada que separa por sexo e estado civil e apresenta a quantidade, a média da base de cálculo mensal e da idade e o desvio-padrão da base e da idade
+
+dados %>% 
+  group_by(sexo, EstadoCivil) %>% 
+  select(sexo, EstadoCivil, idade, BaseCalculoMensal) %>% 
+  summarize(n = n(), media_base = mean(BaseCalculoMensal), media_idade = mean(idade), desvio_base = sd(BaseCalculoMensal), desvio_idade = sd(idade)) %>% 
+  arrange()
+
+#####
+
