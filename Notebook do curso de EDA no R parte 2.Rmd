@@ -118,6 +118,7 @@ select(dados, DataNascimento)
 Então, fica a seu critério. 
 
 Continuando, vamos selecionar duas variáveis: `sexo` e `idade`:
+
 ```{r}
 dados %>% 
   select(sexo, idade)
@@ -154,7 +155,7 @@ dados %>%
   filter(EstadoCivil != "divociad")
 ```
 
-Posso utilizar mais de uma condição lógica dentro de `filter()`? Sim! Veja o exemplo a seguir:
+Posso utilizar mais de uma condição lógica dentro de `filter()`? Sim! Veja no exemplo a seguir que faço o filtro de solteiro e professor:
 
 ```{r}
 # Filtrando os soteiros e Professores
@@ -180,54 +181,115 @@ dados %>%
 Dessa maneira, você consegue melhorar a tabela gerada. As funções do pacote `dplyr` foram criadas para você trabalhar com elas de forma conjunta.
 
 Sua vez de praticar: Filtre os casados ou solteiros que têm entre 30 e 40 anos e são professores.
+
 ```{r}
 
 ```
 
 ```{r}
 dados %>% 
-  filter(EstadoCivil == "casad" | EstadoCivil == "solteir", idade >= 30 & idade <= 40, carreira == "PROFESSOR")
+  filter(EstadoCivil == "casad" | EstadoCivil == "solteir", 
+         idade >= 30 & idade <= 40, carreira == "PROFESSOR") %>% 
+  select(-carreira)
+```
+
+Podemos também realizar a operação de filtro e selecionar colunas específicas. Por exemplo, se eu quiser filtrar as pessoas com idade entre 50 e 60 anos que são solteiras ou casadas, e selecionar apenas as variáveis idade, EstadoCivil, temposervico e BaseCalculoMensal:
+
+```{r}
+dados %>% 
+  filter(EstadoCivil == "casad" | EstadoCivil == "solteir",
+         idade >= 50 & idade <= 60) %>% 
+  select(idade, EstadoCivil, temposervico, BaseCalculoMensal)
+```
+
+Então, posso selecionar ou excluir na função `select()`. Se eu colocar o `-` antes da variável, ela é excluída, caso contrário, estou selecionando-a. 
+
+Certo de que podemos filtar e selecionar no mesmo código. Peço que façam o seguinte exercício:
+Filtre pelo sexo feminino e EstadoCivil solteiro, ao passo que seleciona as carreira e BaseCalculoMensal
+
+```{r}
 
 ```
 
-# Podemos também realizar a operação de filtro e selecionar colunas
-# Filtrando sexo feminino e EstadoCivil solteiro, ao passo que seleciona as carreira e BaseCalculoMensal
+```{r}
 dados %>% 
   filter(sexo == "feminino", EstadoCivil == "solteir") %>% 
   select(carreira, BaseCalculoMensal)
+```
 
-# Agora - filtrando EstadoCivil divorciado ou separado judicialmente com menos 50 anos ou menos de idade, e selecionando sexo, EstadoCivil, carreira, idade e Base de Cálculo
+Agora, faça este exercício: filtre pelo EstadoCivil divorciado ou separado judicialmente com menos 50 anos ou menos de idade, e selecionando sexo, EstadoCivil, carreira, idade e Base de Cálculo
+
+```{r}
+
+```
+
+```{r}
 dados %>% 
   filter(EstadoCivil == "divorciad" | EstadoCivil == "sepjudicialmente", idade <= 50) %>% 
   select(sexo, EstadoCivil, carreira, idade, BaseCalculoMensal)
 
-# Filtrando quem não é casado que possuem mais de 40 anos de idade e selecionando sexo, estado civil, idade, carreira e base 
+```
+
+Às vezes, temos interesse em filtar excluindo uma classe, como no exemplo a seguir em que eu desejo filtar quem não é casado e que tem mais de 40 anos. Ainda, seleciono o sexo, EstadoCivil, idade, carreira e BaseCalculoMensal:
+
+```{r}
 dados %>% 
   filter(EstadoCivil != "casad", idade > 40) %>% 
   select(sexo, EstadoCivil, carreira, idade, BaseCalculoMensal)
+```
 
-##### Exercício: Faça uma tabela que filtra as pessoas com Estado Civil casado, união estável ou  solteiro que têm mais de 50 anos de idade e que recebem entre de R$2.000 e R$3.000 mensais, e imprime o sexo, idade, estado civil, carreira e base de calculo mensal
+Certo de que você conseguiu entender as funções `filter()` e `select()`, faça o exercício abaixo:
 
+Faça uma tabela que filtra as pessoas com Estado Civil casado, união estável ou  solteiro que têm mais de 50 anos de idade e que recebem entre de 2.000 e 3.000 mensais, e imprime o sexo, idade, estado civil, carreira e base de calculo mensal
+
+```{r}
+
+```
+
+```{r}
 dados %>% 
   filter(EstadoCivil == "casad" | EstadoCivil == "uniaoestavel" | EstadoCivil == "solteir", idade > 50, BaseCalculoMensal >= 2000 & BaseCalculoMensal <= 3000) %>% 
   select(sexo, idade, EstadoCivil, carreira, BaseCalculoMensal)
+```
 
-###### Exercício: Repita o exercício anterior para as pessoas que recebem mais de R$3.000
+Exercício: Repita o exercício anterior para as pessoas que recebem mais de R$3.000
 
+```{r}
+
+```
+
+```{r}
 dados %>% 
   filter(EstadoCivil == "casad" | EstadoCivil == "uniaoestavel" | EstadoCivil == "solteir", idade > 50, BaseCalculoMensal >= 3000) %>% 
   select(sexo, idade, EstadoCivil, carreira, BaseCalculoMensal)
+```
 
-#######
+#### arrange()
+ 
+Nesta parte vamos aprender a ordenar uma tabela de dados. A função de ordenação é `arrange()`. Abaixo, vou ordenar nossa tabela pela idade:
 
-# Ordenando
-# Vamos ordenar a tabela pela idade
+```{r}
 dados %>% 
   arrange(idade)
+```
 
-# ordenar pela idade e pela base de cálculo
+A ordenação é crescente, isto é, do menor para o maior. Essa função é muito útil, pois nos ajuda a visualizar melhor a tabela e encontrar os valores de forma mais visual. 
+
+O interessante é que podemos pedir a ordenação por mais de uma variável. Por exemplo: ordenando a tabela de dados a partir da idade e da BaseCalculoMensal:
+
+```{r}
 dados %>% 
   arrange(idade, BaseCalculoMensal)
+```
+
+Essa função, `arrange()` permite que façamos a ordenação de maneira descrescente, através da utilização da função desc() atribuída à variável de interesse. No caso em questão, vamos realizar a ordenação de forma decrescente para a idade e de forma crescente para a BaseCalculoMensal:
+
+```{r}
+dados %>% 
+  arrange(desc(idade), BaseCalculoMensal)
+```
+
+Sua vez de praticar: Faça um filtro 
 
 # Adicionando novas colunas
 # Vamos criar uma coluna com a base de cálculo anual. obs.: lembre-se de incluir o 13º.
