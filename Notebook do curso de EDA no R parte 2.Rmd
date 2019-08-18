@@ -8,9 +8,6 @@ output:
     theme: hpstr
     toc: yes
     toc_depth: 2
-  pdf_document:
-    toc: yes
-    toc_depth: '2'
 ---
 
 ## Conteúdo
@@ -32,7 +29,7 @@ Este curso contempla a 2ª parte do minicurso "Análise Exploratória de Dados n
 
 Para que possamos utilizar a biblioteca `dplyr`, é necessário que a carregemos. Para tanto, use o comando a seguir:
 
-```{r message=FALSE}
+```{r message=FALSE, results="hide"}
 library(dplyr)
 ```
 
@@ -103,7 +100,7 @@ Agora, vamos entender a biblioteca `dplyr`. Ela se baseia em cinco verbos, tais 
 
 Todos essas funções combinam com a função `group_by()` que agrupa as observações. 
 
-#### `select()`
+#### select()
 
 Vamos selecionar apenas uma variável, a DataNascimento:
 
@@ -127,6 +124,7 @@ dados %>%
 ```
 
 #### Exercício: Selecione as colunas referentes ao sexo, idade, carreira e a base de cálculo mensal
+
 ```{r}
 
 ```
@@ -136,7 +134,7 @@ dados %>%
   select(sexo, idade, carreira, BaseCalculoMensal)
 ```
 
-#### `filter()`
+#### filter()
 
 A função `filter()` é fundamental quando necessitamos realizar um filtro nas observações. Ela utiliza-se de condições lógicas. Vamos estudar com um exemplo. Quero filtrar apenas os solteiros, isto é, peço ao R que me mostre a tabela de dados apenas com os solteiros:
 
@@ -164,16 +162,33 @@ dados %>%
   filter(EstadoCivil == "solteir", carreira == "PROFESSOR")
 ```
 
-# Filtrando os casados com mais de 30 anos 
+Agora, vou filtrar os casados com mais de 30 anos. Para tanto, usarei a função `filter()` com EstadoCivil e idade, atribuindo as condições necessárias:
+
+```{r}
 dados %>% 
   filter(EstadoCivil == "casad", idade > 30)
+```
 
-##### Ex.: Filtre os casados ou solteiros que têm entre 30 e 40 anos e são professores
+Perceba que a coluna EstadoCivil se torna desnecessária, pois o seu valor não muda. Desse modo, posso aplicar o mesmo código acima junto com a função `select()` retirando o EstadoCivil:
 
+```{r}
+dados %>% 
+  filter(EstadoCivil == "casad", idade > 30) %>% 
+  select(-EstadoCivil)
+```
+
+Dessa maneira, você consegue melhorar a tabela gerada. As funções do pacote `dplyr` foram criadas para você trabalhar com elas de forma conjunta.
+
+Sua vez de praticar: Filtre os casados ou solteiros que têm entre 30 e 40 anos e são professores.
+```{r}
+
+```
+
+```{r}
 dados %>% 
   filter(EstadoCivil == "casad" | EstadoCivil == "solteir", idade >= 30 & idade <= 40, carreira == "PROFESSOR")
 
-#####
+```
 
 # Podemos também realizar a operação de filtro e selecionar colunas
 # Filtrando sexo feminino e EstadoCivil solteiro, ao passo que seleciona as carreira e BaseCalculoMensal
