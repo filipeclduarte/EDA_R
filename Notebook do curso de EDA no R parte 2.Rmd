@@ -779,43 +779,71 @@ O histograma é o primeiro gráfico que utilizamos ao trabalhar com uma variáve
 
 O `ggplot2` possui uma função para construir o histograma, que se chama `geom_histogram()`. 
 
-## Vamos visualizar o histograma da variável idade 
+Vamos visualizar o histograma da variável idade:
+
+```{r}
 ggplot(base, aes(x = idade)) +
   geom_histogram()
+```
 
-# Podemos modificar o tamanho dos intervalos - bin
+Perceba que nos é dada a informação de que o histograma utilizou a quantidade de intervalos (bin) igual a 30. Podemos alterar esse parâmetro e modificar o gráfico. 
+
+Vamos fazer o mesmo gráfico acima com a identificação da quantidade de intervalos. 
+
+```{r}
 ggplot(base, aes(x = idade)) +
-  geom_histogram( binwidth = 30)
+  geom_histogram(bins = 30)
+```
+
+Se eu diminuir a quantidade de intervalos, perceba que o gráfico ficará menos ruidoso e concentrará mais informação em cada retângulo. Abaixo, vamos utilizar bins = 10:
+
+```{r}
+ggplot(base, aes(x = idade)) +
+  geom_histogram(bins = 10)
+```
+
+Sua vez de praticar:
+
+#### Exercício 2.6 
+
+Faça três histogramas para a variável idade, com as seguintes quantidade de intervalos: 15, 40 e 50
+
+```{r}
+
+```
+
+```{r}
 
 ggplot(base, aes(x = idade)) +
-  geom_histogram(binwidth = 20)
+  geom_histogram(binwidth = 15)
 
 ggplot(base, aes(x = idade)) +
-  geom_histogram(binwidth = 10)
+  geom_histogram(bins = 40)
 
 ggplot(base, aes(x = idade)) +
-  geom_histogram(binwidth = 5)
+  geom_histogram(bins = 50)
 
-ggplot(base, aes(x = idade)) +
-  geom_histogram(binwidth = 2)
+```
 
-# visualizando os intervalos
-base %>% 
-  count(cut_width(idade, 20))
+Qual desses gráficos você acha que ficou melhor? 
 
-base %>% 
-  count(cut_width(idade, 10))
+Bem, certo de que você aprendeu a plotar um histograma, vamos adicionar mais complexidade. 
 
-base %>% 
-  count(cut_width(idade, 5))
+#### Exercício 2.7
 
-base %>% 
-  count(cut_width(idade, 2))
+Agora, ao invés de plotar um histograma apenas, quero que plote dois histogramas para a idade, diferenciados pelo sexo.
 
-# Se for de interesse plotar o histograma da idade pelo sexo
-# vamos usar o argumento fill para preencher a área com a cor e o alpha para tornar mais transparente
+```{r}
+# vamos usar o argumento fill para preencher a área com a cor e o alpha (entre 0 e 1) para tornar mais transparente
+
+```
+
+```{r}
 ggplot(base, aes(x = idade, fill = sexo, color = sexo)) + 
-  geom_histogram(binwidth = 5, alpha=0.6)
+  geom_histogram(binwidth = 5, alpha=0.5)
+```
+
+
 
 # vamos usar a position = "identity" para que a distribuição do sexo masculino não fique sobreposta
 ggplot(base, aes(x = idade, fill = sexo, color = sexo) ) + 
@@ -860,10 +888,10 @@ ggplot(base2000) +
   geom_histogram(mapping = aes(x = BaseCalculoMensal, fill = sexo, color = sexo), binwidth = 200, alpha=0.6, position="identity")
 
 
-#####
+## Gráfico de colunas
 
-# Podemos usar o gráfico de colunas para nos ajudar quando tentamos analisar uma variável quantitativa juntamente com uma qualitativa
-## A base de cálculo é diferente entre os estados civis? 
+##### Podemos usar o gráfico de colunas para nos ajudar quando tentamos analisar uma variável quantitativa juntamente com uma qualitativa
+##### A base de cálculo é diferente entre os estados civis? 
 ggplot(base) + 
   geom_col(aes(x = EstadoCivil, y = BaseCalculoMensal))
 
@@ -874,51 +902,54 @@ ggplot(base) +
 ggplot(base) + 
   geom_col(aes(x = EstadoCivil, y = BaseCalculoMensal, fill = EstadoCivil))
 
+## Gráfico de dispersão
 
-# Quando desejamos criar um gráfico a partir de duas variáveis quantitativas, usamos o gráfico de dispersão
-# Vamos analisar o salario em funcao da idade
+##### Quando desejamos criar um gráfico a partir de duas variáveis quantitativas, usamos o gráfico de dispersão
+##### Vamos analisar o salario em funcao da idade
 ggplot(base) +
   geom_point(aes(x = idade, y = BaseCalculoMensal))
 
-# Percebmos que há dois grupos distintos. Será que é o sexo?
+##### Percebmos que há dois grupos distintos. Será que é o sexo?
 ggplot(base) +
   geom_point(aes(x = idade, y = BaseCalculoMensal, color = sexo))
 
-# Parece que não, vamos investigar com outro grupo, o estado civil
+###### Parece que não, vamos investigar com outro grupo, o estado civil
 ggplot(base) +
   geom_point(aes(x = idade, y = BaseCalculoMensal, color = EstadoCivil))
 
-# Ainda não. Que tal a carreira
+###### Ainda não. Que tal a carreira
 ggplot(base) +
   geom_point(aes(x = idade, y = BaseCalculoMensal, color = carreira))
-# Ops, muitas categorias
-# vamos selecionar algumas
+##### Ops, muitas categorias
+##### vamos selecionar algumas
 
 base_carreiras <-base %>% 
   filter(carreira == "PROFESSOR" | carreira == "ENFERMEIRO" | carreira == "MOTORISTA" | carreira == "AG. COM. SAÚDE" | carreira == "AGENTE ADM.")
 
-# Parece que agora conseguimos identificar a diferença entre os grupos. 
+##### Parece que agora conseguimos identificar a diferença entre os grupos. 
 ggplot(base_carreiras) +
   geom_point(aes(x = idade, y = BaseCalculoMensal, color = carreira))
 
-# Perceba também que não há uma correlação entre idade e base de cálculo
+##### Perceba também que não há uma correlação entre idade e base de cálculo
 
-# Por fim, vamos visualizar o box-plot
-## box_plot base por sexo
+## Gráfico boxplot
+##### Por fim, vamos visualizar o box-plot
+##### box_plot base por sexo
 ggplot(base) +
   geom_boxplot(mapping = aes(x = sexo, y = BaseCalculoMensal))
 
-# Box-plot base por estado civil
+##### Box-plot base por estado civil
 ggplot(base) +
   geom_boxplot(mapping = aes(x = EstadoCivil, y = BaseCalculoMensal))
 
-# Box-plot base por estado civil e sexo
+##### Box-plot base por estado civil e sexo
 ggplot(base) +
   geom_boxplot(mapping = aes(x = EstadoCivil, y = BaseCalculoMensal, color = sexo))
-# Perceba que há diferenças entre os sexos para alguns estados civis
+##### Perceba que há diferenças entre os sexos para alguns estados civis
 
 ##### Exercício: Faça um gráfico de box-plot da Base de cálculo para as 3 carreiras com as maiores e as 3 carreiras menores médias salariais (use profissões com n > 10), e faça a distinção por sexo.
 
+```{r}
 maiores_medias <- base %>% 
   group_by(carreira) %>% 
   summarize(n = n(), media = mean(BaseCalculoMensal)) %>% 
@@ -943,5 +974,8 @@ base_boxplot
 ggplot(base_boxplot) +
   geom_boxplot(mapping = aes(x = carreira, y = BaseCalculoMensal, color = sexo))
 
-#####
+```
+
+FIM!
+
 
