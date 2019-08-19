@@ -25,8 +25,6 @@ O curso aborda os seguintes tópicos:
 
 Este curso contempla a 2ª parte do minicurso "Análise Exploratória de Dados no R" realizado em 27 de julho de 2019. Nesse sentido, recomendo que estude a parte 1 do curso antes de iniciar este módulo. Neste, abordaremos a mesma base de dados que foi estruturada na primeira.
 
-### Importação dos dados
-
 Para que possamos utilizar a biblioteca `dplyr`, é necessário que a carregemos. Para tanto, use o comando a seguir:
 
 ```{r message=FALSE, results="hide"}
@@ -75,7 +73,7 @@ y %>%
 
 Então, como lemos esse código? Dessa maneira: "Pegue o vetor y, aplique a função div e depois use a função mean". Portanto, eu entendo que operador `pipe - %>% ` vai ajudar quando você precisar usar várias funções aninhadas. 
 
-### Importação dos dados
+## Importação dos dados
 
 Inicialmente, precisamos importar a base de dados que foi criada na parte 1 deste curso. 
 
@@ -90,6 +88,8 @@ Antes de trabalhar com esses dados, vamos visualizar as 10 primeiras linhas:
 dados[1:10,]
 ```
 
+## dplyr
+
 Agora, vamos entender a biblioteca `dplyr`. Ela se baseia em cinco verbos, tais quais:
 
   - `mutate()` cria novas variáveis a partir das existentes
@@ -100,7 +100,7 @@ Agora, vamos entender a biblioteca `dplyr`. Ela se baseia em cinco verbos, tais 
 
 Todos essas funções combinam com a função `group_by()` que agrupa as observações. 
 
-#### select()
+## select()
 
 Vamos selecionar apenas uma variável, a DataNascimento:
 
@@ -135,7 +135,7 @@ dados %>%
   select(sexo, idade, carreira, BaseCalculoMensal)
 ```
 
-#### filter()
+## filter()
 
 A função `filter()` é fundamental quando necessitamos realizar um filtro nas observações. Ela utiliza-se de condições lógicas. Vamos estudar com um exemplo. Quero filtrar apenas os solteiros, isto é, peço ao R que me mostre a tabela de dados apenas com os solteiros:
 
@@ -264,7 +264,7 @@ dados %>%
   select(sexo, idade, EstadoCivil, carreira, BaseCalculoMensal)
 ```
 
-#### arrange()
+## arrange()
  
 Nesta parte vamos aprender a ordenar uma tabela de dados. A função de ordenação é `arrange()`. Abaixo, vou ordenar nossa tabela pela idade:
 
@@ -290,11 +290,12 @@ dados %>%
 ```
 
 Sua vez de praticar: Faça um filtro das pessoas casadas, solteiras e viúvas; ordene de forma descrescente pela BaseCalculoMensal e de forma crescente pela idade e pelo temposervico; e mostre as variáveis: idade, EstadoCivil, temposervico, BaseCalculoMensal:
+
 ```{r}
 
 ```
 
-#### mutate()
+## mutate()
 
 A função `mutate()` permite que você crie novas variáveis a partir das existentes. Vamos ver na prática: criando uma coluna que representa a base de calculo para 6 meses.
 
@@ -322,7 +323,7 @@ dados %>%
   select(sexo, idade, carreira, BaseCalculo6meses)
 ```
       
-#### summarize()
+## summarize()
 
 A função `summarise()` tem a utilidade de criar tabelas com as estatísticas descritivas. A partir dela, criamos uma tabela com diversas funções estatísticas que serão úteis para sumarizar os dados. 
 
@@ -360,60 +361,115 @@ dados <- na.omit(dados)
 which(is.na(dados))
 ```
 
-Como faço para adicionar outras estatísticas? Basta pedir na função summarise()
-# Posso adicionar outras estatísticas, como por ex. o desvio-padrão e a quantidade
+Como faço para adicionar outras estatísticas? Basta pedir na função `summarize()`. A partir dessa função, posso adicionar outras estatísticas, como, por exemplo, o desvio-padrão e a quantidade de observações. A seguir apresento-lhes uma forma de summarizar os dados por sexo, calculando a quantidade de observações a média e o desvio-padrão:
+
+```{r}
 dados %>% 
   group_by(sexo) %>% 
   summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
+```
 
-# Vamos usar outro grupo, o Estado Civil
-dados %>% 
+Agora, vamos usar outro grupo, o Estado Civil:
+
+```{r}
+dados %>%
   group_by(EstadoCivil) %>% 
   summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
+```
 
-# Posso usar mais de um grupo, sexo e Estado Civil
+É possível usar mais de um grupo? Sim, veja abaixo quando uso o sexo e o Estado Civil:
+
+```{r}
 dados %>% 
   group_by(sexo, EstadoCivil) %>% 
   summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
+```
 
-# Vamos fazer por carreira
+Sua vez: Faça a estatística descritiva por carreira:
+
+```{r}
+```
+
+```{r}
 dados %>% 
   group_by(carreira) %>% 
   summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
+```
 
-# São muitas linhas. Vamos salvar como carreiras_base
+Nós podemos salvar essa tabela como um data frame. Vamos salvar como carreiras_base:
+
+```{r}
 carreiras_base <- dados %>% 
   group_by(carreira) %>% 
   summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
+```
 
-# Vamos fazer uma ordenação
-arrange(carreiras_base, media)
-# Pela ordem descrescente
+Então, faça a ordenaçõ pela ordem decrescente pela média:
+
+```{r}
+
+```
+
+
+```{r}
 arrange(carreiras_base, desc(media))
-  
-###### Faça uma tabela com a quantidade, a média, mediana, desvio-padrão, mínimo, máximo da idade e da Base de Cálculo Mensal
+```
 
+Até aqui, aprendemos diversas formas de manipular os dados, desde sua filtragem, à seleção, ordenação, agrupamento e sumarização. Portanto, para que você fixe o conteúdo, peço que realizem os exercícios a seguir:
+
+Faça uma tabela com a quantidade, a média, mediana, desvio-padrão, mínimo, máximo da idade e da Base de Cálculo Mensal:
+
+```{r}
+
+```
+
+
+```{r}
 dados %>% 
   summarize(quantidade = n(), media_idade = mean(idade), mediana_idade = median(idade), desvio_idade = sd(idade), min_idade = min(idade), max_idade = max(idade))
 
-##### Repita o ex. anterior sendo que apresente por sexo
+```
+
+Repita o exercício anterior, mas apresente as estatísticas por sexo:
+
+```{r}
 dados %>% 
   group_by(sexo) %>% 
   summarize(quantidade = n(), media_idade = mean(idade), mediana_idade = median(idade), desvio_idade = sd(idade), min_idade = min(idade), max_idade = max(idade))
+```
 
-##### Exercício: Faça o mesmo, sendo que com os divorciados ou viuvos
+Agora, faça o mesmo que no exercício anterior, sendo que com os divorciados ou viuvos:
+
+```{r}
+
+```
+
+```{r}
 dados %>% 
   group_by(sexo) %>% 
   filter(EstadoCivil == "divorciad" | EstadoCivil == "viuv") %>% 
   summarize(quantidade = n(), media_idade = mean(idade), mediana_idade = median(idade), desvio_idade = sd(idade), min_idade = min(idade), max_idade = max(idade))
+```
 
-##### Exercício: faça uma tabela ordenada que separa por sexo e estado civil e apresenta a quantidade, a média da base de cálculo mensal e da idade e o desvio-padrão da base e da idade
+Por fim, para terminar o assunto da manipulação de dados e estatística descritiva, faça o exercício a seguir:
 
+Faça uma tabela ordenada que separa por sexo e estado civil e apresenta a quantidade, a média da base de cálculo mensal e da idade e o desvio-padrão da base e da idade
+
+
+```{r}
+
+```
+
+```{r}
 dados %>% 
   group_by(sexo, EstadoCivil) %>% 
   select(sexo, EstadoCivil, idade, BaseCalculoMensal) %>% 
   summarize(n = n(), media_base = mean(BaseCalculoMensal), media_idade = mean(idade), desvio_base = sd(BaseCalculoMensal), desvio_idade = sd(idade)) %>% 
   arrange()
+```
 
-#####
+
+## ggplot2
+
+
 
