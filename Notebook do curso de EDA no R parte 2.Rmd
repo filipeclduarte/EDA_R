@@ -506,13 +506,20 @@ Ai surge a pergunta: É possível modificá-lo? Sim, podemos adicionar um títul
 # Se ela for qualitativa, vamos usar o gráfico de barras
 
 # Vamos visualizar um gráfico de barras par o sexo
+```{r}
 ggplot(data = base, mapping = aes(sexo)) + 
   geom_bar()
+```
 # mesmo grafico com cores
+
+```{r}
 p <- ggplot(data = base, mapping = aes(x = sexo, fill = sexo)) + 
   geom_bar()
+
 # visualizar
 print(p)
+```
+
 # quantidades para cada sexo
 table(base$sexo)
 # para tirar a legenda
