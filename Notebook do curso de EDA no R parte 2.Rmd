@@ -289,50 +289,78 @@ dados %>%
   arrange(desc(idade), BaseCalculoMensal)
 ```
 
-Sua vez de praticar: Faça um filtro 
+Sua vez de praticar: Faça um filtro das pessoas casadas, solteiras e viúvas; ordene de forma descrescente pela BaseCalculoMensal e de forma crescente pela idade e pelo temposervico; e mostre as variáveis: idade, EstadoCivil, temposervico, BaseCalculoMensal:
+```{r}
 
-# Adicionando novas colunas
-# Vamos criar uma coluna com a base de cálculo anual. obs.: lembre-se de incluir o 13º.
+```
+
+#### mutate()
+
+A função `mutate()` permite que você crie novas variáveis a partir das existentes. Vamos ver na prática: criando uma coluna que representa a base de calculo para 6 meses.
+
+```{r}
 dados %>% 
-  mutate(BaseCalculoAnual = BaseCalculoMensal * 13)
+  mutate(BaseCalculo6meses = BaseCalculoMensal * 6)
+```
 
-# Vamos agora, selecionar apenas a profissão, a base de cálculo mensal e vamos criar a coluna base de cálculo anual novamente
+Posso selecionar apenas a profissão, a base de cálculo mensal e vamos criar a coluna base de cálculo para 6 meses
+
+```{r}
 dados %>% 
-  mutate(BaseCalculoAnual = BaseCalculoMensal * 13) %>% 
-  select(idade, BaseCalculoMensal, BaseCalculoAnual)
+  mutate(BaseCalculo6meses = BaseCalculoMensal * 6) %>% 
+  select(idade, BaseCalculoMensal, BaseCalculo6meses)
+```
 
-##### Exercício: Filtre os solteiros com idade entre 30 e 50 anos, crie a coluna Base de Cálculo Anual e mostre o sexo, a idade, a carreira e a Base de Cálculo Anual
+Sua vez de praticar:
+Exercício: Filtre os solteiros com idade entre 30 e 50 anos; crie a coluna Base de Cálculo Anual; ordene de forma crescente pela idade e BaseCalculo6meses; e mostre o sexo, a idade, a carreira e a BaseCalculo6meses
 
+```{r}
 dados %>% 
   filter(EstadoCivil == "solteir", idade >= 30 & idade <= 50) %>% 
-  mutate(BaseCalculoAnual = BaseCalculoMensal * 13) %>% 
-  select(sexo, idade, carreira, BaseCalculoAnual)
+  mutate(BaseCalculo6meses = BaseCalculoMensal * 13) %>% 
+  arrange(idade, BaseCalculo6meses) %>% 
+  select(sexo, idade, carreira, BaseCalculo6meses)
+```
       
-#####
+#### summarize()
 
-# vamos sumarizar com estatísticas
-# apresentando a média da BaseCálculoMensal
+A função `summarise()` tem a utilidade de criar tabelas com as estatísticas descritivas. A partir dela, criamos uma tabela com diversas funções estatísticas que serão úteis para sumarizar os dados. 
+
+Veja abaixo como faço para calcular a média dos da BaseCalculoMensal:
+
+```{r}
 dados %>% 
   summarize(media_Base = mean(BaseCalculoMensal))
+
+```
+
+Deu erro! Você já sabe o porquê. A razão disso ter acontecido é que existe NA (dados omissos) em nossa tabela de dados. Diante dessa informação, eu já deveria ter pedido para omitir as pessoas com `NA`. Faço isso abaixo com a função `na.omit()`:
+
+```{r}
 dados %>% 
   na.omit() %>% 
   summarize(media_Base = mean(BaseCalculoMensal))
+```
 
+Acontece que a utilização de `summarize()` para calcular apenas uma estatística não é interessante. Vou mostrar como você poderá criar uma tabela com diversas estatísticas. 
+A função summarize se torna muito útil quando se utiliza a função group_by(). Veja, portanto, como apresentar a média da base de cálculo mensal por sexo:
 
-# a função summarize se torna muito útil quando se utiliza a função group_by()
-# apresentando a média da base de cálculo mensal por sexo
-dados %>% 
-  group_by(sexo) %>% 
-  summarize(media = mean(BaseCalculoMensal))
+```{r}
 dados %>% 
   na.omit() %>% 
   group_by(sexo) %>% 
   summarize(media = mean(BaseCalculoMensal))
+```
 
-# Vamos trabalhar com a base sem os NA
+Antes de continuar com as estatísticas, vamos criar uma nova base sem os `NA`. 
+
+```{r}
 dados <- na.omit(dados)
+# conferir se tem NA
 which(is.na(dados))
+```
 
+Como faço para adicionar outras estatísticas? Basta pedir na função summarise()
 # Posso adicionar outras estatísticas, como por ex. o desvio-padrão e a quantidade
 dados %>% 
   group_by(sexo) %>% 
