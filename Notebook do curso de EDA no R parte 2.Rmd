@@ -124,7 +124,9 @@ dados %>%
   select(sexo, idade)
 ```
 
-#### Exercício: Selecione as colunas referentes ao sexo, idade, carreira e a base de cálculo mensal
+#### Exercício 1.1:
+
+Selecione as colunas referentes ao sexo, idade, carreira e a base de cálculo mensal
 
 ```{r}
 
@@ -144,7 +146,9 @@ dados %>%
   filter(EstadoCivil == "solteir")
 ```
 
-Sua vez: Filtre as pessoas que não são divorciadas:
+#### Exercício 1.2:
+
+Sua vez: Filtre as pessoas que não são divorciadas
 
 ```{r}
 
@@ -180,7 +184,11 @@ dados %>%
 
 Dessa maneira, você consegue melhorar a tabela gerada. As funções do pacote `dplyr` foram criadas para você trabalhar com elas de forma conjunta.
 
-Sua vez de praticar: Filtre os casados ou solteiros que têm entre 30 e 40 anos e são professores.
+Sua vez de praticar:
+
+#### Exercício 1.3
+
+Filtre os casados ou solteiros que têm entre 30 e 40 anos e são professores.
 
 ```{r}
 
@@ -205,6 +213,9 @@ dados %>%
 Então, posso selecionar ou excluir na função `select()`. Se eu colocar o `-` antes da variável, ela é excluída, caso contrário, estou selecionando-a. 
 
 Certo de que podemos filtar e selecionar no mesmo código. Peço que façam o seguinte exercício:
+
+#### Exercício 1.4
+
 Filtre pelo sexo feminino e EstadoCivil solteiro, ao passo que seleciona as carreira e BaseCalculoMensal
 
 ```{r}
@@ -217,7 +228,11 @@ dados %>%
   select(carreira, BaseCalculoMensal)
 ```
 
-Agora, faça este exercício: filtre pelo EstadoCivil divorciado ou separado judicialmente com menos 50 anos ou menos de idade, e selecionando sexo, EstadoCivil, carreira, idade e Base de Cálculo
+Agora, faça este exercício: 
+
+#### Exercício 1.5
+
+filtre pelo EstadoCivil divorciado ou separado judicialmente com menos 50 anos ou menos de idade, e selecionando sexo, EstadoCivil, carreira, idade e Base de Cálculo:
 
 ```{r}
 
@@ -240,7 +255,9 @@ dados %>%
 
 Certo de que você conseguiu entender as funções `filter()` e `select()`, faça o exercício abaixo:
 
-Faça uma tabela que filtra as pessoas com Estado Civil casado, união estável ou  solteiro que têm mais de 50 anos de idade e que recebem entre de 2.000 e 3.000 mensais, e imprime o sexo, idade, estado civil, carreira e base de calculo mensal
+#### Exercício 1.6
+
+Faça uma tabela que filtra as pessoas com Estado Civil casado, união estável ou  solteiro que têm mais de 50 anos de idade e que recebem entre de 2.000 e 3.000 mensais, e imprime o sexo, idade, estado civil, carreira e base de calculo mensal:
 
 ```{r}
 
@@ -252,7 +269,9 @@ dados %>%
   select(sexo, idade, EstadoCivil, carreira, BaseCalculoMensal)
 ```
 
-Exercício: Repita o exercício anterior para as pessoas que recebem mais de R$3.000
+#### Exercício 1.7
+
+Repita o exercício anterior para as pessoas que recebem mais de R$3.000
 
 ```{r}
 
@@ -289,7 +308,11 @@ dados %>%
   arrange(desc(idade), BaseCalculoMensal)
 ```
 
-Sua vez de praticar: Faça um filtro das pessoas casadas, solteiras e viúvas; ordene de forma descrescente pela BaseCalculoMensal e de forma crescente pela idade e pelo temposervico; e mostre as variáveis: idade, EstadoCivil, temposervico, BaseCalculoMensal:
+Sua vez de praticar: 
+
+#### Exercício 1.8
+
+Faça um filtro das pessoas casadas, solteiras e viúvas; ordene de forma descrescente pela BaseCalculoMensal e de forma crescente pela idade e pelo temposervico; e mostre as variáveis: idade, EstadoCivil, temposervico, BaseCalculoMensal:
 
 ```{r}
 
@@ -385,7 +408,11 @@ dados %>%
   summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
 ```
 
-Sua vez: Faça a estatística descritiva por carreira:
+Sua vez: 
+
+#### Exercício 1.9
+
+Faça a estatística descritiva por carreira.
 
 ```{r}
 ```
@@ -404,7 +431,9 @@ carreiras_base <- dados %>%
   summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
 ```
 
-Então, faça a ordenaçõ pela ordem decrescente pela média:
+#### Exercício 1.10
+
+Então, faça a ordenação pela ordem decrescente pela média:
 
 ```{r}
 
@@ -416,6 +445,8 @@ arrange(carreiras_base, desc(media))
 ```
 
 Até aqui, aprendemos diversas formas de manipular os dados, desde sua filtragem, à seleção, ordenação, agrupamento e sumarização. Portanto, para que você fixe o conteúdo, peço que realizem os exercícios a seguir:
+
+#### Exercício 1.11
 
 Faça uma tabela com a quantidade, a média, mediana, desvio-padrão, mínimo, máximo da idade e da Base de Cálculo Mensal:
 
@@ -430,6 +461,8 @@ dados %>%
 
 ```
 
+#### Exerçicio 1.12
+
 Repita o exercício anterior, mas apresente as estatísticas por sexo:
 
 ```{r}
@@ -437,6 +470,8 @@ dados %>%
   group_by(sexo) %>% 
   summarize(quantidade = n(), media_idade = mean(idade), mediana_idade = median(idade), desvio_idade = sd(idade), min_idade = min(idade), max_idade = max(idade))
 ```
+
+#### Exercício 1.13
 
 Agora, faça o mesmo que no exercício anterior, sendo que com os divorciados ou viuvos:
 
@@ -453,6 +488,8 @@ dados %>%
 
 Por fim, para terminar o assunto da manipulação de dados e estatística descritiva, faça o exercício a seguir:
 
+#### Exercício 1.14
+
 Faça uma tabela ordenada que separa por sexo e estado civil e apresenta a quantidade, a média da base de cálculo mensal e da idade e o desvio-padrão da base e da idade
 
 
@@ -468,10 +505,13 @@ dados %>%
   arrange()
 ```
 
+Aqui finalizamos a parte do curso que diz respeito à manipulação de dados com a biblioteca `dplyr`. Iniciaremos, a seguir, o estudo das visualizações gráficas com o `ggplot2`.
 
 ## ggplot2
 
-```{r}
+A partir de agora, vamos aprender um pouco sobre o `ggplot2`, a famosa biblioteca de visualizações do R. 
+
+```{r echo = FALSE, message=FALSE}
 library(ggplot2)
 ```
 
@@ -482,37 +522,49 @@ base <- read.csv("dados_estatisticas_final.csv", header = TRUE, sep = ",") # ver
 head(base)
 ```
 
+Vamos visualizar a estrutura dessa base:
 
 ```{r}
 str(base)
 ```
 
-O pacote ggplot2 utiliza a gramática de gráficos, conceito desenvolvido por Leland Wilkinson.
-O ggplot2 possui um conjunto de ferramentas que permite a criação de gráficos que capture  elações complexas.
-Dessa forma, é uma biblioteca muito flexível... essa gramática de gráficos é sistematizada da seguinte forma:
+Tendo a base de dados importada, agora explicarei como funciona essa biblioteca. O ggplot2 utiliza a gramática de gráficos, conceito desenvolvido por Leland Wilkinson. Ele possui um conjunto de ferramentas que permite a criação de gráficos que capture  elações complexas.
+
+Dessa forma, é uma biblioteca muito flexível. A gramática de gráficos é sistematizada da seguinte forma:
 
 1- você inicializa a função ggplot() com os dados e pode adicionar diversos elementos de forma encadeada;
-ex.: `ggplot(data = dados, aes(x = idade, y = BaseCalculoMensal))`
-2 - Essa funcão cria um espaço para você adicionar alguma estrutura. 
-3 - Se eu quiser adicionar outro elemento, como pontos entre essas variáveis, devemos adicioná-los à p (objeto salvo anteriormente):
-`ggplot(data = dados, aes(x = idade, y = BaseCalculoMensal))  + geom_point()`
+ex.: 
 
-Ai surge a pergunta: É possível modificá-lo? Sim, podemos adicionar um título e alterar o texto dos eixos por meio da função labs(). 
+`ggplot(data = dados, aes(x = idade, y = BaseCalculoMensal))`
+
+2 - Essa funcão cria um espaço para você adicionar alguma estrutura. 
+
+3 - Se eu quiser adicionar outro elemento, como pontos entre essas variáveis, devemos adicioná-los à p (objeto salvo anteriormente):
+
+`ggplot(data = dados, aes(x = idade, y = BaseCalculoMensal)) + geom_point()`
+
+Ai surge a pergunta: É possível modificá-lo? Sim, podemos adicionar um título e alterar o texto dos eixos por meio da função labs():
 
 `ggplot(data = dados, aes(x = idade, y = BaseCalculoMensal)) + geom_point() + labs(title = "Gráfico de dispersão", x = "Idade", y = "Base de Cálculo Mensal")`
 
-# Vamos visualizar as distribuições das variáveis
-# Tudo dependerá do tipo da variável, se ela é qualitativa ou quantitativa
-# Se ela for qualitativa, vamos usar o gráfico de barras
+Vamos visualizar as distribuições das variáveis. Antes de começar a plotar os gráficos, deixo claro que todo o processo de criação dependerá do tipo da variável, se ela é qualitativa ou quantitativa. 
 
-# Vamos visualizar um gráfico de barras par o sexo
+Se ela for qualitativa, vamos usar o gráfico de barras. 
+
+## Gráfico de barras
+
+O gráfico de barras é simples e intuitivo visualmente. Normalmente, esse tipo de gráfico apresenta as barras verticalmente com a quantidade de elementos em cada classe sendo representada pela altura da caixa. 
+
 ```{r}
+# Vamos visualizar um gráfico de barras par o sexo
 ggplot(data = base, mapping = aes(sexo)) + 
   geom_bar()
 ```
-# mesmo grafico com cores
+
+Esse gráfico de barras é simples, vamos incrementar alguns artifícios visuais como cores. Para tanto, é necessário que você adicione o argumento `fill` à função de aesthetic (`aes()`) da `ggplot()`. Vamos preencher com cores a variável `sexo`.
 
 ```{r}
+# decidi por salvar o código do ggplot() à variável "p"
 p <- ggplot(data = base, mapping = aes(x = sexo, fill = sexo)) + 
   geom_bar()
 
@@ -520,80 +572,213 @@ p <- ggplot(data = base, mapping = aes(x = sexo, fill = sexo)) +
 print(p)
 ```
 
-# quantidades para cada sexo
+Perceba que foi criada uma legenda para as cores. Na verdade, não seria nem necessário haja vista a presença da identificação da classe no eixo x.
+Para que a função consiga preencher com cores, é necessário que a variável sexo seja codificada como `factor`. 
+
+Aprendido como se cria as cores, vamos agora visualizar o mesmo gráfico acima sem a legenda das cores, pois sabemos que ela é descenessária e ocupa espaço. Para retirar a legenda, adicione `guides(fill = FALSE)` à p: 
+
+```{r}
+# Se você deseja saber a quantidade de pessoas para cada sexo, use a função table()
 table(base$sexo)
-# para tirar a legenda
+
+# gráfico sem legenda
 p <- p + guides(fill = FALSE)
-# agora adicionando a quantidade de pessoas acima da barra
+print(p)
+```
+
+Se eu desejar construir o gráfico acima com a quantidade de pessoas explicitamente acima da barra, apenas devo adicionar ao comando salvo em `p` a função `geom_text()` com a especificação estatística de quantidade `count`, a `aes(label = ..count..)` e o parâmetro de localização `vjust`.
+
+Vejamos abaixo como proceder:
+
+```{r}
 p + geom_text(stat="count", aes(label=..count..), vjust=0)
+```
+
+O argumento `vjust=0` faz com que a quantidade de pessoas se posicionasse muito próximo da barra. Isso pode tornar a leitura um pouco prejudicada quando você elabora um gráfico de barras com diversas classes. Para ajustar esse problema, podemos ajustar manualmente para valores negativos:
+
+```{r}
 # ajustando para negativo, os valores se distanciam do eixo x
 p + geom_text(stat="count", aes(label=..count..), vjust=-1)
 p + geom_text(stat="count", aes(label=..count..), vjust=-2)
+```
+
+Tanto o ajuste com -1 como com -2 ficaram ruins, então vou colocar -0.5 para melhorar. Além disso, posso adicionar um contorno preto às barras para delinear melhor os limites das barras. Para tanto, adiciono o argumento `colour=black` à função `geom_bar()`. Mostro abaixo todo o código:
+
+```{r}
 # adicionando um contorno preto
 ggplot(data = base, mapping = aes(x = sexo, fill = sexo)) + 
   geom_bar(colour = "black") + 
-  geom_text(stat="count", aes(label = ..count..), vjust=-0.5) + 
+  geom_text(stat="count", aes(label = ..count..), vjust=-0.5) +
   guides(fill = FALSE)
+```
   
+Agora é sua vez de praticar. Como exercício, peço que faça o gráfico de barras para o estado civil, seguindo o mesmo passo a passo realizado na construção do gráfico de barras para o sexo. Utilize-se dos blocos de código abaixo:
 
+#### Exercício 2.1
+
+```{r}
+# gráfico de barras para Estado Civil em escala cinza
+
+```
+
+```{r}
+# gráfico de barras para Estado Civil colorido
+
+```
+
+```{r}
+# gráfico de barras para Estado Civil sem legenda
+
+```
+
+```{r}
+# gráfico de barras para Estado Civil sem legenda e com numeração acima das barras
+
+```
+
+```{r}
+# gráfico de barras para Estado Civil sem legenda e com numeração acima das barras e com contorno preto
+
+```
+ 
+```{r}
 # Queremos ver agora o gráfico de barras para o estado civil
 ggplot(data = base, mapping = aes(x = EstadoCivil)) + 
   geom_bar()
+
 # com cores
 ggplot(data = base, mapping = aes(x = EstadoCivil, fill = EstadoCivil)) + 
   geom_bar()
-# com cores e contorno preto
+
+# com cores e sem legenda
 ggplot(data = base, mapping = aes(x = EstadoCivil, fill = EstadoCivil)) + 
-  geom_bar(colour="black")
-# com os valores em cima das barras
+  geom_bar() + guides(fill = FALSE)
+
+# com os valores em cima das barras e sem legenda
+ggplot(data = base, mapping = aes(x = EstadoCivil, fill = EstadoCivil)) + 
+  geom_bar() + 
+  geom_text(stat = 'count', aes(label = ..count..), vjust=-0.5) + 
+  guides(fill = FALSE)
+
+# com os valores em cima das barras e sem legenda e com contorno preto
 ggplot(data = base, mapping = aes(x = EstadoCivil, fill = EstadoCivil)) + 
   geom_bar(colour="black") + 
-  geom_text(stat = 'count', aes(label = ..count..), vjust=-0.5)
-# agora reordenando as barras pela altura
+  geom_text(stat = 'count', aes(label = ..count..), vjust=-0.5) + 
+  guides(fill = FALSE)
+```
+
+
+A ordenação das barras pela altura pode ser interessante, principalmente quando temos diversas barras como nesse gráfico com o Estado Civil. Desse modo, vamos ordenar o gráfico de tal maneira que a primeira barra seja a de maior tamanho. Para tanto, usaremos a função `reorder()` na *aesthetic*.
+
+```{r}
+# criando a variável `b` que representa a quantidade por estado civil. A função count() é da biblioteca dplyr.
 b <- base %>%
       count(EstadoCivil)
+# mostrando `b`
 b
+
+# criando o gráfico de barras para o estado civil ordenando de forma crescente
 ggplot(data = b, mapping = aes(x = reorder(EstadoCivil, -n), y = n, fill = EstadoCivil)) + 
   geom_bar(stat="identity", colour="black") +  
   geom_text(aes(label = n),vjust=-0.5) 
 
+```
 
-##### Exercício: Faça um gráfico de barras para a carreira e nos informe a que possui a maior quantidade de pessoas
+E se eu quiser que a ordenação seja de forma crescente? basta colocar `n` ao invés de `-n` que é a função do `dplyr` que conta a quantidade de elementos. 
 
+#### Exercício 2.2
+
+Repita o gráfico acima, porém ordenando de forma crescente e sem legendas.
+
+```{r}
+
+```
+
+```{r}
+ggplot(data = b, mapping = aes(x = reorder(EstadoCivil, n), y = n, fill = EstadoCivil)) + 
+  geom_bar(stat="identity", colour="black") +  
+  geom_text(aes(label = n),vjust=-0.5) +
+  guides(fill=FALSE)
+```
+
+
+
+#### Exercício 2.3
+
+Faça um gráfico de barras para a carreira e nos informe qual delas possui a maior quantidade de pessoas.
+
+```{r}
+
+```
+
+```{r}
 # dica: veja quantas pessoas por carreira de forma decrescente: 
 base %>% 
   count(carreira) %>% 
   arrange(desc(n))
 
 ggplot(data = base) + 
-  geom_bar(mapping = aes(x = carreira))
+  geom_bar(mapping = aes(x = carreira, fill = carreira)) +
+  guides(fill = FALSE)
 
-##### Não ficou legal, pois temos muitas carreiras. Selecione 5 carreias e faça o mesmo gráfico colorido. 
+```
+
+Esse gráfico não ficou legal, pois temos muitas carreiras. O ideal é que você selecione algumas e tente reproduzir o gráfico de barras colorido. 
+
+#### Exercício 2.4
+
+Faça a seleção de pelo menos 5 profissões e elabore um gráfico de barras colorido com a quantidade de pessoas acima da barra contornada de preto e ordenada de forma decrescente. (dica: crie uma tabela adicional só com as profissões desejadas)
+
+```{r}
+
+```
+
+```{r}
 
 base_carreiras <- base %>% 
                   filter(carreira == "PROFESSOR" | carreira == "ENFERMEIRO" | 
-                         carreira == "MOTORISTA" | carreira == "AG. COM. SAÚDE" |
+                         carreira == "MOTORISTA" | carreira == "AG. COM. SAUDE" |
                          carreira == "AGENTE ADM.")
+base_carreiras
 
-ggplot(base_carreiras, mapping = aes(x = carreira)) +
-  geom_bar()
-
-ggplot(base_carreiras, mapping = aes(x = carreira, fill = carreira)) +
-  geom_bar(colour = "black") + 
-  guides(fill = FALSE)
-
-# Agora faça colocando a quantidade acima da barra e reordene
 b2 <- base_carreiras %>% 
         count(carreira)
+
+b2
 
 ggplot(data = b2, mapping = aes(x = reorder(carreira, -n), y = n, fill = carreira)) +
   geom_bar(stat = "identity", colour = "black") +  
   geom_text(aes(label = n),vjust=-0.5) + 
   guides(fill=FALSE)
+```
 
-#####
+O gráfico ficou legal, entretanto falta alterar o rótulo dos eixos e adicionar um título ao gráfico. Isso é intuitivo, basta adicionar `xlab("texto")` e `ylab("texto")` ao `ggplot()`, substituindo os rótulos onde está "texto", para os eixos x e y, respectivamente. Para adicionar um título, utilize a função `ggtitle("texto")`, substituindo o nóme do gráfico onde está "texto". 
 
-# Quando a variável é quantitativa, usamos o histograma
+#### Exercício 2.5
+
+Agora, faça um gráfico de barras semelhante ao anterior com os rótulos "Profissão" e "Quantidade", para x e y, respectivamente. Ainda, adicione o título "Gráfico de Barras para Profissão".
+
+```{r}
+
+```
+
+
+```{r}
+ggplot(data = b2, mapping = aes(x = reorder(carreira, -n), y = n, fill = carreira)) +
+  geom_bar(stat = "identity", colour = "black") +  
+  geom_text(aes(label = n),vjust=-0.5) + 
+  xlab("Profissão") + ylab("Quantidade") + ggtitle("Gráfico de Barras para Profissão") + 
+  guides(fill=FALSE)
+```
+
+Agora, vamos trabalhar com variáveis quantitativas. O primeiro gráfico será o Histograma, que representa a distribuição dos dados e é um método de estimação de distribuição não-paramétrico. 
+
+## Histograma
+
+O histograma é o primeiro gráfico que utilizamos ao trabalhar com uma variável quantitativa. Ele descreve o comportamento dos dados, do ponto de vista de sua distribuição. 
+
+O `ggplot2` possui uma função para construir o histograma, que se chama `geom_histogram()`. 
+
 ## Vamos visualizar o histograma da variável idade 
 ggplot(base, aes(x = idade)) +
   geom_histogram()
