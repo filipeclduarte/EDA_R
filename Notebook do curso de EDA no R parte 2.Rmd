@@ -3,11 +3,10 @@ title: "Análise Exploratória de Dados no R - Parte 2"
 author: "Filipe C. L. Duarte"
 date: "24 de agosto de 2019"
 output:
-  prettydoc::html_pretty:
-    df_print: paged
-    theme: hpstr
-    toc: yes
+    html_document:
+    toc: true
     toc_depth: 2
+    number_sections: true
 ---
 
 ## Conteúdo
@@ -681,7 +680,6 @@ b
 ggplot(data = b, mapping = aes(x = reorder(EstadoCivil, -n), y = n, fill = EstadoCivil)) + 
   geom_bar(stat="identity", colour="black") +  
   geom_text(aes(label = n),vjust=-0.5) 
-
 ```
 
 E se eu quiser que a ordenação seja de forma crescente? basta colocar `n` ao invés de `-n` que é a função do `dplyr` que conta a quantidade de elementos. 
@@ -815,7 +813,7 @@ Faça três histogramas para a variável idade, com as seguintes quantidade de i
 ```{r}
 
 ggplot(base, aes(x = idade)) +
-  geom_histogram(binwidth = 15)
+  geom_histogram(bins = 20)
 
 ggplot(base, aes(x = idade)) +
   geom_histogram(bins = 40)
@@ -831,7 +829,7 @@ Bem, certo de que você aprendeu a plotar um histograma, vamos adicionar mais co
 
 #### Exercício 2.7
 
-Agora, ao invés de plotar um histograma apenas, quero que plote dois histogramas para a idade, diferenciados pelo sexo.
+Agora, ao invés de plotar apenas um histograma, quero que você plote dois histogramas para a idade, sendo um para cada sexo.
 
 ```{r}
 # vamos usar o argumento fill para preencher a área com a cor e o alpha (entre 0 e 1) para tornar mais transparente
@@ -840,116 +838,201 @@ Agora, ao invés de plotar um histograma apenas, quero que plote dois histograma
 
 ```{r}
 ggplot(base, aes(x = idade, fill = sexo, color = sexo)) + 
-  geom_histogram(binwidth = 5, alpha=0.5)
+  geom_histogram(bins = 15, alpha=0.5)
 ```
 
 
+Perceba que o gráfico não ficou legal. Para melhorar essa visualização, vamos usar a função geom_histogram(position = "identity").Isso fará com que a distribuição do sexo masculino não fique sobreposta. Veja a seguir:
 
-# vamos usar a position = "identity" para que a distribuição do sexo masculino não fique sobreposta
+```{r}
 ggplot(base, aes(x = idade, fill = sexo, color = sexo) ) + 
-  geom_histogram(binwidth = 5, alpha=0.6, position="identity") 
+  geom_histogram(bins = 15, alpha=0.6, position="identity") 
+```
 
-##### Exercício: Crie um histograma para a base de cálculo para os 
-# estados civis solteiro e casado usando a cor e transparência e diga se:
-# a distribuição é diferente?
+#### Exercício 2.8
+
+Crie um histograma da base de cálculo para os estados civis solteiro e casado, usando a cor e transparência (alpha = 0.6) e diga se a distribuição é diferente entre as classes.
+
+```{r}
+
+
+```
+
+```{r}
 sol_cas <- base %>% 
   filter(EstadoCivil == "solteir" | EstadoCivil == "casad")
 
-ggplot(sol_cas, aes(x = BaseCalculoMensal, fill = EstadoCivil, color = EstadoCivil)) + 
-  geom_histogram(binwidth = 400, alpha=0.6, position="identity") 
-
-# Verificamos que temos uma distribuição bimodal
-##### Exercício: Crie um histograma para a base de cálculo para
-# os estados civis solteiro e casado com base de cálculo menor do que R$ 3.000 
-# usando a cor e transparência
-sol_cas <- base %>% 
-  filter(EstadoCivil == "solteir" | EstadoCivil == "casad", BaseCalculoMensal < 3000)
+sol_cas %>% 
+  group_by(EstadoCivil) %>% 
+  summarize(N = n(), BaseCalculoMedia = mean(BaseCalculoMensal), Desvio_padrao = sd(BaseCalculoMensal)) 
 
 ggplot(sol_cas, aes(x = BaseCalculoMensal, fill = EstadoCivil, color = EstadoCivil)) + 
-  geom_histogram(binwidth = 400, alpha=0.6, position="identity") 
+  geom_histogram(bins = 20, alpha=0.6, position="identity") 
+```
 
-####
+Diante desse histograma, verificamos que temos uma distribuição bimodal, pois existem duas modas que podem representar duas distribuições (para cada estado civil), isto é, dos que ganham menos e dos que ganham mais de 2.000.  
 
-# Verificamos que não há diferenças aberrantes. 
-# Mas será que existe diferença da bases de cálculos entre os sexos?
-# Vamos investigar:
+Uma vez percebido que há uma mistura de distribuições, vamos criar o histograma para quem ganha menos ou igual a 2.000:
+
+```{r}
+sol_cas_menor_2000 <- base %>% 
+  filter(EstadoCivil == "solteir" | EstadoCivil == "casad", BaseCalculoMensal <= 2000)
+
+ggplot(sol_cas_menor_2000, aes(x = BaseCalculoMensal, fill = EstadoCivil, color = EstadoCivil)) + 
+  geom_histogram(bins = 20, alpha=0.5, position="identity") 
+```
+
+Perceba que em alguns pontos há uma certa diferença, mas isso não é suficiente para concluirmos que há diferenças salariais entre os solteiros em relação aos casados. 
+
+#### Exercício 2.9
+
+Crie um histograma para a base de cálculo para os estados civis solteiro e casado com base de cálculo maior do que R$ 2.000.
+
+```{r}
+
+```
+
+```{r}
+sol_cas_maior_2000 <- base %>% 
+  filter(EstadoCivil == "solteir" | EstadoCivil == "casad", BaseCalculoMensal > 2000)
+
+
+ggplot(sol_cas_maior_2000, aes(x = BaseCalculoMensal, fill = EstadoCivil, color = EstadoCivil)) + 
+  geom_histogram(bins = 20, alpha=0.5, position="identity") 
+```
+
+Diante desse gráfico, percebemos que não há diferenças notáveis entre os salários. Mas será que existe diferença da bases de cálculos entre os sexos? Vamos investigar:
+
+```{r}
 ggplot(base, aes(x = BaseCalculoMensal, fill = sexo, color = sexo)) +
   geom_histogram()
 
 ggplot(base, aes(x = BaseCalculoMensal, fill = sexo, color = sexo)) +
-  geom_histogram(binwidth = 400, alpha=0.6, position="identity")
+  geom_histogram(bins = 20, alpha=0.6, position="identity")
 
-##### Exercício: Faça um histograma por sexo para quem possui Base de Cálculo maior do que 3500. 
+```
 
+
+#### Exercício 2.10 
+
+Faça dois histogramas, sendo um para cada sexo, das pessoas com Base de Cálculo maior do que 3500. 
+
+```{r}
+
+```
+
+```{r}
 base2000 <- base %>% 
   filter(BaseCalculoMensal > 3500)
 
-ggplot(base2000) +
-  geom_histogram(mapping = aes(x = BaseCalculoMensal, fill = sexo, color = sexo), binwidth = 200, alpha=0.6, position="identity")
+base2000 %>% 
+  group_by(sexo) %>% 
+  summarize(N = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
 
+ggplot(base2000, mapping = aes(x = BaseCalculoMensal, fill = sexo, color = sexo)) +
+  geom_histogram(bins = 10, alpha=0.5, position="identity")
+```
 
-## Gráfico de colunas
-
-##### Podemos usar o gráfico de colunas para nos ajudar quando tentamos analisar uma variável quantitativa juntamente com uma qualitativa
-##### A base de cálculo é diferente entre os estados civis? 
-ggplot(base) + 
-  geom_col(aes(x = EstadoCivil, y = BaseCalculoMensal))
-
-ggplot(base) + 
-  geom_col(aes(x = EstadoCivil, y = BaseCalculoMensal, fill = EstadoCivil))
-
-#### Exercício: 
-ggplot(base) + 
-  geom_col(aes(x = EstadoCivil, y = BaseCalculoMensal, fill = EstadoCivil))
 
 ## Gráfico de dispersão
 
-##### Quando desejamos criar um gráfico a partir de duas variáveis quantitativas, usamos o gráfico de dispersão
-##### Vamos analisar o salario em funcao da idade
+O gráfico de dispersão é utilizado desejamos criar um gráfico a partir de duas variáveis quantitativas. 
+
+Vamos visualizar o salario em função da idade:
+
+```{r}
 ggplot(base) +
   geom_point(aes(x = idade, y = BaseCalculoMensal))
+```
 
-##### Percebmos que há dois grupos distintos. Será que é o sexo?
+Percebmos que há dois grupos distintos. Será que é o sexo? Vamos segmentar pela cor, adicionando o parâmetro 'color' à função `geom_point()`.
+
+```{r}
 ggplot(base) +
   geom_point(aes(x = idade, y = BaseCalculoMensal, color = sexo))
+```
 
-###### Parece que não, vamos investigar com outro grupo, o estado civil
+Parece que não, vamos investigar o estado civil ao invés do sexo:
+
+```{r}
 ggplot(base) +
   geom_point(aes(x = idade, y = BaseCalculoMensal, color = EstadoCivil))
+```
 
-###### Ainda não. Que tal a carreira
+Não parece haver diferenças significantes, mas que tal a carreira?
+
+```{r}
 ggplot(base) +
   geom_point(aes(x = idade, y = BaseCalculoMensal, color = carreira))
-##### Ops, muitas categorias
-##### vamos selecionar algumas
+```
 
+Ops, muitas categorias. Precisamos selecionar algumas específicas. Optarei pela carreira de Professor, Enfermeiro, Motorista, Agente com Saúde e Agente Administrativo.
+
+```{r}
 base_carreiras <-base %>% 
   filter(carreira == "PROFESSOR" | carreira == "ENFERMEIRO" | carreira == "MOTORISTA" | carreira == "AG. COM. SAÚDE" | carreira == "AGENTE ADM.")
 
-##### Parece que agora conseguimos identificar a diferença entre os grupos. 
 ggplot(base_carreiras) +
   geom_point(aes(x = idade, y = BaseCalculoMensal, color = carreira))
+```
 
-##### Perceba também que não há uma correlação entre idade e base de cálculo
+
+Agora sim! Conseguimos identificar, através desse gráfico, uma notável diferença entre as carreiras no que diz respeito à base de cálculo. Quanto à idade, não há um padrão que se destaca. Perceba também que não há uma correlação entre idade e base de cálculo.
 
 ## Gráfico boxplot
-##### Por fim, vamos visualizar o box-plot
-##### box_plot base por sexo
-ggplot(base) +
-  geom_boxplot(mapping = aes(x = sexo, y = BaseCalculoMensal))
 
-##### Box-plot base por estado civil
-ggplot(base) +
-  geom_boxplot(mapping = aes(x = EstadoCivil, y = BaseCalculoMensal))
+Por fim, vamos visualizar o box-plot também chamado de diagrama de caixa. Ele representa a distribuição dos quartis, mínimo e máximo com base em 3 desvios-padrões. Veja abaixo uma imagem que representa essa visualização:
 
-##### Box-plot base por estado civil e sexo
-ggplot(base) +
-  geom_boxplot(mapping = aes(x = EstadoCivil, y = BaseCalculoMensal, color = sexo))
-##### Perceba que há diferenças entre os sexos para alguns estados civis
+![Boxplot](boxplot.png)
 
-##### Exercício: Faça um gráfico de box-plot da Base de cálculo para as 3 carreiras com as maiores e as 3 carreiras menores médias salariais (use profissões com n > 10), e faça a distinção por sexo.
+A função para plotar o box plot é `geom_boxplot()`. A seguir, mostro como plotar um boxplot da base de cálculo mensal por sexo:
 
 ```{r}
+ggplot(base) +
+  geom_boxplot(mapping = aes(x = sexo, y = BaseCalculoMensal))
+```
+
+O que podemos concluir desse boxplot? A distribuição da base de cálculo para o sexo feminino é fortemente assimétrica à direita, pois a mediana está muito próxima do 1º Quartil. Em relação à distribuição para o sexo masculino, ela apresenta uma concentração bem mais notável e diversos outliers acima do limite superior e 4 abaixo do limite inferior. 
+
+Agora, façamos o Box-plot base por estado civil:
+```{r}
+ggplot(base) +
+  geom_boxplot(mapping = aes(x = EstadoCivil, y = BaseCalculoMensal))
+```
+
+Note as diferenças entre os estados civis. Verifique também que há outliers principalmente para o estado civil solteiro e união estável. 
+
+#### Exercício 2.11
+
+Plote o Box-plot da base de cálculo mensal por estado civil e sexo:
+
+```{r}
+
+```
+
+```{r}
+
+ggplot(base) +
+  geom_boxplot(mapping = aes(x = EstadoCivil, y = BaseCalculoMensal, color = sexo))
+```
+
+Perceba que há diferenças entre os sexos para alguns estados civis. Nesse sentido, haveria necessidade de realizar algum teste estatístico para confirmar esse pensamento. 
+
+Para finalizar, faça o exercício a seguir:
+
+#### Exercício 2.12
+
+Crie um gráfico de box-plot da Base de cálculo Mensal para as 3 carreiras com as maiores bases de cálculos e para as 3 carreiras com as menores Bases de Cálculo Mensal (use profissões com n > 10), e faça a distinção por sexo.
+
+```{r}
+
+
+
+```
+
+
+```{r}
+
 maiores_medias <- base %>% 
   group_by(carreira) %>% 
   summarize(n = n(), media = mean(BaseCalculoMensal)) %>% 
@@ -963,8 +1046,8 @@ menores_medias <- base %>%
   arrange(media)
 
 maiores_medias
-menores_medias
 
+menores_medias
 
 base_boxplot <- base %>% 
   filter(carreira == "PROFESSORA" | carreira == "PROFESSOR" | carreira == "AGENTE ADM." | carreira == "GARI" | carreira == "AGENTE DE ENDEMIAS" | carreira == "MOTORISTA")
@@ -975,6 +1058,12 @@ ggplot(base_boxplot) +
   geom_boxplot(mapping = aes(x = carreira, y = BaseCalculoMensal, color = sexo))
 
 ```
+
+Note a diferença significante, entre os sexos, para a profissão de agente administrativo, haja vista o sexo masculino tem uma distribuição da base mais dispersa e com os quartis de valores mais elevados em relação à distribuição para o sexo feminino. 
+
+Chegamos ao fim do curso Análise Exploratória de dados usando o R: dplyr e ggplot2. Quero agradecer a todos pela presença e desejo-lhes bons estudos. Espero que esse curso tenha ajudado você na solução de algum problema. 
+
+Restou dúvidas, não hesite entrar em contato comigo. Meu email é: filipe_pb_duarte@hotmail.com. 
 
 FIM!
 
