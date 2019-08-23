@@ -131,11 +131,6 @@ Selecione as colunas referentes ao sexo, idade, carreira e a base de cálculo me
 
 ```
 
-```{r}
-dados %>% 
-  select(sexo, idade, carreira, BaseCalculoMensal)
-```
-
 ## filter()
 
 A função `filter()` é fundamental quando necessitamos realizar um filtro nas observações. Ela utiliza-se de condições lógicas. Vamos estudar com um exemplo. Quero filtrar apenas os solteiros, isto é, peço ao R que me mostre a tabela de dados apenas com os solteiros:
@@ -151,11 +146,6 @@ Sua vez: Filtre as pessoas que não são divorciadas
 
 ```{r}
 
-```
-
-```{r}
-dados %>% 
-  filter(EstadoCivil != "divociad")
 ```
 
 Posso utilizar mais de uma condição lógica dentro de `filter()`? Sim! Veja no exemplo a seguir que faço o filtro de solteiro e professor:
@@ -193,13 +183,6 @@ Filtre os casados ou solteiros que têm entre 30 e 40 anos e são professores.
 
 ```
 
-```{r}
-dados %>% 
-  filter(EstadoCivil == "casad" | EstadoCivil == "solteir", 
-         idade >= 30 & idade <= 40, carreira == "PROFESSOR") %>% 
-  select(-carreira)
-```
-
 Podemos também realizar a operação de filtro e selecionar colunas específicas. Por exemplo, se eu quiser filtrar as pessoas com idade entre 50 e 60 anos que são solteiras ou casadas, e selecionar apenas as variáveis idade, EstadoCivil, temposervico e BaseCalculoMensal:
 
 ```{r}
@@ -221,12 +204,6 @@ Filtre pelo sexo feminino e EstadoCivil solteiro, ao passo que seleciona as carr
 
 ```
 
-```{r}
-dados %>% 
-  filter(sexo == "feminino", EstadoCivil == "solteir") %>% 
-  select(carreira, BaseCalculoMensal)
-```
-
 Agora, faça este exercício: 
 
 #### Exercício 1.5
@@ -234,13 +211,6 @@ Agora, faça este exercício:
 filtre pelo EstadoCivil divorciado ou separado judicialmente com menos 50 anos ou menos de idade, e selecionando sexo, EstadoCivil, carreira, idade e Base de Cálculo:
 
 ```{r}
-
-```
-
-```{r}
-dados %>% 
-  filter(EstadoCivil == "divorciad" | EstadoCivil == "sepjudicialmente", idade <= 50) %>% 
-  select(sexo, EstadoCivil, carreira, idade, BaseCalculoMensal)
 
 ```
 
@@ -262,24 +232,12 @@ Faça uma tabela que filtra as pessoas com Estado Civil casado, união estável 
 
 ```
 
-```{r}
-dados %>% 
-  filter(EstadoCivil == "casad" | EstadoCivil == "uniaoestavel" | EstadoCivil == "solteir", idade > 50, BaseCalculoMensal >= 2000 & BaseCalculoMensal <= 3000) %>% 
-  select(sexo, idade, EstadoCivil, carreira, BaseCalculoMensal)
-```
-
 #### Exercício 1.7
 
 Repita o exercício anterior para as pessoas que recebem mais de R$3.000
 
 ```{r}
 
-```
-
-```{r}
-dados %>% 
-  filter(EstadoCivil == "casad" | EstadoCivil == "uniaoestavel" | EstadoCivil == "solteir", idade > 50, BaseCalculoMensal >= 3000) %>% 
-  select(sexo, idade, EstadoCivil, carreira, BaseCalculoMensal)
 ```
 
 ## arrange()
@@ -314,6 +272,7 @@ Sua vez de praticar:
 Faça um filtro das pessoas casadas, solteiras e viúvas; ordene de forma descrescente pela BaseCalculoMensal e de forma crescente pela idade e pelo temposervico; e mostre as variáveis: idade, EstadoCivil, temposervico, BaseCalculoMensal:
 
 ```{r}
+
 
 ```
 
@@ -416,12 +375,6 @@ Faça a estatística descritiva por carreira.
 ```{r}
 ```
 
-```{r}
-dados %>% 
-  group_by(carreira) %>% 
-  summarize(quantidade = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
-```
-
 Nós podemos salvar essa tabela como um data frame. Vamos salvar como carreiras_base:
 
 ```{r}
@@ -438,11 +391,6 @@ Então, faça a ordenação pela ordem decrescente pela média:
 
 ```
 
-
-```{r}
-arrange(carreiras_base, desc(media))
-```
-
 Até aqui, aprendemos diversas formas de manipular os dados, desde sua filtragem, à seleção, ordenação, agrupamento e sumarização. Portanto, para que você fixe o conteúdo, peço que realizem os exercícios a seguir:
 
 #### Exercício 1.11
@@ -453,21 +401,13 @@ Faça uma tabela com a quantidade, a média, mediana, desvio-padrão, mínimo, m
 
 ```
 
-
-```{r}
-dados %>% 
-  summarize(quantidade = n(), media_idade = mean(idade), mediana_idade = median(idade), desvio_idade = sd(idade), min_idade = min(idade), max_idade = max(idade))
-
-```
-
 #### Exerçicio 1.12
 
 Repita o exercício anterior, mas apresente as estatísticas por sexo:
 
 ```{r}
-dados %>% 
-  group_by(sexo) %>% 
-  summarize(quantidade = n(), media_idade = mean(idade), mediana_idade = median(idade), desvio_idade = sd(idade), min_idade = min(idade), max_idade = max(idade))
+
+
 ```
 
 #### Exercício 1.13
@@ -476,13 +416,6 @@ Agora, faça o mesmo que no exercício anterior, sendo que com os divorciados ou
 
 ```{r}
 
-```
-
-```{r}
-dados %>% 
-  group_by(sexo) %>% 
-  filter(EstadoCivil == "divorciad" | EstadoCivil == "viuv") %>% 
-  summarize(quantidade = n(), media_idade = mean(idade), mediana_idade = median(idade), desvio_idade = sd(idade), min_idade = min(idade), max_idade = max(idade))
 ```
 
 Por fim, para terminar o assunto da manipulação de dados e estatística descritiva, faça o exercício a seguir:
@@ -494,14 +427,6 @@ Faça uma tabela ordenada que separa por sexo e estado civil e apresenta a quant
 
 ```{r}
 
-```
-
-```{r}
-dados %>% 
-  group_by(sexo, EstadoCivil) %>% 
-  select(sexo, EstadoCivil, idade, BaseCalculoMensal) %>% 
-  summarize(n = n(), media_base = mean(BaseCalculoMensal), media_idade = mean(idade), desvio_base = sd(BaseCalculoMensal), desvio_idade = sd(idade)) %>% 
-  arrange()
 ```
 
 Aqui finalizamos a parte do curso que diz respeito à manipulação de dados com a biblioteca `dplyr`. Iniciaremos, a seguir, o estudo das visualizações gráficas com o `ggplot2`.
@@ -639,33 +564,6 @@ Agora é sua vez de praticar. Como exercício, peço que faça o gráfico de bar
 # gráfico de barras para Estado Civil sem legenda e com numeração acima das barras e com contorno preto
 
 ```
- 
-```{r}
-# Queremos ver agora o gráfico de barras para o estado civil
-ggplot(data = base, mapping = aes(x = EstadoCivil)) + 
-  geom_bar()
-
-# com cores
-ggplot(data = base, mapping = aes(x = EstadoCivil, fill = EstadoCivil)) + 
-  geom_bar()
-
-# com cores e sem legenda
-ggplot(data = base, mapping = aes(x = EstadoCivil, fill = EstadoCivil)) + 
-  geom_bar() + guides(fill = FALSE)
-
-# com os valores em cima das barras e sem legenda
-ggplot(data = base, mapping = aes(x = EstadoCivil, fill = EstadoCivil)) + 
-  geom_bar() + 
-  geom_text(stat = 'count', aes(label = ..count..), vjust=-0.5) + 
-  guides(fill = FALSE)
-
-# com os valores em cima das barras e sem legenda e com contorno preto
-ggplot(data = base, mapping = aes(x = EstadoCivil, fill = EstadoCivil)) + 
-  geom_bar(colour="black") + 
-  geom_text(stat = 'count', aes(label = ..count..), vjust=-0.5) + 
-  guides(fill = FALSE)
-```
-
 
 A ordenação das barras pela altura pode ser interessante, principalmente quando temos diversas barras como nesse gráfico com o Estado Civil. Desse modo, vamos ordenar o gráfico de tal maneira que a primeira barra seja a de maior tamanho. Para tanto, usaremos a função `reorder()` na *aesthetic*.
 
@@ -692,32 +590,11 @@ Repita o gráfico acima, porém ordenando de forma crescente e sem legendas.
 
 ```
 
-```{r}
-ggplot(data = b, mapping = aes(x = reorder(EstadoCivil, n), y = n, fill = EstadoCivil)) + 
-  geom_bar(stat="identity", colour="black") +  
-  geom_text(aes(label = n),vjust=-0.5) +
-  guides(fill=FALSE)
-```
-
-
-
 #### Exercício 2.3
 
 Faça um gráfico de barras para a carreira e nos informe qual delas possui a maior quantidade de pessoas.
 
 ```{r}
-
-```
-
-```{r}
-# dica: veja quantas pessoas por carreira de forma decrescente: 
-base %>% 
-  count(carreira) %>% 
-  arrange(desc(n))
-
-ggplot(data = base) + 
-  geom_bar(mapping = aes(x = carreira, fill = carreira)) +
-  guides(fill = FALSE)
 
 ```
 
@@ -731,25 +608,6 @@ Faça a seleção de pelo menos 5 profissões e elabore um gráfico de barras co
 
 ```
 
-```{r}
-
-base_carreiras <- base %>% 
-                  filter(carreira == "PROFESSOR" | carreira == "ENFERMEIRO" | 
-                         carreira == "MOTORISTA" | carreira == "AG. COM. SAUDE" |
-                         carreira == "AGENTE ADM.")
-base_carreiras
-
-b2 <- base_carreiras %>% 
-        count(carreira)
-
-b2
-
-ggplot(data = b2, mapping = aes(x = reorder(carreira, -n), y = n, fill = carreira)) +
-  geom_bar(stat = "identity", colour = "black") +  
-  geom_text(aes(label = n),vjust=-0.5) + 
-  guides(fill=FALSE)
-```
-
 O gráfico ficou legal, entretanto falta alterar o rótulo dos eixos e adicionar um título ao gráfico. Isso é intuitivo, basta adicionar `xlab("texto")` e `ylab("texto")` ao `ggplot()`, substituindo os rótulos onde está "texto", para os eixos x e y, respectivamente. Para adicionar um título, utilize a função `ggtitle("texto")`, substituindo o nóme do gráfico onde está "texto". 
 
 #### Exercício 2.5
@@ -758,15 +616,6 @@ Agora, faça um gráfico de barras semelhante ao anterior com os rótulos "Profi
 
 ```{r}
 
-```
-
-
-```{r}
-ggplot(data = b2, mapping = aes(x = reorder(carreira, -n), y = n, fill = carreira)) +
-  geom_bar(stat = "identity", colour = "black") +  
-  geom_text(aes(label = n),vjust=-0.5) + 
-  xlab("Profissão") + ylab("Quantidade") + ggtitle("Gráfico de Barras para Profissão") + 
-  guides(fill=FALSE)
 ```
 
 Agora, vamos trabalhar com variáveis quantitativas. O primeiro gráfico será o Histograma, que representa a distribuição dos dados e é um método de estimação de distribuição não-paramétrico. 
@@ -810,19 +659,6 @@ Faça três histogramas para a variável idade, com as seguintes quantidade de i
 
 ```
 
-```{r}
-
-ggplot(base, aes(x = idade)) +
-  geom_histogram(bins = 20)
-
-ggplot(base, aes(x = idade)) +
-  geom_histogram(bins = 40)
-
-ggplot(base, aes(x = idade)) +
-  geom_histogram(bins = 50)
-
-```
-
 Qual desses gráficos você acha que ficou melhor? 
 
 Bem, certo de que você aprendeu a plotar um histograma, vamos adicionar mais complexidade. 
@@ -835,12 +671,6 @@ Agora, ao invés de plotar apenas um histograma, quero que você plote dois hist
 # vamos usar o argumento fill para preencher a área com a cor e o alpha (entre 0 e 1) para tornar mais transparente
 
 ```
-
-```{r}
-ggplot(base, aes(x = idade, fill = sexo, color = sexo)) + 
-  geom_histogram(bins = 15, alpha=0.5)
-```
-
 
 Perceba que o gráfico não ficou legal. Para melhorar essa visualização, vamos usar a função geom_histogram(position = "identity").Isso fará com que a distribuição do sexo masculino não fique sobreposta. Veja a seguir:
 
@@ -856,18 +686,6 @@ Crie um histograma da base de cálculo para os estados civis solteiro e casado, 
 ```{r}
 
 
-```
-
-```{r}
-sol_cas <- base %>% 
-  filter(EstadoCivil == "solteir" | EstadoCivil == "casad")
-
-sol_cas %>% 
-  group_by(EstadoCivil) %>% 
-  summarize(N = n(), BaseCalculoMedia = mean(BaseCalculoMensal), Desvio_padrao = sd(BaseCalculoMensal)) 
-
-ggplot(sol_cas, aes(x = BaseCalculoMensal, fill = EstadoCivil, color = EstadoCivil)) + 
-  geom_histogram(bins = 20, alpha=0.6, position="identity") 
 ```
 
 Diante desse histograma, verificamos que temos uma distribuição bimodal, pois existem duas modas que podem representar duas distribuições (para cada estado civil), isto é, dos que ganham menos e dos que ganham mais de 2.000.  
@@ -892,15 +710,6 @@ Crie um histograma para a base de cálculo para os estados civis solteiro e casa
 
 ```
 
-```{r}
-sol_cas_maior_2000 <- base %>% 
-  filter(EstadoCivil == "solteir" | EstadoCivil == "casad", BaseCalculoMensal > 2000)
-
-
-ggplot(sol_cas_maior_2000, aes(x = BaseCalculoMensal, fill = EstadoCivil, color = EstadoCivil)) + 
-  geom_histogram(bins = 20, alpha=0.5, position="identity") 
-```
-
 Diante desse gráfico, percebemos que não há diferenças notáveis entre os salários. Mas será que existe diferença da bases de cálculos entre os sexos? Vamos investigar:
 
 ```{r}
@@ -912,7 +721,6 @@ ggplot(base, aes(x = BaseCalculoMensal, fill = sexo, color = sexo)) +
 
 ```
 
-
 #### Exercício 2.10 
 
 Faça dois histogramas, sendo um para cada sexo, das pessoas com Base de Cálculo maior do que 3500. 
@@ -920,19 +728,6 @@ Faça dois histogramas, sendo um para cada sexo, das pessoas com Base de Cálcul
 ```{r}
 
 ```
-
-```{r}
-base2000 <- base %>% 
-  filter(BaseCalculoMensal > 3500)
-
-base2000 %>% 
-  group_by(sexo) %>% 
-  summarize(N = n(), media = mean(BaseCalculoMensal), desvio_padrao = sd(BaseCalculoMensal))
-
-ggplot(base2000, mapping = aes(x = BaseCalculoMensal, fill = sexo, color = sexo)) +
-  geom_histogram(bins = 10, alpha=0.5, position="identity")
-```
-
 
 ## Gráfico de dispersão
 
@@ -995,6 +790,7 @@ ggplot(base) +
 O que podemos concluir desse boxplot? A distribuição da base de cálculo para o sexo feminino é fortemente assimétrica à direita, pois a mediana está muito próxima do 1º Quartil. Em relação à distribuição para o sexo masculino, ela apresenta uma concentração bem mais notável e diversos outliers acima do limite superior e 4 abaixo do limite inferior. 
 
 Agora, façamos o Box-plot base por estado civil:
+
 ```{r}
 ggplot(base) +
   geom_boxplot(mapping = aes(x = EstadoCivil, y = BaseCalculoMensal))
@@ -1008,12 +804,6 @@ Plote o Box-plot da base de cálculo mensal por estado civil e sexo:
 
 ```{r}
 
-```
-
-```{r}
-
-ggplot(base) +
-  geom_boxplot(mapping = aes(x = EstadoCivil, y = BaseCalculoMensal, color = sexo))
 ```
 
 Perceba que há diferenças entre os sexos para alguns estados civis. Nesse sentido, haveria necessidade de realizar algum teste estatístico para confirmar esse pensamento. 
@@ -1030,36 +820,9 @@ Crie um gráfico de box-plot da Base de cálculo Mensal para as 3 carreiras com 
 
 ```
 
+Note a diferença para a profissão de agente administrativo, haja vista o sexo masculino tem uma distribuição da base mais dispersa e com os quartis de valores mais elevados em relação à distribuição para o sexo feminino. 
 
-```{r}
-
-maiores_medias <- base %>% 
-  group_by(carreira) %>% 
-  summarize(n = n(), media = mean(BaseCalculoMensal)) %>% 
-  filter(n > 10) %>% 
-  arrange(desc(media))
-
-menores_medias <- base %>% 
-  group_by(carreira) %>% 
-  summarize(n = n(), media = mean(BaseCalculoMensal)) %>% 
-  filter(n > 10) %>% 
-  arrange(media)
-
-maiores_medias
-
-menores_medias
-
-base_boxplot <- base %>% 
-  filter(carreira == "PROFESSORA" | carreira == "PROFESSOR" | carreira == "AGENTE ADM." | carreira == "GARI" | carreira == "AGENTE DE ENDEMIAS" | carreira == "MOTORISTA")
-
-base_boxplot
-
-ggplot(base_boxplot) +
-  geom_boxplot(mapping = aes(x = carreira, y = BaseCalculoMensal, color = sexo))
-
-```
-
-Note a diferença significante, entre os sexos, para a profissão de agente administrativo, haja vista o sexo masculino tem uma distribuição da base mais dispersa e com os quartis de valores mais elevados em relação à distribuição para o sexo feminino. 
+------
 
 Chegamos ao fim do curso Análise Exploratória de dados usando o R: dplyr e ggplot2. Quero agradecer a todos pela presença e desejo-lhes bons estudos. Espero que esse curso tenha ajudado você na solução de algum problema. 
 
